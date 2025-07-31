@@ -165,7 +165,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems: NavItem[] = [
-    { id: "reskilling", label: "Reskilling", href: "/reskilling" },
+    { id: "Journey", label: "Journey", href: "/Journey" },
     { id: "ecosystem", label: "Ecosystem", href: "/ecosystem" },
     { id: "assessment", label: "Assessment", href: "/assessment" },
     { id: "enterprises", label: "Enterprises", href: "/enterprises" },

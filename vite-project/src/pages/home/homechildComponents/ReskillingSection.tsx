@@ -34,7 +34,7 @@ const useStyles = createUseStyles({
     borderRadius: 8,
     boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
     marginLeft: "-190px", // Horizontal overlap over image
-    marginTop: "130px", // Vertical downward shift
+    marginTop: "150px", // Vertical downward shift
     zIndex: 2,
     position: "relative",
     minHeight: 340, // 👈 Added height for better spacing
