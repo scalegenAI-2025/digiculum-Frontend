@@ -8,6 +8,7 @@ import {
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
+import type { FC } from "react";
 
 const useStyles = createUseStyles({
   layout: {

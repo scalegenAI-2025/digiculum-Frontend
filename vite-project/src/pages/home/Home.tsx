@@ -1,3 +1,4 @@
+import AIReskillingJourney from "./homechildComponents/AIReskillingJourney";
 import FAQ from "./homechildComponents/FAQ";
 import FooterContact from "./homechildComponents/FooterContact";
 import GenAILeadershipCard from "./homechildComponents/GenAILeadershipCard";
@@ -17,8 +18,11 @@ function Home() {
         <AIHeroSection />
 
         <ReskillingProgram />
+        <AIReskillingJourney />
         <HeroSection />
         {/* <WhySection /> */}
+        {/* <AIReskillingJourney /> */}
+
         <ReskillingSectionComponent />
         <GenAILeadershipCard />
         <GenAIMasterclassHero />

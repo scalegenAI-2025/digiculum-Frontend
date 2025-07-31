@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { createUseStyles } from "react-jss";
+import { FaLock } from "react-icons/fa";
 
 interface NavItem {
   id: string;
@@ -93,6 +94,17 @@ const useStyles = createUseStyles({
     },
   },
 
+  navGroup: {
+    display: "flex",
+    alignItems: "center",
+    //marginRight: "auto",
+    gap: "9rem",
+
+    "@media (max-width: 768px)": {
+      display: "none",
+    },
+  },
+
   navLinks: {
     display: "flex",
     alignItems: "center",
@@ -100,15 +112,24 @@ const useStyles = createUseStyles({
     listStyle: "none",
     margin: 0,
     padding: 0,
-    marginRight: "2rem",
-
-    "@media (max-width: 768px)": {
-      display: "none",
-    },
+    position: "relative",
   },
 
   navItem: {
     position: "relative",
+  },
+
+  navItemWithDivider: {
+    "&::after": {
+      content: '""',
+      position: "absolute",
+      right: "-1.5rem",
+      top: "50%",
+      transform: "translateY(-50%)",
+      height: "1.5rem",
+      width: "1px",
+      backgroundColor: "rgba(255, 255, 255, 0.3)",
+    },
   },
 
   navLink: {
@@ -138,6 +159,17 @@ const useStyles = createUseStyles({
       "&:before": {
         width: "100%",
       },
+    },
+  },
+
+  lockIcon: {
+    fontSize: "1.2rem",
+    color: "#ffffff",
+    cursor: "pointer",
+    paddingLeft: "1rem",
+
+    "&:hover": {
+      color: "#ff6ec7",
     },
   },
 
@@ -200,8 +232,7 @@ const useStyles = createUseStyles({
     zIndex: 4,
     position: "relative",
     paddingLeft: "3rem",
-    //paddingRight: "3rem",
-    marginRight: "-5rem", // ⭐ Creates the overlap
+    marginRight: "-5rem",
 
     "@media (max-width: 768px)": {
       marginRight: 0,
@@ -225,22 +256,22 @@ const useStyles = createUseStyles({
     margin: 0,
     marginBottom: "1rem",
     fontFamily: "Arial, sans-serif",
+  },
 
-    "& .ai": {
-      background:
-        "linear-gradient(135deg, #ff6ec7 0%, #7c3aed 50%, #06b6d4 100%)",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      backgroundClip: "text",
-    },
+  ai: {
+    background:
+      "linear-gradient(135deg, #ff6ec7 0%, #7c3aed 50%, #06b6d4 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
+  },
 
-    "& .gold": {
-      background:
-        "linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%)",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      backgroundClip: "text",
-    },
+  gold: {
+    background:
+      "linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    backgroundClip: "text",
   },
 
   heroDescription: {
@@ -294,15 +325,17 @@ const AIHeroSection: React.FC<HeroProps> = ({ className }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const navItems: NavItem[] = [
-    { id: "reskilling", label: "Reskilling", href: "/reskilling" },
+    { id: "Journey", label: "Journey", href: "/Journey" },
     { id: "ecosystem", label: "Ecosystem", href: "/ecosystem" },
-    { id: "assessment", label: "Assessment", href: "/assessment" },
+    { id: "Masterclass", label: "Masterclass", href: "/masterclass" },
     { id: "enterprises", label: "Enterprises", href: "/enterprises" },
   ];
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.play();
+      videoRef.current.play().catch((err) => {
+        console.warn("Video playback error:", err);
+      });
     }
   }, []);
 
@@ -313,6 +346,7 @@ const AIHeroSection: React.FC<HeroProps> = ({ className }) => {
   const handleNavClick = (href: string, label: string) => {
     console.log(`Navigating to ${label}: ${href}`);
     setIsMobileMenuOpen(false);
+    // window.location.href = href;
   };
 
   return (
@@ -329,22 +363,32 @@ const AIHeroSection: React.FC<HeroProps> = ({ className }) => {
           DIGICULUM
         </a>
 
-        <ul className={classes.navLinks}>
-          {navItems.map((item) => (
-            <li key={item.id} className={classes.navItem}>
-              <a
-                href={item.href}
-                className={classes.navLink}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(item.href, item.label);
-                }}
+        <div className={classes.navGroup}>
+          <ul className={classes.navLinks}>
+            {navItems.map((item, index) => (
+              <li
+                key={item.id}
+                className={`${classes.navItem} ${
+                  index < navItems.length - 1 ? classes.navItemWithDivider : ""
+                }`}
               >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+                <a
+                  href={item.href}
+                  className={classes.navLink}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.href, item.label);
+                  }}
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className={classes.lockIcon}>
+            <FaLock />
+          </div>
+        </div>
 
         <button
           className={classes.mobileMenuButton}
@@ -379,9 +423,9 @@ const AIHeroSection: React.FC<HeroProps> = ({ className }) => {
       <div className={classes.heroContent}>
         <div className={classes.contentWrapper}>
           <h1 className={classes.heroTitle}>
-            <span className="ai">AI</span> is the new
+            <span className={classes.ai}>AI</span> is the new
             <br />
-            <span className="gold">Gold </span>
+            <span className={classes.gold}>Gold </span>
             <span>Rush</span>
           </h1>
           <p className={classes.heroDescription}>Have you begun your QUEST?</p>
