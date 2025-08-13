@@ -15,6 +15,7 @@ const useStyles = createUseStyles({
     flexDirection: "row",
     alignItems: "center",
     padding: 40,
+    marginTop: "80px",
     fontFamily: '"Segoe UI", sans-serif',
   },
   circleContainer: {

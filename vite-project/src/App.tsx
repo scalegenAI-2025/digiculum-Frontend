@@ -27,6 +27,7 @@ import GenerativeAI from "./pages/course/GenerativeAI/GenerativeAI";
 import GenAITransformation from "./pages/course/GenAITransformation/GenAITransformation";
 import GenAIOperational from "./pages/course/GenAIOperational/GenAIOperational";
 import GenAIMindset from "./pages/course/GenAIMindset/GenAIMindset";
+import AboutAs from "./pages/about/aboutAs";
 //import Contact from "./pages/contact/Contact"; // example additional page
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         <Route path="/" element={<Home />} />
         {/* <Route path="/about" element={<About />} /> */}
         <Route path="/Journey" element={<Journey />} />
+        <Route path="/about-us" element={<AboutAs />} />
         {/* Add more routes as needed */}
         <Route path="/ecosystem" element={<Ecosystem />} />
 
