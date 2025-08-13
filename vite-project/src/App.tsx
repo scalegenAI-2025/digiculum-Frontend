@@ -21,6 +21,12 @@ import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import Journey from "./pages/Journey/Journey"; // example additional page
 import Ecosystem from "./pages/Ecosystem/ecosystem";
+import Course from "./pages/course/course";
+import AIGenAILeadersBook from "./pages/course/AIGenAILeadersBook/AIGenAILeadersBook";
+import GenerativeAI from "./pages/course/GenerativeAI/GenerativeAI";
+import GenAITransformation from "./pages/course/GenAITransformation/GenAITransformation";
+import GenAIOperational from "./pages/course/GenAIOperational/GenAIOperational";
+import GenAIMindset from "./pages/course/GenAIMindset/GenAIMindset";
 //import Contact from "./pages/contact/Contact"; // example additional page
 
 function App() {
@@ -33,6 +39,23 @@ function App() {
         <Route path="/Journey" element={<Journey />} />
         {/* Add more routes as needed */}
         <Route path="/ecosystem" element={<Ecosystem />} />
+
+        <Route path="/masterclass" element={<Course />} />
+        <Route path="/courses" element={<Course />} />
+        <Route
+          path="/masterclass/masterclass1"
+          element={<AIGenAILeadersBook />}
+        />
+        <Route path="/masterclass/masterclass2" element={<GenerativeAI />} />
+        <Route
+          path="/masterclass/masterclass3"
+          element={<GenAITransformation />}
+        />
+        <Route
+          path="/masterclass/masterclass5"
+          element={<GenAIOperational />}
+        />
+        <Route path="/masterclass/masterclass4" element={<GenAIMindset />} />
       </Routes>
     </Router>
   );

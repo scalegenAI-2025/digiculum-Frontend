@@ -196,7 +196,9 @@ const Navbar: React.FC = () => {
   const navItems: NavItem[] = [
     { id: "Journey", label: "Journey", href: "/Journey" },
     { id: "ecosystem", label: "Ecosystem", href: "/ecosystem" },
+
     { id: "Masterclass", label: "Masterclass", href: "/masterclass" },
+
     { id: "about-us", label: "AboutUs", href: "/about-us" },
   ];
 

@@ -23,7 +23,7 @@ const useStyles = createUseStyles({
 
   mainContent: {
     position: "relative",
-    width: "80%",
+    // width: "80%",
     maxWidth: "1200px",
     height: "80%",
     display: "flex",
@@ -172,10 +172,10 @@ const useStyles = createUseStyles({
       marginLeft: "0",
     },
     mainText: {
-      fontSize: "2.5rem",
+      fontSize: "40px",
     },
     reskillText: {
-      fontSize: "3rem",
+      fontSize: "2.8rem",
     },
     nowText: {
       fontSize: "2rem",
@@ -219,9 +219,8 @@ const AIReskillVideo: React.FC<AIReskillVideoProps> = ({
 
           <div className={classes.textSection}>
             <div className={classes.mainText}>
-              Will you allow <span className="ai">AI</span> to take
-              <br />
-              away your jobs?
+              Will you allow <span className="ai">AI</span> to take away your
+              jobs?
             </div>
 
             <div className={classes.reskillText}>RESKILL</div>
