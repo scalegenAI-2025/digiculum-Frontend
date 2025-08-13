@@ -237,6 +237,7 @@
 import { useState } from "react";
 import api from "../../utils/api";
 import { createUseStyles } from "react-jss";
+import { Link } from "react-router-dom";
 
 const useFormStyles = createUseStyles({
   container: {
@@ -288,6 +289,13 @@ const useFormStyles = createUseStyles({
     },
   },
   link: {
+    marginTop: 15,
+    fontSize: 14,
+    color: "#007bff",
+    cursor: "pointer",
+    "&:hover": { textDecoration: "underline" },
+  },
+  linkText: {
     marginTop: 15,
     fontSize: 14,
     color: "#007bff",
@@ -356,6 +364,9 @@ export default function Register() {
           Register
         </button>
       </form>
+      <div className={classes.linkText}>
+        Already have an account? <Link to="/login">Login</Link>
+      </div>
     </div>
   );
 }
