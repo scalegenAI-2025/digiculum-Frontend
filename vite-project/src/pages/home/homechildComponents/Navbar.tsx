@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { FaLock } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface NavItem {
   id: string;
@@ -199,7 +199,7 @@ const Navbar: React.FC = () => {
 
     { id: "Masterclass", label: "Masterclass", href: "/masterclass" },
 
-    { id: "about-us", label: "AboutUs", href: "/about-us" },
+    { id: "ecosystem", label: "Ecosystem", href: "/ecosystem" },
   ];
 
   const handleNavClick = (href: string) => {
@@ -243,7 +243,9 @@ const Navbar: React.FC = () => {
           ))}
         </ul>
         <div className={classes.lockIcon}>
-          <FaLock />
+          <Link to="/register">
+            <FaLock />
+          </Link>
         </div>
       </div>
 

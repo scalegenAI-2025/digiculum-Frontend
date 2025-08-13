@@ -17,7 +17,7 @@
 
 // import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/navbar/Navbar";
+//import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import Journey from "./pages/Journey/Journey"; // example additional page
 import Ecosystem from "./pages/Ecosystem/ecosystem";
@@ -28,6 +28,10 @@ import GenAITransformation from "./pages/course/GenAITransformation/GenAITransfo
 import GenAIOperational from "./pages/course/GenAIOperational/GenAIOperational";
 import GenAIMindset from "./pages/course/GenAIMindset/GenAIMindset";
 import AboutAs from "./pages/about/aboutAs";
+import Register from "./pages/login/Register";
+import Login from "./pages/login/Login";
+import ForgotPassword from "./pages/login/ForgotPassword";
+import ResetPassword from "./pages/login/ResetPassword";
 //import Contact from "./pages/contact/Contact"; // example additional page
 
 function App() {
@@ -58,6 +62,10 @@ function App() {
           element={<GenAIOperational />}
         />
         <Route path="/masterclass/masterclass4" element={<GenAIMindset />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
       </Routes>
     </Router>
   );
