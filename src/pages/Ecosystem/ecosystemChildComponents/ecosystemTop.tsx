@@ -54,7 +54,7 @@ const useStyles = createUseStyles({
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
-    background: "linear-gradient(135deg, #000000, #ff1493)",
+    background: "black",
     paddingTop: "150px",
     paddingLeft: "1rem",
     paddingRight: "1rem",
