@@ -199,6 +199,7 @@ const Navbar: React.FC = () => {
     { id: "Masterclass", label: "Masterclass", href: "/masterclass" },
 
     { id: "ecosystem", label: "Ecosystem", href: "/ecosystem" },
+    { id: "about-us", label: "AboutAs", href: "/about-us" },
   ];
 
   const handleNavClick = (href: string) => {
