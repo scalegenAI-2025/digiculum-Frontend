@@ -273,69 +273,45 @@
 
 // export default Login;
 import { useState } from "react";
-import api from "../../utils/api";
 import { createUseStyles } from "react-jss";
+import api from "../../utils/api";
 
-const useFormStyles = createUseStyles({
+const useStyles = createUseStyles({
   container: {
     maxWidth: 450,
     margin: "60px auto",
     padding: 35,
     borderRadius: 12,
-    background: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)",
-    boxShadow: "0 12px 30px rgba(0,0,0,0.12)",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    fontFamily: "'Roboto', sans-serif",
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: 700,
-    marginBottom: 25,
-    color: "#333",
+    background: "#f9f9f9",
+    textAlign: "center",
   },
   input: {
     width: "100%",
-    padding: "14px 18px",
-    margin: "12px 0",
-    borderRadius: 8,
-    border: "1px solid #ddd",
-    fontSize: 16,
-    outline: "none",
-    "&:focus": {
-      borderColor: "#007bff",
-      boxShadow: "0 0 6px rgba(0,123,255,0.3)",
-    },
+    padding: 12,
+    margin: "10px 0",
+    borderRadius: 6,
+    border: "1px solid #ccc",
   },
   button: {
     width: "100%",
-    padding: 14,
-    marginTop: 20,
-    borderRadius: 8,
+    padding: 12,
+    marginTop: 15,
+    borderRadius: 6,
     border: "none",
     backgroundColor: "#007bff",
     color: "#fff",
-    fontSize: 16,
-    fontWeight: 600,
     cursor: "pointer",
-    transition: "0.3s",
-    "&:hover": {
-      backgroundColor: "#0056b3",
-    },
   },
-  error: {
-    color: "red",
-    fontSize: 14,
-    marginTop: 5,
-  },
+  error: { color: "red", marginTop: 10 },
+  success: { color: "green", marginTop: 10 },
 });
 
 export default function Login() {
-  const classes = useFormStyles();
+  const classes = useStyles();
   const [form, setForm] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -343,14 +319,15 @@ export default function Login() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
+    setError(null);
+    setSuccess(null);
+    setLoading(true);
 
     try {
       const res = await api.post("/auth/login", form);
-      // Fix: assert type of res.data
-      const responseData = res.data as { token: string };
-      localStorage.setItem("token", responseData.token);
-      alert("Login successful");
+      const data = res.data as { token?: string; msg?: string };
+      if (data.token) localStorage.setItem("token", data.token);
+      setSuccess(data.msg || "Login successful!");
     } catch (err: unknown) {
       if (
         typeof err === "object" &&
@@ -362,14 +339,16 @@ export default function Login() {
       } else if (err instanceof Error) {
         setError(err.message);
       } else {
-        setError("Error");
+        setError("Something went wrong");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className={classes.container}>
-      <h2 className={classes.title}>Login</h2>
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
           className={classes.input}
@@ -380,17 +359,18 @@ export default function Login() {
         />
         <input
           className={classes.input}
-          type="password"
           name="password"
+          type="password"
           placeholder="Password"
           value={form.password}
           onChange={handleChange}
         />
-        {error && <div className={classes.error}>{error}</div>}
-        <button className={classes.button} type="submit">
-          Login
+        <button className={classes.button} type="submit" disabled={loading}>
+          {loading ? "Logging in..." : "Login"}
         </button>
       </form>
+      {error && <div className={classes.error}>{error}</div>}
+      {success && <div className={classes.success}>{success}</div>}
     </div>
   );
 }
