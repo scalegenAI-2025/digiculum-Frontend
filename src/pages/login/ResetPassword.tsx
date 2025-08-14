@@ -42,9 +42,22 @@ export default function ResetPassword() {
     e.preventDefault();
     try {
       const res = await api.post(`/auth/reset-password/${token}`, { password });
-      alert(res.data.msg);
-    } catch (err: any) {
-      alert(err.response?.data.msg || "Error");
+      // Type-safe access
+      const responseData = res.data as { msg: string };
+      alert(responseData.msg);
+    } catch (err: unknown) {
+      if (
+        typeof err === "object" &&
+        err !== null &&
+        "response" in err &&
+        typeof (err as any).response?.data?.msg === "string"
+      ) {
+        alert((err as any).response.data.msg);
+      } else if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        alert("Error");
+      }
     }
   };
 

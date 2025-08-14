@@ -40,7 +40,9 @@ export default function ForgotPassword() {
     e.preventDefault();
     try {
       const res = await api.post("/auth/forgot-password", { email });
-      alert(res.data.msg);
+      // Fix: assert type of res.data
+      const responseData = res.data as { msg: string };
+      alert(responseData.msg);
     } catch (err: any) {
       alert(err.response?.data.msg || "Error");
     }

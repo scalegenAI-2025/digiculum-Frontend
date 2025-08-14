@@ -276,7 +276,6 @@ import { useState } from "react";
 import api from "../../utils/api";
 import { createUseStyles } from "react-jss";
 
-// Define styles with React JSS
 const useFormStyles = createUseStyles({
   container: {
     maxWidth: 450,
@@ -345,12 +344,26 @@ export default function Login() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+
     try {
       const res = await api.post("/auth/login", form);
-      localStorage.setItem("token", res.data.token);
+      // Fix: assert type of res.data
+      const responseData = res.data as { token: string };
+      localStorage.setItem("token", responseData.token);
       alert("Login successful");
-    } catch (err: any) {
-      setError(err.response?.data.msg || "Error");
+    } catch (err: unknown) {
+      if (
+        typeof err === "object" &&
+        err !== null &&
+        "response" in err &&
+        typeof (err as any).response?.data?.msg === "string"
+      ) {
+        setError((err as any).response.data.msg);
+      } else if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Error");
+      }
     }
   };
 

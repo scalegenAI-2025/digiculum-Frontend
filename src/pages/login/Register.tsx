@@ -233,7 +233,6 @@
 //   );
 // };
 
-// export default Register;
 import { useState } from "react";
 import api from "../../utils/api";
 import { createUseStyles } from "react-jss";
@@ -288,13 +287,6 @@ const useFormStyles = createUseStyles({
       backgroundColor: "#0056b3",
     },
   },
-  link: {
-    marginTop: 15,
-    fontSize: 14,
-    color: "#007bff",
-    cursor: "pointer",
-    "&:hover": { textDecoration: "underline" },
-  },
   linkText: {
     marginTop: 15,
     fontSize: 14,
@@ -321,9 +313,22 @@ export default function Register() {
     e.preventDefault();
     try {
       const res = await api.post("/auth/register", form);
-      alert(res.data.msg);
-    } catch (err: any) {
-      alert(err.response?.data.msg || "Error");
+      // Fix: assert type of res.data
+      const responseData = res.data as { msg: string };
+      alert(responseData.msg);
+    } catch (err: unknown) {
+      if (
+        typeof err === "object" &&
+        err !== null &&
+        "response" in err &&
+        typeof (err as any).response?.data?.msg === "string"
+      ) {
+        alert((err as any).response.data.msg);
+      } else if (err instanceof Error) {
+        alert(err.message);
+      } else {
+        alert("Error");
+      }
     }
   };
 
