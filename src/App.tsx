@@ -16,7 +16,12 @@
 // export default App;
 
 // import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 //import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import Journey from "./pages/Journey/Journey"; // example additional page
@@ -32,12 +37,22 @@ import Register from "./pages/login/Register";
 import Login from "./pages/login/Login";
 import ForgotPassword from "./pages/login/ForgotPassword";
 import ResetPassword from "./pages/login/ResetPassword";
+import React from "react";
 //import Contact from "./pages/contact/Contact"; // example additional page
+function ScrollToTop() {
+  const { pathname } = useLocation();
 
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" }); // scroll to top on every route change
+  }, [pathname]);
+
+  return null;
+}
 function App() {
   return (
     <Router>
       {/* <Navbar /> */}
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="/about" element={<About />} /> */}
