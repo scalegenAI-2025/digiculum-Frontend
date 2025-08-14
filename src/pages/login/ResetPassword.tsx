@@ -12,6 +12,7 @@ const useStyles = createUseStyles({
     border: "1px solid #ccc",
     borderRadius: 8,
     background: "#f9f9f9",
+    textAlign: "center",
   },
   input: {
     display: "block",
@@ -30,21 +31,34 @@ const useStyles = createUseStyles({
     borderRadius: 4,
     cursor: "pointer",
   },
-  title: { textAlign: "center", marginBottom: 20 },
+  title: { marginBottom: 20 },
+  error: { color: "red", marginTop: 10 },
+  success: { color: "green", marginTop: 10 },
 });
 
 export default function ResetPassword() {
   const classes = useStyles();
   const { token } = useParams<{ token: string }>();
   const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  if (!token) {
+    return <div className={classes.container}>Invalid reset link.</div>;
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
+    setSuccess(null);
+    setLoading(true);
+
     try {
       const res = await api.post(`/auth/reset-password/${token}`, { password });
-      // Type-safe access
-      const responseData = res.data as { msg: string };
-      alert(responseData.msg);
+      // Safely cast response
+      const responseData = res.data as { msg?: string };
+      setSuccess(responseData.msg || "Password reset successful!");
     } catch (err: unknown) {
       if (
         typeof err === "object" &&
@@ -52,12 +66,14 @@ export default function ResetPassword() {
         "response" in err &&
         typeof (err as any).response?.data?.msg === "string"
       ) {
-        alert((err as any).response.data.msg);
+        setError((err as any).response.data.msg);
       } else if (err instanceof Error) {
-        alert(err.message);
+        setError(err.message);
       } else {
-        alert("Error");
+        setError("Something went wrong");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -72,10 +88,12 @@ export default function ResetPassword() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className={classes.button} type="submit">
-          Reset Password
+        <button className={classes.button} type="submit" disabled={loading}>
+          {loading ? "Resetting..." : "Reset Password"}
         </button>
       </form>
+      {error && <div className={classes.error}>{error}</div>}
+      {success && <div className={classes.success}>{success}</div>}
     </div>
   );
 }
