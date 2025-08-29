@@ -156,6 +156,27 @@ const useStyles = createUseStyles({
       padding: "20px",
     },
   },
+  moreInfoButton: {
+    backgroundColor: "#ffc107",
+    color: "#212529",
+    border: "none",
+    borderRadius: "6px",
+    padding: "10px 20px",
+    fontSize: "0.9rem",
+    fontWeight: "600",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+
+    // Center horizontally
+    display: "block",
+    margin: "40px auto 0", // 40px top spacing, auto centers horizontally
+
+    "&:hover": {
+      backgroundColor: "#ffb300",
+      transform: "translateY(-2px)",
+      boxShadow: "0 4px 12px rgba(255, 193, 7, 0.4)",
+    },
+  },
 });
 
 const AIJobRoles: React.FC = () => {
@@ -176,6 +197,12 @@ const AIJobRoles: React.FC = () => {
           </div>
         ))}
       </div>
+      <button
+        className={classes.moreInfoButton}
+        //  onClick={() => handleMoreInfo(track.id)}
+      >
+        More Info
+      </button>
     </div>
   );
 };

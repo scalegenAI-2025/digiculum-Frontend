@@ -51,7 +51,7 @@ const useStyles = createUseStyles({
     //fontWeight: "300",
   },
   highlight: {
-    color: "#bb86fc",
+    color: "#E547ED",
     //  fontWeight: "400",
   },
   divider: {
@@ -61,11 +61,11 @@ const useStyles = createUseStyles({
     margin: "30px 0",
   },
   para: {
-    fontSize: "20px",
+    fontSize: "24px",
     marginTop: "0px",
   },
   para1: {
-    fontSize: "20px",
+    fontSize: "24px",
     marginBottom: "0px",
   },
 });

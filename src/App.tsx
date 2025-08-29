@@ -56,7 +56,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         {/* <Route path="/about" element={<About />} /> */}
-        <Route path="/Journey" element={<Journey />} />
+        <Route path="/Reskilling" element={<Journey />} />
         <Route path="/about-us" element={<AboutAs />} />
         {/* Add more routes as needed */}
         <Route path="/ecosystem" element={<Ecosystem />} />

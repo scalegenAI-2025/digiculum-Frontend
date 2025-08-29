@@ -191,7 +191,11 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
           handleNavClick("/", "Home");
         }}
       >
-        DIGICULUM
+        <img
+          src="/path/to/logo.png"
+          alt="DIGICULUM Logo"
+          //className={classes.logoImage}
+        />
       </a>
 
       {/* Desktop Navigation */}

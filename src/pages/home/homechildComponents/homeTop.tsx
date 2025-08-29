@@ -467,9 +467,11 @@
 // };
 
 // export default AIHeroSection;
+
 import React, { useRef, useEffect } from "react";
 import { createUseStyles } from "react-jss";
 import Navbar from "./Navbar"; // Importing the separated Navbar
+import logo from "../../../assets/Future_video_new.mp4";
 
 interface HeroProps {
   className?: string;
@@ -560,16 +562,14 @@ const useStyles = createUseStyles({
   },
 
   ai: {
-    background:
-      "linear-gradient(135deg, #ff6ec7 0%, #7c3aed 50%, #06b6d4 100%)",
+    background: "#E547ED",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
   },
 
   gold: {
-    background:
-      "linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%)",
+    background: "#FFC65C",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
     backgroundClip: "text",
@@ -644,10 +644,7 @@ const AIHeroSection: React.FC<HeroProps> = ({ className }) => {
           loop
           playsInline
         >
-          <source
-            src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-            type="video/mp4"
-          />
+          <source src={logo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className={classes.videoOverlay} />

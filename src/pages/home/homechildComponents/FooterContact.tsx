@@ -1,6 +1,4 @@
-// import React, { FC } from 'react';
 import { createUseStyles } from "react-jss";
-
 import {
   FaLinkedin,
   FaYoutube,
@@ -17,7 +15,7 @@ const useStyles = createUseStyles({
     backgroundColor: "#2c2b2b",
     color: "white",
     padding: "2rem",
-    justifyContent: "space-around",
+    justifyContent: "space-evenly",
     fontFamily: "Arial, sans-serif",
   },
   leftSection: {
@@ -51,13 +49,18 @@ const useStyles = createUseStyles({
     marginTop: "3rem",
   },
   policies: {
-    fontSize: "0.8rem",
-    color: "white",
+    display: "flex",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    gap: "0.8rem",
     marginTop: "1rem",
+    fontSize: "0.9rem",
     "& a": {
       color: "white",
       textDecoration: "underline",
-      margin: "0 0.5rem",
+    },
+    "& span": {
+      opacity: 0.6, // subtle vertical bar
     },
   },
   formWrapper: {
@@ -95,6 +98,7 @@ const useStyles = createUseStyles({
     background: "transparent",
     outline: "none",
     marginBottom: "1.2rem",
+    fontFamily: "Arial, sans-serif",
   },
   checkboxRow: {
     display: "flex",
@@ -114,6 +118,16 @@ const useStyles = createUseStyles({
     border: "none",
     cursor: "pointer",
   },
+  wrapper: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  socialWrapper: {
+    display: "flex",
+    alignItems: "center",
+    gap: "12px",
+    //paddingTop: "1rem",
+  },
 });
 
 const FooterContact: FC = () => {
@@ -123,33 +137,43 @@ const FooterContact: FC = () => {
     <div className={classes.layout}>
       {/* Left Section */}
       <div className={classes.leftSection}>
-        <div>
+        <div className={classes.wrapper}>
           <div className={classes.nav}>
             <div className={classes.link}>Reskilling</div>
             <div className={classes.link}>Ecosystem</div>
             <div className={classes.link}>Assessment</div>
             <div className={classes.link}>Enterprises</div>
           </div>
-          <div className={classes.contact}>info@digiculum.com</div>
-
+          <div className={classes.nav}>
+            <div className={classes.link}>Privacy Policy</div>
+            <div className={classes.link}>Cookie Policy</div>
+            <div className={classes.link}>General Terms</div>
+            <div className={classes.link}>Refund Policy</div>
+          </div>
+        </div>
+        <div className={classes.socialWrapper}>
           <FaLinkedin className={classes.icon} />
-          <span> {"  "}</span>
           <FaYoutube className={classes.icon} />
-          <span> {"  "}</span>
           <FaFacebook className={classes.icon} />
-          <span> {"  "}</span>
           <FaInstagram className={classes.icon} />
-          <span> {"  "}</span>
           <FaTwitter className={classes.icon} />
         </div>
+
+        <div className={classes.contact}>info@digiculum.com</div>
         <div>
           <div className={classes.footerNote}>
             Copyright 2025 © Digiculum. All Rights Reserved.
           </div>
-          <div className={classes.policies}>
-            <a href="#">Privacy Policy</a>|<a href="#">Cookie Policy</a>|
-            <a href="#">General Terms</a>|<a href="#">Refund Policy</a>
-          </div>
+
+          {/* <div className={classes.policies}>
+            <a href="#">Privacy Policy</a>
+            <span>|</span>
+            <a href="#">Cookie Policy</a>
+            <span>|</span>
+            <a href="#">General Terms</a>
+            <span>|</span>
+            <a href="#">Refund Policy</a>
+          </div> */}
         </div>
       </div>
 

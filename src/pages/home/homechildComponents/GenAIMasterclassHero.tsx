@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import starImage from "../../../assets/master_home.jpg";
 interface FloatingShape {
   id: number;
   x: number;
@@ -48,8 +48,13 @@ const GenAIMasterclassHero: React.FC = () => {
       position: "relative" as const,
       //width: "100vw",
       height: "100vh",
-      background:
-        "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)",
+      // background:
+      //   "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%)",
+      backgroundImage: `url(${starImage})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+
       overflow: "hidden",
       display: "flex",
       alignItems: "center",
@@ -69,13 +74,14 @@ const GenAIMasterclassHero: React.FC = () => {
       top: `${shape.y}%`,
       width: `${shape.size}px`,
       height: `${shape.size * 0.6}px`,
-      background: `linear-gradient(45deg, 
-        rgba(138, 43, 226, ${Math.random() * 0.4 + 0.1}), 
-        rgba(75, 0, 130, ${Math.random() * 0.6 + 0.2}), 
+      background: `linear-gradient(45deg,
+        rgba(138, 43, 226, ${Math.random() * 0.4 + 0.1}),
+        rgba(75, 0, 130, ${Math.random() * 0.6 + 0.2}),
         rgba(138, 43, 226, ${Math.random() * 0.3 + 0.1}))`,
       transform: `rotate(${shape.rotation}deg) perspective(100px) rotateX(${
         Math.sin(shape.rotation * 0.01) * 15
       }deg)`,
+
       borderRadius: "4px",
       boxShadow: `0 0 ${shape.size * 0.5}px rgba(138, 43, 226, 0.3)`,
       transition: "transform 0.05s linear",
@@ -115,17 +121,18 @@ const GenAIMasterclassHero: React.FC = () => {
       fontWeight: 500,
     },
     button: {
-      background: "linear-gradient(135deg, #ff9500 0%, #ff7b00 100%)",
-      color: "white",
+      backgroundColor: "#f9b233",
+      color: "#000",
       border: "none",
-      borderRadius: "12px",
-      padding: "16px 32px",
-      fontSize: "16px",
-      fontWeight: 600,
+      padding: "12px 24px",
+      borderRadius: 4,
+      fontSize: 16,
       cursor: "pointer",
-      transition: "all 0.3s ease",
-      boxShadow: "0 8px 24px rgba(255, 149, 0, 0.3)",
-      transform: "translateY(0)",
+      transition: "background 0.3s ease",
+      alignSelf: "flex-start",
+      "&:hover": {
+        backgroundColor: "#e8a223",
+      },
     },
     buttonHover: {
       transform: "translateY(-2px)",

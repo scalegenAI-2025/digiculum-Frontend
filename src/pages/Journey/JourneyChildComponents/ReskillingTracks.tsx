@@ -160,12 +160,18 @@ const useStyles = createUseStyles({
     fontWeight: "600",
     cursor: "pointer",
     transition: "all 0.3s ease",
+
+    // Center horizontally
+    display: "block",
+    margin: "40px auto 0", // 40px top spacing, auto centers horizontally
+
     "&:hover": {
       backgroundColor: "#ffb300",
       transform: "translateY(-2px)",
       boxShadow: "0 4px 12px rgba(255, 193, 7, 0.4)",
     },
   },
+
   "@media (max-width: 992px)": {
     cardsGrid: {
       gridTemplateColumns: "repeat(2, 1fr)",
@@ -190,30 +196,32 @@ const useStyles = createUseStyles({
 const ReskillingTracks: React.FC = () => {
   const classes = useStyles();
 
-  const handleMoreInfo = (trackId: number) => {
-    console.log(`More info clicked for track ${trackId}`);
-    // Add your navigation or modal logic here
-  };
+  // const handleMoreInfo = (trackId: number) => {
+  //   console.log(`More info clicked for track ${trackId}`);
+  //   // Add your navigation or modal logic here
+  // };
 
   return (
-    <div className={classes.container}>
-      <h1 className={classes.title}>Reskilling Tracks</h1>
-      <div className={classes.cardsGrid}>
-        {tracks.map((track) => (
-          <div key={track.id} className={classes.card}>
-            <div className={classes.cardNumber}>{track.id}</div>
-            <h3 className={classes.cardTitle}>{track.title}</h3>
-            <p className={classes.cardDescription}>{track.description}</p>
-            <button
-              className={classes.moreInfoButton}
-              onClick={() => handleMoreInfo(track.id)}
-            >
-              More Info
-            </button>
-          </div>
-        ))}
+    <>
+      <div className={classes.container}>
+        <h1 className={classes.title}>Reskilling Tracks</h1>
+        <div className={classes.cardsGrid}>
+          {tracks.map((track) => (
+            <div key={track.id} className={classes.card}>
+              <div className={classes.cardNumber}>{track.id}</div>
+              <h3 className={classes.cardTitle}>{track.title}</h3>
+              <p className={classes.cardDescription}>{track.description}</p>
+            </div>
+          ))}
+        </div>
+        <button
+          className={classes.moreInfoButton}
+          //  onClick={() => handleMoreInfo(track.id)}
+        >
+          More Info
+        </button>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import logo from "../../../assets/mobileGirl.jpg"; // Adjust path based on your folder
+import logo from "../../../assets/reskilling_home.jpg"; // Adjust path based on your folder
 
 const useStyles = createUseStyles({
   container: {

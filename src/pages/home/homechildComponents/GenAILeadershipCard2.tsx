@@ -1,6 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import starImage from "../../../assets/write.jpg"; // adjust path if needed
+import starImage from "../../../assets/career_home.jpg"; // adjust path if needed
 
 const useStyles = createUseStyles({
   container: {

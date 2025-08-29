@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { createUseStyles } from "react-jss";
-
+import skillVideo from "../../../assets/reskill.mp4";
 interface AIReskillVideoProps {
   videoSrc?: string;
 }
@@ -184,7 +184,7 @@ const useStyles = createUseStyles({
 });
 
 const AIReskillVideo: React.FC<AIReskillVideoProps> = ({
-  videoSrc = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+  videoSrc = `{ ${skillVideo} }`,
 }) => {
   const classes = useStyles();
   const videoRef = useRef<HTMLVideoElement>(null);

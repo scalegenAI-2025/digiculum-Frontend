@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { FaLock } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-
+import logo from "../../../assets/digi_logo_new_updated.png";
 interface NavItem {
   id: string;
   label: string;
@@ -185,6 +185,9 @@ const useStyles = createUseStyles({
       color: "#ff6ec7",
     },
   },
+  logoImage: {
+    width: "190px",
+  },
 });
 
 const Navbar: React.FC = () => {
@@ -193,13 +196,12 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
 
   const navItems: NavItem[] = [
-    { id: "Journey", label: "Journey", href: "/Journey" },
+    { id: "Reskilling", label: "Reskilling", href: "/Reskilling" },
     { id: "ecosystem", label: "Ecosystem", href: "/ecosystem" },
 
     { id: "Masterclass", label: "Masterclass", href: "/masterclass" },
 
-    { id: "ecosystem", label: "Ecosystem", href: "/ecosystem" },
-    { id: "about-us", label: "AboutAs", href: "/about-us" },
+    { id: "about-us", label: "About", href: "/about-us" },
   ];
 
   const handleNavClick = (href: string) => {
@@ -214,10 +216,14 @@ const Navbar: React.FC = () => {
         className={classes.logo}
         onClick={(e) => {
           e.preventDefault();
-          handleNavClick("/");
+          //  handleNavClick("/", " ");
         }}
       >
-        DIGICULUM
+        <img
+          src={logo}
+          //alt="DIGICULUM Logo"
+          className={classes.logoImage}
+        />
       </a>
 
       <div className={classes.navGroup}>
