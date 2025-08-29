@@ -1,3 +1,50 @@
+import C1 from "../../../assets/C1.png";
+import C2 from "../../../assets/C2.png";
+import C3 from "../../../assets/C3.png";
+import C4 from "../../../assets/C4.png";
+import C5 from "../../../assets/C5.png";
+import C6 from "../../../assets/C6.png";
+import C7 from "../../../assets/C7.png";
+import C8 from "../../../assets/C8.png";
+import C9 from "../../../assets/C9.png";
+import C10 from "../../../assets/C10.png";
+import C11 from "../../../assets/C11.png";
+import C12 from "../../../assets/C12.png";
+import C13 from "../../../assets/C13.png";
+import C14 from "../../../assets/C14.png";
+import C15 from "../../../assets/C15.png";
+import C16 from "../../../assets/C16.png";
+import C17 from "../../../assets/C17.png";
+import C18 from "../../../assets/C18.png";
+import C19 from "../../../assets/C19.png";
+import C20 from "../../../assets/C20.png";
+import C21 from "../../../assets/C21.png";
+import C22 from "../../../assets/C22.png";
+import C23 from "../../../assets/C23.png";
+import C24 from "../../../assets/C24.png";
+import C25 from "../../../assets/C25.png";
+import C26 from "../../../assets/C26.png";
+import C27 from "../../../assets/C27.png";
+import C28 from "../../../assets/C28.png";
+import C29 from "../../../assets/C29.png";
+import C30 from "../../../assets/C30.png";
+import C31 from "../../../assets/C31.png";
+import C32 from "../../../assets/C32.png";
+import C33 from "../../../assets/C33.png";
+import C34 from "../../../assets/C34.png";
+import C35 from "../../../assets/C35.png";
+import C36 from "../../../assets/C36.png";
+import C37 from "../../../assets/C37.png";
+import C38 from "../../../assets/C38.png";
+import C39 from "../../../assets/C39.png";
+import C40 from "../../../assets/C40.png";
+import C41 from "../../../assets/C41.png";
+import C42 from "../../../assets/C42.png";
+import C43 from "../../../assets/C43.png";
+import C44 from "../../../assets/C44.png";
+import C45 from "../../../assets/C45.png";
+import C46 from "../../../assets/C46.png";
+
 import React from "react";
 import { createUseStyles } from "react-jss";
 
@@ -30,7 +77,7 @@ const useStyles = createUseStyles({
   },
   card: {
     backgroundColor: "#4a4a4a",
-    //  borderRadius: "12px",
+    borderRadius: "12px",
     overflow: "hidden",
     boxShadow: "0 8px 24px rgba(0, 0, 0, 0.15)",
     transition: "transform 0.3s ease, box-shadow 0.3s ease",
@@ -60,15 +107,16 @@ const useStyles = createUseStyles({
   brainImage: {
     width: "100%",
     height: "100%",
-    objectFit: "cover",
+    objectFit: "contain",
     display: "block",
+    backgroundColor: "white",
   },
   textSection: {
     flex: 1,
     color: "white",
   },
   cardTitle: {
-    fontSize: "1.5rem",
+    fontSize: "1.2rem",
     fontWeight: "bold",
     marginBottom: "8px",
     lineHeight: "1.3",
@@ -100,6 +148,7 @@ interface CardData {
   title: string;
   subtitle: string;
   links?: { label: string; url: string }[];
+  image?: string; // new optional image
 }
 
 const CourseCard: React.FC<{ card: CardData }> = ({ card }) => {
@@ -111,8 +160,11 @@ const CourseCard: React.FC<{ card: CardData }> = ({ card }) => {
         <div className={classes.cardLayout}>
           <div className={classes.imageSection}>
             <img
-              src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=300&h=200&fit=crop&auto=format"
-              alt="AI Brain Circuit"
+              src={
+                card.image ||
+                "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=300&h=200&fit=crop&auto=format"
+              }
+              alt={card.title}
               className={classes.brainImage}
             />
           </div>
@@ -121,7 +173,23 @@ const CourseCard: React.FC<{ card: CardData }> = ({ card }) => {
             <p className={classes.cardSubtitle}>{card.subtitle}</p>
           </div>
         </div>
-        <button className={classes.readMoreButton}>Enroll</button>
+
+        {card.links && card.links.length > 0 ? (
+          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+            {card.links.map((link, i) => (
+              <a
+                key={i}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className={classes.readMoreButton}>{link.label}</button>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <button className={classes.readMoreButton}>Enroll</button>
+        )}
       </div>
     </div>
   );
@@ -129,153 +197,178 @@ const CourseCard: React.FC<{ card: CardData }> = ({ card }) => {
 
 const CoursesPage: React.FC = () => {
   const classes = useStyles();
-
-  // Generate 56 cards with varied content
   const cardData: CardData[] = [
     {
       id: 1,
       title: "Generative AI Fundamentals",
       subtitle: "6 facts on Generative AI every professional should know",
+      image: `${C1}`,
     },
     {
       id: 2,
       title: "Prompt Engineering",
       subtitle: "Engineer precise prompts, drive accurate AI results",
+      image: `${C2}`,
     },
     {
       id: 3,
       title: "Bias and Hallucination",
       subtitle: "Understand the business impact, types, and causes",
+      image: `${C3}`,
     },
     {
       id: 4,
       title: "Key Technical Concepts of AI, ML , and GenAI",
       subtitle: "Mastering the core technologies driving AI",
+      image: `${C4}`,
     },
     {
       id: 5,
       title: "Natural Language Processing (NLP) Architectures",
       subtitle: "Explore the structures that power natural language processing",
+      image: `${C5}`,
     },
     {
       id: 6,
       title: "LLM Model selection",
       subtitle: "A strong prerequisite for Scaling GenAI and AI Agents",
+      image: `${C6}`,
     },
     {
       id: 7,
       title: "Fine-Tuning Techniques",
       subtitle: "Optimizing AI models for precision and performance",
+      image: `${C7}`,
     },
     {
       id: 8,
       title: "Retrieval-Augmented Generation",
       subtitle:
         "Technology that drives conversational AI chatbots , the topmost GenAI use case",
+      image: `${C8}`,
     },
     {
       id: 9,
       title: "Business Essentials of Generative AI",
       subtitle: "Harness GenAI for business growth",
+      image: `${C9}`,
     },
     {
       id: 10,
       title: "AI/GenAI Transformation Strategy",
       subtitle:
         "An instructor-led course based on end-to end Digital Strategy Framework",
+      image: `${C10}`,
     },
     {
       id: 11,
       title: "Responsible AI Framework (RAI)",
       subtitle: "Explore the three pillars: Legal, Ethics, and Governance",
+      image: `${C11}`,
     },
     {
       id: 12,
       title: "GenAI Multi-Industry Impact",
       subtitle: "Explore the industry specific use cases and solutions",
+      image: `${C12}`,
     },
     {
       id: 13,
       title: "Essential Competencies of AI/GenAI Leaders",
       subtitle:
         "An instructor-led course focusing on cultivating the four essential competencies of a digital leader",
+      image: `${C13}`,
     },
     {
       id: 14,
       title: "IT, Digital Transformation, and AI",
       subtitle: "Understanding the correlation between them",
+      image: `${C14}`,
     },
     {
       id: 15,
       title: "AI Audit Framework",
       subtitle: "Essential guidelines for conducting an AI Audit",
+      image: `${C15}`,
     },
     {
       id: 16,
       title: "Conducting an AI Audit",
       subtitle:
         "Locating current or potential AI in your firm and assessing it.",
+      image: `${C16}`,
     },
     {
       id: 17,
       title: "EU AI Act",
       subtitle: "Understanding the world’s first comprehensive AI regulation.",
+      image: `${C17}`,
     },
     {
       id: 18,
       title: "Key Technical concepts of AI Agents",
       subtitle:
         "Important concepts of AI Agents that every technical SME should know",
+      image: `${C18}`,
     },
     {
       id: 19,
       title: "Core Capabilities of AI Agents",
       subtitle: "The 5 capabilities that differentiate an AI Agent from a bot",
+      image: `${C19}`,
     },
     {
       id: 20,
       title: "Agents Architectures and Frameworks",
       subtitle:
         "Highlighting the popular Agentic AI architectures and their limitations",
+      image: `${C20}`,
     },
     {
       id: 21,
       title: "Business Essentials of AI Agents",
       subtitle:
         "Includes Agentic AI readiness, observability, evaluation, use cases, and workflows",
+      image: `${C21}`,
     },
     {
       id: 22,
       title: "Building AI Agents",
       subtitle:
         "Step-by-step hands-on lab for developing AI Agent capabilities",
+      image: `${C22}`,
     },
     {
       id: 23,
       title: "Data and AI Fundamentals",
       subtitle: "Analyzing how data is the fuel to driving AI",
+      image: `${C23}`,
     },
     {
       id: 24,
       title: "Data Annotation",
       subtitle: "Uncovering one of the most critical AI/GenAI roles",
+      image: `${C24}`,
     },
     {
       id: 25,
       title: "Inference Evaluation",
       subtitle:
         "Detecting, measuring, mitigating hallucinations to enhance output quality",
+      image: `${C25}`,
     },
     {
       id: 26,
       title: "Data and Fine-tuning Lab",
       subtitle:
         "Hands-on experimentation with annotation, fine-tuning, and inference evaluation",
+      image: `${C26}`,
     },
     {
       id: 27,
       title: "Python Programming Basics",
       subtitle: "No prior knowledge or experience in software coding is needed",
+      image: `${C27}`,
       links: [
         {
           label: "Coursera Prep Course",
@@ -291,6 +384,7 @@ const CoursesPage: React.FC = () => {
       id: 28,
       title: "Practical Machine Learning",
       subtitle: "Building and applying prediction functions",
+      image: `${C28}`,
       links: [
         {
           label: "Coursera",
@@ -303,6 +397,7 @@ const CoursesPage: React.FC = () => {
       title: "Computer Vision",
       subtitle:
         "Practical exercises with image classification and object detection tools",
+      image: `${C29}`,
       links: [
         {
           label: "Coursera",
@@ -322,12 +417,14 @@ const CoursesPage: React.FC = () => {
       id: 30,
       title: "GenAI Apps Development Lab",
       subtitle: "Step-by-step hands-on lab for developing GenAI capabilities",
+      image: `${C30}`,
     },
     {
       id: 31,
       title: "UI/UX Fundamentals",
       subtitle:
         "Learn basic concepts of UX Design, UX Writing, and UX Research",
+      image: `${C31}`,
       links: [
         { label: "UXcel", url: "https://app.uxcel.com/courses?discipline=UX" },
       ],
@@ -336,12 +433,14 @@ const CoursesPage: React.FC = () => {
       id: 32,
       title: "UX and AI",
       subtitle: "Explore the fundamentals of how AI impacts UX",
+      image: `${C32}`,
     },
     {
       id: 33,
       title: "Google PAIR",
       subtitle:
         "Set of methods, best practices and examples for designing with AI",
+      image: `${C33}`,
       links: [
         { label: "Guidebook", url: "https://pair.withgoogle.com/guidebook-v2" },
       ],
@@ -351,33 +450,39 @@ const CoursesPage: React.FC = () => {
       title: "Implementing VITA AI tools for UX",
       subtitle:
         "Proven hacks for video, image, text, and audio (VITA) AI tools",
+      image: `${C34}`,
     },
     {
       id: 35,
       title: "Creativity Overhaul",
       subtitle: "Redefining your creativity with relevant AI tools",
+      image: `${C35}`,
     },
     {
       id: 36,
       title: "Generative AI Project Management",
       subtitle: "Explore types of GenAI projects, MLOps, LLMOps, and AgentOps",
+      image: `${C36}`,
     },
     {
       id: 37,
       title: "AI-enabled Security Fundamentals",
       subtitle: "Understand how AI can amplify and combat security threats",
+      image: `${C37}`,
     },
     {
       id: 38,
       title: "LLM Adversarial Attacks",
       subtitle:
         "Covers a comprehensive list of LLM attacks and their mitigation",
+      image: `${C38}`,
     },
     {
       id: 39,
       title: "Data Security",
       subtitle:
         "A part of 7 courses series on Cybersecurity Operations Fundamentals Specialization by Cisco",
+      image: `${C39}`,
       links: [
         {
           label: "Coursera",
@@ -390,12 +495,14 @@ const CoursesPage: React.FC = () => {
       title: "Cloud Security",
       subtitle:
         "Vendor-specific, vendor neutral, and relevant cloud security solutions",
+      image: `${C40}`,
       // 🚨 will fill with 9 buttons in the next step
     },
     {
       id: 41,
       title: "Network Security",
       subtitle: "Explore the popular network security certifications",
+      image: `${C41}`,
       // 🚨 will fill with 4 buttons
     },
     {
@@ -403,6 +510,7 @@ const CoursesPage: React.FC = () => {
       title: "NVIDIA Deep Learning Institute",
       subtitle:
         "Coaching on selecting learning path and certification offered by Digiculum",
+      image: `${C42}`,
       links: [
         {
           label: "NVIDIA Training",
@@ -415,6 +523,7 @@ const CoursesPage: React.FC = () => {
       title: "HPE AI Training and Certification",
       subtitle:
         "Coaching on selecting learning path and certification offered by Digiculum",
+      image: `${C43}`,
       links: [
         {
           label: "HPE Education",
@@ -426,6 +535,7 @@ const CoursesPage: React.FC = () => {
       id: 44,
       title: "Dell Technologies AI Server & Infrastructure Foundations",
       subtitle: "In partnership with NVIDIA",
+      image: `${C44}`,
       links: [
         {
           label: "Dell Learning",
@@ -437,6 +547,7 @@ const CoursesPage: React.FC = () => {
       id: 45,
       title: "Cloud Hyperscaler Solutions",
       subtitle: "Explore the solutions by AWS, Azure, and Google Cloud",
+      image: `${C45}`,
       links: [
         {
           label: "AWS Docs",
@@ -456,6 +567,7 @@ const CoursesPage: React.FC = () => {
       id: 46,
       title: "Cisco Datacenter certifications",
       subtitle: "Understanding the fundamentals of datacenter",
+      image: `${C46}`,
       links: [
         {
           label: "Cisco Training",
