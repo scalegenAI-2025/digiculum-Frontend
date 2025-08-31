@@ -1,13 +1,19 @@
 import { createUseStyles } from "react-jss";
 import {
-  Handshake,
-  Compass,
-  Users,
-  Settings,
-  Brain,
+  // Handshake,
+  // Compass,
+  // Users,
+  // Settings,
+  // Brain,
   ArrowRight,
 } from "lucide-react";
-
+import human from "../../../assets/human.png";
+import handshake from "../../../assets/handshake.png";
+import track from "../../../assets/tracks.png";
+import compass from "../../../assets/compass.png";
+import gear from "../../../assets/gear.png";
+import oval from "../../../assets/oval.png";
+import mind from "../../../assets/mind.png";
 const useStyles = createUseStyles({
   AIReskillingJourney: {
     padding: 32,
@@ -27,6 +33,12 @@ const useStyles = createUseStyles({
       color: "#7e22ce",
     },
   },
+  iconImage: {
+    width: "60%", // image takes 60% of the circle
+    height: "60%",
+    objectFit: "contain", // prevents stretching
+  },
+
   contentWrapper: {
     display: "flex",
     justifyContent: "center",
@@ -116,7 +128,9 @@ export default function AIReskillingJourney() {
 
         <div className={classes.leftSide}>
           <div className={classes.step}>
-            <div className={classes.iconCircle}>👤</div>
+            <div className={classes.iconCircle}>
+              <img src={human} alt="Handshake" className={classes.iconImage} />
+            </div>
             <p>
               An individual <span className={classes.purple}>starts</span> with{" "}
               <br />
@@ -126,8 +140,15 @@ export default function AIReskillingJourney() {
           <div className={classes.arrow}>
             <ArrowRight size={32} />
           </div>
+
           <div className={classes.step}>
-            <Handshake size={60} />
+            <div className={classes.iconCircle}>
+              <img
+                src={handshake}
+                alt="Handshake"
+                className={classes.iconImage}
+              />
+            </div>
             <p>
               <span className={classes.purple}>Commits</span> to <br />
               <strong>reskilling</strong> to new AI/GenAI role
@@ -136,8 +157,11 @@ export default function AIReskillingJourney() {
           <div className={classes.arrow}>
             <ArrowRight size={32} />
           </div>
+          <div className={classes.arrow}></div>
           <div className={classes.step}>
-            <div className={classes.iconCircle}>🛤️</div>
+            <div className={classes.iconCircle}>
+              <img src={track} alt="Handshake" className={classes.iconImage} />
+            </div>
             <p>
               <span className={classes.purple}>Completes</span> <br />
               prescribed <strong>reskilling tracks</strong>
@@ -147,14 +171,22 @@ export default function AIReskillingJourney() {
 
         <div className={classes.rightSide}>
           <div className={classes.devItem}>
-            <Compass size={40} />
+            <div className={classes.iconCircle}>
+              <img
+                src={compass}
+                alt="Handshake"
+                className={classes.iconImage}
+              />
+            </div>
             <p>
               <span className={classes.purple}>Coaching</span> on <br />
               <strong>application of skills</strong> at workplace
             </p>
           </div>
           <div className={classes.devItem}>
-            <Users size={40} />
+            <div className={classes.iconCircle}>
+              <img src={oval} alt="Handshake" className={classes.iconImage} />
+            </div>
             <p>
               <span className={classes.purple}>Collaborates</span> with other
               individuals <br />
@@ -162,7 +194,9 @@ export default function AIReskillingJourney() {
             </p>
           </div>
           <div className={classes.devItem}>
-            <Settings size={40} />
+            <div className={classes.iconCircle}>
+              <img src={gear} alt="Handshake" className={classes.iconImage} />
+            </div>
             <p>
               <span className={classes.purple}>Builds</span> on/for the job{" "}
               <br />
@@ -170,7 +204,9 @@ export default function AIReskillingJourney() {
             </p>
           </div>
           <div className={classes.devItem}>
-            <Brain size={40} />
+            <div className={classes.iconCircle}>
+              <img src={mind} alt="Handshake" className={classes.iconImage} />
+            </div>
             <p>
               <span className={classes.purple}>Updates</span>{" "}
               <strong>AI/GenAI knowledge</strong>

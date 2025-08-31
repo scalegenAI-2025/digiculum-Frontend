@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { FaLock } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../../../assets/digi_logo_new_updated.png";
+import { NavLink, useNavigate } from "react-router-dom";
+
 interface NavItem {
   id: string;
   label: string;
@@ -30,6 +32,14 @@ const useStyles = createUseStyles({
 
     "@media (max-width: 768px)": {
       padding: "1rem 1.5rem",
+    },
+  },
+  activeNavLink: {
+    color: "#E547ED !important",
+
+    "&:before": {
+      width: "100% !important",
+      backgroundColor: "#E547ED",
     },
   },
 
@@ -219,11 +229,9 @@ const Navbar: React.FC = () => {
           //  handleNavClick("/", " ");
         }}
       >
-        <img
-          src={logo}
-          //alt="DIGICULUM Logo"
-          className={classes.logoImage}
-        />
+        <Link to="/" className={classes.logo}>
+          <img src={logo} alt="Digiculum Logo" className={classes.logoImage} />
+        </Link>
       </a>
 
       <div className={classes.navGroup}>
@@ -235,19 +243,19 @@ const Navbar: React.FC = () => {
                 index < navItems.length - 1 ? classes.navItemWithDivider : ""
               }`}
             >
-              <a
-                href={item.href}
-                className={classes.navLink}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(item.href);
-                }}
+              <NavLink
+                to={item.href}
+                className={({ isActive }) =>
+                  `${classes.navLink} ${isActive ? classes.activeNavLink : ""}`
+                }
+                onClick={() => setIsMobileMenuOpen(false)} // close mobile menu on click
               >
                 {item.label}
-              </a>
+              </NavLink>
             </li>
           ))}
         </ul>
+
         <div className={classes.lockIcon}>
           <Link to="/register">
             <FaLock />
