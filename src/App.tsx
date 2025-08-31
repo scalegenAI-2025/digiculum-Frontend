@@ -38,6 +38,7 @@ import Login from "./pages/login/Login";
 import ForgotPassword from "./pages/login/ForgotPassword";
 import ResetPassword from "./pages/login/ResetPassword";
 import React from "react";
+import FullScreenImages from "./pages/Journey/JourneyChildComponents/reskillingMappingTracks";
 //import Contact from "./pages/contact/Contact"; // example additional page
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -82,6 +83,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/about-us" element={<AboutAs />} />
+        <Route path="/tracks" element={<FullScreenImages />} />
       </Routes>
     </Router>
   );

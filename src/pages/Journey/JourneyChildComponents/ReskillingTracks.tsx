@@ -1,5 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
+import { useNavigate } from "react-router-dom";
 
 interface Track {
   id: number;
@@ -195,6 +196,7 @@ const useStyles = createUseStyles({
 
 const ReskillingTracks: React.FC = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
 
   // const handleMoreInfo = (trackId: number) => {
   //   console.log(`More info clicked for track ${trackId}`);
@@ -214,9 +216,15 @@ const ReskillingTracks: React.FC = () => {
             </div>
           ))}
         </div>
-        <button
+        {/* <button
           className={classes.moreInfoButton}
           //  onClick={() => handleMoreInfo(track.id)}
+        >
+          More Info
+        </button> */}
+        <button
+          className={classes.moreInfoButton}
+          onClick={() => navigate("/tracks")}
         >
           More Info
         </button>
