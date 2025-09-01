@@ -110,21 +110,23 @@ import MapProd from "../../../assets/MAP_PROJ_MANAGE.png";
 import Mapdev from "../../../assets/MAP_Prod_Dev.png";
 import Mapsales from "../../../assets/MAP_Sales.png";
 
-import track1 from "../../../assets/tracks1.png";
+import track1 from "../../../assets/Tracks n courses.png";
 import track2 from "../../../assets/tracks2.png";
 import track_role_map from "../../../assets/Track_role_map.png";
+import FooterContact from "../../home/homechildComponents/FooterContact";
+import Navbar from "../../home/homechildComponents/Navbar";
 
 const useStyles = createUseStyles({
   container: {
     width: "100%",
-    height: "100vh",
+    // height: "100vh",
     overflowY: "auto",
     overflowX: "hidden",
     position: "relative",
     backgroundColor: "#fff",
   },
   section: {
-    height: "100vh",
+    //  height: "100vh",
     width: "100%",
     display: "flex",
     justifyContent: "center",
@@ -134,13 +136,13 @@ const useStyles = createUseStyles({
     padding: "40px 0",
   },
   first: {
-    marginTop: "100px",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
+    backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
   },
+
   last: {
-    borderTop: "10px solid blue",
+    //  borderTop: "10px solid blue",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -238,49 +240,67 @@ const FullScreenImages: React.FC = () => {
   };
 
   return (
-    <div className={classes.container}>
-      {/* First static background */}
-      <div
-        className={`${classes.section} ${classes.first}`}
-        style={{ backgroundImage: `url(${images[0]})` }}
-      />
+    <>
+      <Navbar />
+      <div className={classes.container}>
+        {/* First static background */}
+        <div className={`${classes.section} ${classes.first}`} />
+        <img
+          src={images[0]}
+          alt="Track 1"
+          style={{
+            width: "90%",
+            height: "auto", // keeps aspect ratio
+            justifyContent: "center",
+            display: "block", // removes bottom gap
+          }}
+        />
+        {/* Slider */}
+        <div className={classes.section}>
+          <div className={classes.sliderContainer}>
+            <img
+              key={currentIndex} // force re-render for transition
+              src={middleImages[currentIndex]}
+              alt={`Slide ${currentIndex + 3}`}
+              className={classes.sliderImg}
+            />
 
-      {/* Slider */}
-      <div className={classes.section}>
-        <div className={classes.sliderContainer}>
+            <button
+              onClick={goPrev}
+              className={`${classes.navButton} ${classes.prevButton}`}
+              disabled={currentIndex === 0}
+            >
+              {"<"}
+              {/* <FiArrowLeft size={24} fill="#000" /> */}
+            </button>
+
+            <button
+              onClick={goNext}
+              className={`${classes.navButton} ${classes.nextButton}`}
+              disabled={currentIndex === middleImages.length - 1}
+            >
+              {/* <FiArrowRight size={24} fill="#000" /> */}
+              {">"}
+            </button>
+          </div>
+        </div>
+
+        {/* Last static background */}
+        <div className={`${classes.section} ${classes.last}`} />
+        <div className={`${classes.section} ${classes.last}`}>
           <img
-            key={currentIndex} // force re-render for transition
-            src={middleImages[currentIndex]}
-            alt={`Slide ${currentIndex + 3}`}
-            className={classes.sliderImg}
+            src={images[images.length - 1]}
+            alt="Track role map"
+            style={{
+              width: "100%",
+              height: "auto", // keeps correct aspect ratio
+              display: "block", // prevents extra whitespace below image
+            }}
           />
-
-          <button
-            onClick={goPrev}
-            className={`${classes.navButton} ${classes.prevButton}`}
-            disabled={currentIndex === 0}
-          >
-            {"<"}
-            {/* <FiArrowLeft size={24} fill="#000" /> */}
-          </button>
-
-          <button
-            onClick={goNext}
-            className={`${classes.navButton} ${classes.nextButton}`}
-            disabled={currentIndex === middleImages.length - 1}
-          >
-            {/* <FiArrowRight size={24} fill="#000" /> */}
-            {">"}
-          </button>
         </div>
       </div>
-
-      {/* Last static background */}
-      <div
-        className={`${classes.section} ${classes.last}`}
-        style={{ backgroundImage: `url(${images[images.length - 1]})` }}
-      />
-    </div>
+      <FooterContact />
+    </>
   );
 };
 

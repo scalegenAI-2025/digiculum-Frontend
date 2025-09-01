@@ -490,6 +490,11 @@ const useStyles = createUseStyles({
     "@media (max-width: 768px)": {
       flexDirection: "column",
     },
+
+    "@media (max-width: 400px)": {
+      flexDirection: "column",
+      height: "auto",
+    },
   },
 
   videoBackground: {
@@ -509,6 +514,10 @@ const useStyles = createUseStyles({
     "@media (max-width: 768px)": {
       order: -1,
       height: "40vh",
+    },
+
+    "@media (max-width: 400px)": {
+      height: "30vh",
     },
   },
 
@@ -541,6 +550,11 @@ const useStyles = createUseStyles({
       marginRight: 0,
       padding: "80px 1.5rem 2rem",
     },
+
+    "@media (max-width: 400px)": {
+      padding: "60px 1rem 1.5rem",
+      marginRight: 0,
+    },
   },
 
   contentWrapper: {
@@ -548,6 +562,10 @@ const useStyles = createUseStyles({
     width: "100%",
 
     "@media (max-width: 768px)": {
+      maxWidth: "100%",
+    },
+
+    "@media (max-width: 400px)": {
       maxWidth: "100%",
     },
   },
@@ -559,6 +577,10 @@ const useStyles = createUseStyles({
     margin: 0,
     marginBottom: "1rem",
     fontFamily: "Arial, sans-serif",
+
+    "@media (max-width: 400px)": {
+      fontSize: "clamp(2rem, 7vw, 4rem)",
+    },
   },
 
   ai: {
@@ -581,6 +603,10 @@ const useStyles = createUseStyles({
     margin: 0,
     opacity: 0.8,
     maxWidth: "600px",
+
+    "@media (max-width: 400px)": {
+      fontSize: "24px",
+    },
   },
 
   ctaButton: {
@@ -589,7 +615,6 @@ const useStyles = createUseStyles({
     fontSize: "1.1rem",
     fontWeight: 600,
     color: "#ffffff",
-    // background: "linear-gradient(135deg, #ff6ec7 0%, #7c3aed 100%)",
     border: "none",
     borderRadius: "8px",
     cursor: "pointer",
@@ -600,6 +625,11 @@ const useStyles = createUseStyles({
     "&:hover": {
       transform: "translateY(-2px)",
       boxShadow: "0 10px 30px rgba(255, 110, 199, 0.3)",
+    },
+
+    "@media (max-width: 400px)": {
+      padding: "0.8rem 1.5rem",
+      fontSize: "1rem",
     },
   },
 });
