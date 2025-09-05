@@ -1,4 +1,3 @@
-import React from "react";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
@@ -10,42 +9,9 @@ const useStyles = createUseStyles({
       margin: 0,
       padding: 0,
       overflowX: "hidden",
-      fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+      // fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
       backgroundColor: "#000",
     },
-  },
-
-  blinkingBackground: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    width: "100vw",
-    height: "100vh",
-    zIndex: -1,
-    overflow: "hidden",
-    pointerEvents: "none",
-  },
-
-  shape: {
-    position: "absolute",
-    width: 30,
-    height: 30,
-    opacity: 0,
-    animation: "$blink 1.5s infinite",
-  },
-
-  circle: {
-    borderRadius: "50%",
-    backgroundColor: "#00ffff",
-  },
-
-  square: {
-    backgroundColor: "#ff00ff",
-  },
-
-  "@keyframes blink": {
-    "0%, 100%": { opacity: 0 },
-    "50%": { opacity: 1 },
   },
 
   container: {
@@ -54,7 +20,6 @@ const useStyles = createUseStyles({
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
-    background: "black",
     paddingTop: "150px",
     paddingLeft: "1rem",
     paddingRight: "1rem",
@@ -62,16 +27,24 @@ const useStyles = createUseStyles({
     color: "#fff",
     overflowX: "hidden",
     maxWidth: "100vw",
+    "@media (max-width: 500px)": {
+      minHeight: "80vh",
+    },
   },
 
   homeHeader: {
+    //display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: "1.5rem",
     width: "100%",
+    // backgroundColor: "rgba(0, 0, 0, 0.1)", // optional overlay behind text
     padding: "1rem 2rem",
     borderRadius: "12px",
+    "@media (max-width: 500px)": {
+      marginBottom: "30px",
+    },
   },
 
   homeHeaderLine: {
@@ -105,51 +78,23 @@ const useStyles = createUseStyles({
   },
 });
 
-// Type-safe shape type
-type Shape = {
-  top: string;
-  left: string;
-  type: "circle" | "square";
-  delay: string;
-};
-
-const shapes: Shape[] = [
-  { top: "10%", left: "20%", type: "circle", delay: "0s" },
-  { top: "30%", left: "50%", type: "square", delay: "0.5s" },
-  { top: "60%", left: "80%", type: "circle", delay: "1s" },
-  { top: "75%", left: "25%", type: "square", delay: "1.2s" },
-  { top: "15%", left: "70%", type: "circle", delay: "1.4s" },
-];
-
-const EcosystemTop: React.FC = () => {
+const EcosystemTop = () => {
   const classes = useStyles();
 
   return (
-    <>
-      <div className={classes.blinkingBackground}>
-        {shapes.map((shape, index) => (
-          <div
-            key={index}
-            className={`${classes.shape} ${classes[shape.type]}`}
-            style={{
-              top: shape.top,
-              left: shape.left,
-              animationDelay: shape.delay,
-            }}
-          />
-        ))}
+    // <div className={classes.backgroundWrapper}>
+    <div className={classes.container}>
+      <div className={classes.homeHeader}>
+        <h1 className={classes.homeHeaderLine}>
+          How fast a firm scales GenAI largely depends on it’s ability to work
+          in Ecosystems
+        </h1>
       </div>
-
-      <div className={classes.container}>
-        <div className={classes.homeHeader}>
-          <h1 className={classes.homeHeaderLine}>
-            How fast a firm scales GenAI shall largely depend on a firm’s
-            ability to work in Ecosystems
-          </h1>
-        </div>
-        <h3 className={classes.homeHeader3}>Scale 3X through ecosystems</h3>
-      </div>
-    </>
+      <h3 className={classes.homeHeader3}>
+        Scale 3X faster through ecosystems
+      </h3>
+    </div>
+    // </div>
   );
 };
 

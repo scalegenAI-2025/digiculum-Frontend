@@ -5,6 +5,10 @@ const useStyles = createUseStyles({
   container: {
     backgroundColor: "#ffffff",
     padding: 40,
+    display: "flex",
+
+    justifyContent: "center",
+    alignItems: "center",
     position: "relative",
     "@media (max-width: 700px)": {
       padding: 20,
@@ -34,8 +38,9 @@ const useStyles = createUseStyles({
   title: {
     fontSize: "35px",
     fontWeight: 400,
-    color: "#000",
+    color: "#fff",
     marginBottom: 20,
+    paddingLeft: "60px",
     letterSpacing: "-0.5px",
     "@media (max-width: 700px)": {
       fontSize: 28,
@@ -222,83 +227,87 @@ const ContactUsCourse = () => {
   };
 
   return (
-    <div className={classes.container}>
+    <>
       <h1 className={classes.title}>Contact us</h1>
-      <div className={classes.separator}></div>
-
-      <div className={classes.mainContent}>
-        <div className={classes.leftSection}>
-          <h2 className={classes.subtitle}>We'd love to hear from you.</h2>
+      <div className={classes.container}>
+        <div>
+          <div className={classes.separator}></div>
         </div>
 
-        <div className={classes.formSection}>
-          <form className={classes.form} onSubmit={(e) => e.preventDefault()}>
-            <div className={classes.inputRow}>
-              <input
-                type="text"
-                name="firstName"
-                placeholder="First Name"
-                value={formData.firstName}
-                onChange={handleInputChange}
-                className={classes.input}
-              />
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
-                value={formData.lastName}
-                onChange={handleInputChange}
-                className={classes.input}
-              />
-            </div>
+        <div className={classes.mainContent}>
+          <div className={classes.leftSection}>
+            <h2 className={classes.subtitle}>We'd love to hear from you.</h2>
+          </div>
 
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleInputChange}
-              className={classes.fullWidthInput}
-            />
+          <div className={classes.formSection}>
+            <form className={classes.form} onSubmit={(e) => e.preventDefault()}>
+              <div className={classes.inputRow}>
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="First Name"
+                  value={formData.firstName}
+                  onChange={handleInputChange}
+                  className={classes.input}
+                />
+                <input
+                  type="text"
+                  name="lastName"
+                  placeholder="Last Name"
+                  value={formData.lastName}
+                  onChange={handleInputChange}
+                  className={classes.input}
+                />
+              </div>
 
-            <div className={classes.inputRow}>
               <input
-                type="text"
-                name="organization"
-                placeholder="Organization"
-                value={formData.organization}
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
                 onChange={handleInputChange}
-                className={classes.input}
+                className={classes.fullWidthInput}
               />
-              <input
-                type="text"
-                name="role"
-                placeholder="Role"
-                value={formData.role}
+
+              <div className={classes.inputRow}>
+                <input
+                  type="text"
+                  name="organization"
+                  placeholder="Organization"
+                  value={formData.organization}
+                  onChange={handleInputChange}
+                  className={classes.input}
+                />
+                <input
+                  type="text"
+                  name="role"
+                  placeholder="Role"
+                  value={formData.role}
+                  onChange={handleInputChange}
+                  className={classes.input}
+                />
+              </div>
+
+              <textarea
+                name="moreDetails"
+                placeholder="More Details"
+                value={formData.moreDetails}
                 onChange={handleInputChange}
-                className={classes.input}
+                className={classes.textarea}
               />
-            </div>
 
-            <textarea
-              name="moreDetails"
-              placeholder="More Details"
-              value={formData.moreDetails}
-              onChange={handleInputChange}
-              className={classes.textarea}
-            />
-
-            <button
-              type="button"
-              onClick={handleSubmit}
-              className={classes.submitButton}
-            >
-              Submit
-            </button>
-          </form>
+              <button
+                type="button"
+                onClick={handleSubmit}
+                className={classes.submitButton}
+              >
+                Submit
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

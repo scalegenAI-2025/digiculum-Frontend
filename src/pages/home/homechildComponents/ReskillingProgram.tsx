@@ -1,7 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 
-// JSS styles with react-jss
 const useStyles = createUseStyles({
   container: {
     fontFamily: '"Segoe UI", sans-serif',
@@ -10,17 +9,31 @@ const useStyles = createUseStyles({
   topSection: {
     backgroundColor: "#fff",
     padding: "80px 20px",
+
+    "@media (max-width: 500px)": {
+      padding: "40px 16px",
+    },
   },
   heading: {
     fontSize: 42,
     fontWeight: 500,
     marginBottom: 16,
+
+    "@media (max-width: 500px)": {
+      fontSize: 28,
+      lineHeight: 1.3,
+    },
   },
   subText: {
     fontSize: 18,
     color: "#555",
     marginBottom: 24,
     lineHeight: 1.5,
+
+    "@media (max-width: 500px)": {
+      fontSize: 15,
+      marginBottom: 16,
+    },
   },
   button: {
     backgroundColor: "#f5a623",
@@ -31,23 +44,43 @@ const useStyles = createUseStyles({
     cursor: "pointer",
     borderRadius: 4,
     transition: "background-color 0.3s ease",
+
     "&:hover": {
       backgroundColor: "#e49c1a",
     },
+
+    "@media (max-width: 500px)": {
+      fontSize: 14,
+      padding: [10, 20],
+    },
   },
   bottomSection: {
-    //backgroundColor: "#f1f0f0",
     padding: "80px 20px",
+
+    "@media (max-width: 500px)": {
+      padding: "40px 16px",
+    },
   },
   smallText: {
     fontSize: 16,
     color: "#555",
     marginBottom: 12,
+
+    "@media (max-width: 500px)": {
+      fontSize: 14,
+      marginBottom: 8,
+    },
   },
   largeText: {
     fontSize: 42,
     fontWeight: 500,
     marginBottom: 24,
+
+    "@media (max-width: 500px)": {
+      fontSize: 26,
+      lineHeight: 1.3,
+      marginBottom: 16,
+    },
   },
   boldSpan: {
     fontWeight: "bold",
@@ -59,7 +92,7 @@ const ReskillingProgram: React.FC = () => {
 
   return (
     <div className={classes.container}>
-      {/* Top Section */}
+      {/* Top Section (uncomment if needed) */}
       {/* <div className={classes.topSection}>
         <h1 className={classes.heading}>
           AI/GenAI Reskilling Early Adopter Program

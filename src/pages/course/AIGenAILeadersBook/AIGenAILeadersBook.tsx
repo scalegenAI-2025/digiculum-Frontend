@@ -1,13 +1,13 @@
 import { createUseStyles } from "react-jss";
-
-import FooterContact from "../../home/homechildComponents/FooterContact";
 import Navbar from "../../home/homechildComponents/Navbar";
+import FooterContact from "../../home/homechildComponents/FooterContact";
 import LandingSlide from "./AIGenAIChild/GenAILeaderBook";
 import CourseOverview from "./AIGenAIChild/CourseOverview";
 import CourseContentPage from "./AIGenAIChild/CourseContentPage";
 import CoachingPage from "./AIGenAIChild/CoachingPage";
 import EcosystemPage from "../GenAIMindset/GenAIMindsetChild/ecosystem";
 import { useNavigate } from "react-router-dom";
+import OrderFirstBook from "./AIGenAIChild/orderBook";
 
 const useStyles = createUseStyles({
   heroSection: {
@@ -18,6 +18,9 @@ const useStyles = createUseStyles({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    "@media (max-width: 600px)": {
+      minHeight: "80vh",
+    },
   },
 
   contentWrapper: {
@@ -25,19 +28,19 @@ const useStyles = createUseStyles({
     zIndex: 1,
     width: "100%",
   },
-  button: {
-    padding: "18px 36px",
+  orderButton: {
     backgroundColor: "#002c3e",
-    color: "#fff",
+    color: "white",
     border: "none",
-    borderRadius: 6,
-    fontSize: 20,
-    fontWeight: 600,
-    marginBottom: "20px",
+    padding: "15px 30px",
+    fontSize: "18px",
+    fontWeight: "bold",
+    borderRadius: "8px",
     cursor: "pointer",
     transition: "all 0.3s ease",
     "&:hover": {
-      backgroundColor: "#021123",
+      backgroundColor: "#1e4a66",
+      transform: "translateY(-2px)",
     },
   },
 });
@@ -59,11 +62,11 @@ function AIGenAILeadersBook() {
           <CoachingPage />
           <EcosystemPage />
         </div>
-        <button className={classes.button} onClick={handleClick}>
+        <button className={classes.orderButton} onClick={handleClick}>
           Become a member →
         </button>
       </div>
-
+      <OrderFirstBook />
       <FooterContact />
     </>
   );

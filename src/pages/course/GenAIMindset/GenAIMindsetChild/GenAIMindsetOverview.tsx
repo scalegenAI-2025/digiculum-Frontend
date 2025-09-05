@@ -1,11 +1,11 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import Framework from "../../../../assets/mindset.png";
+import Framework from "../../../../assets/gm.png";
 
 const useStyles = createUseStyles({
   container: {
     padding: "2rem",
-    fontFamily: "Arial, sans-serif",
+    // fontFamily: "Arial, sans-serif",
     backgroundColor: "#fff",
     color: "#000",
     maxWidth: "1000px",
@@ -15,15 +15,21 @@ const useStyles = createUseStyles({
     fontSize: "40px",
     fontWeight: "bold",
     margin: "0px",
-    fontFamily: "Arial, sans-serif",
-    paddingLeft: "2rem",
+    // fontFamily: "Arial, sans-serif",
+    // paddingLeft: "2rem",
     paddingTop: "1rem",
+    display: "flex",
+    justifyContent: "center",
+    marginTop: "60px",
+    "@media (max-width: 600px)": {
+      paddingLeft: "0rem",
+    },
   },
   sectionTitle: {
     fontSize: "1.5rem",
     fontWeight: "bold",
     margin: "2rem 0 1rem",
-    color: "#002c3e",
+    color: "#000",
   },
   list: {
     paddingLeft: "1.5rem",
@@ -33,7 +39,8 @@ const useStyles = createUseStyles({
     fontWeight: "bold",
   },
   purpleText: {
-    color: "#8000ff",
+    color: "#000",
+    fontWeight: "bold",
   },
   image: {
     // width: "100%",
@@ -41,14 +48,59 @@ const useStyles = createUseStyles({
     height: "300px",
     borderRadius: "6px",
     //objectFit: "contain",
+    "@media (max-width: 600px)": {
+      height: "180px",
+    },
+    "@media (max-width: 500px)": {
+      height: "140px",
+    },
+    "@media (max-width: 450px)": {
+      height: "120px",
+    },
+  },
+  button: {
+    backgroundColor: "#1e3a5f",
+    color: "white",
+    border: "none",
+    //  margin: "20px",
+    borderRadius: "8px",
+    padding: "16px 32px",
+    fontSize: "1.1rem",
+    fontWeight: "500",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    margin: "-30px auto" /* auto margins center block elements horizontally */,
+    display: "block",
+    boxShadow: "0 6px 12px rgba(92, 94, 95, 0.6)",
+    gap: "10px",
+    textDecoration: "none",
+    "&:hover": {
+      backgroundColor: "#2c4a6b",
+      transform: "translateY(-2px)",
+      boxShadow: "0 4px 12px rgba(30, 58, 95, 0.3)",
+    },
+    "&:active": {
+      transform: "translateY(0)",
+    },
+    "@media (max-width: 768px)": {
+      padding: "14px 28px",
+      fontSize: "1rem",
+    },
   },
 });
 
 const GenAIMindsetOverview: React.FC = () => {
   const classes = useStyles();
-
+  const handleClick = () => {
+    const mailtoLink =
+      "mailto:info@scalinggenai.com?subject=Scaling GenAI consultation request&body=Hello,%0D%0A%0D%0AI would like to know more about Scaling GenAI.%0D%0A%0D%0AName:%0D%0ACompany:%0D%0AEmail:%0D%0APhone:%0D%0A%0D%0ARegards,%0D%0Aname";
+    window.location.href = mailtoLink;
+  };
   return (
     <>
+      <button className={classes.button} onClick={handleClick}>
+        Book a Consultation →
+      </button>
       <h2 className={classes.sectionTitleTop}>Course</h2>
       <div className={classes.container}>
         {/* PROBLEM */}
@@ -76,16 +128,17 @@ const GenAIMindsetOverview: React.FC = () => {
           <li>
             Inorder to scale generative AI, an organization should cultivate
             right mindset
-            <span className={classes.bold}>
-              Right mindset should be cultivated by individuals at different
-              levels in the corporate hierarchy
-            </span>
+          </li>
+          <li>
+            Right mindset should be cultivated by individuals at different
+            levels in the corporate hierarchy
           </li>
           <li>Based on the growth mindset framework</li>
         </ul>
 
         {/* DIGITAL LEADERSHIP FRAMEWORK */}
-        <h3 className={classes.sectionTitle}>Growth Mindset Framework</h3>
+
+        <h3 className={classes.sectionTitle}>GROWTH MINDSET FRAMEWORK</h3>
         <img
           src={Framework}
           alt="Digital Leadership Framework"
@@ -125,11 +178,6 @@ const GenAIMindsetOverview: React.FC = () => {
         </ul>
 
         {/* INTRODUCTORY TALK */}
-        <h3 className={classes.sectionTitle}>INTRODUCTORY TALK</h3>
-        <ul className={classes.list}>
-          <li>30-minute overview + 15 minutes of Q&A</li>
-          <li>Optional and free of charge</li>
-        </ul>
       </div>
     </>
   );

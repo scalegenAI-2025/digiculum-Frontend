@@ -1,57 +1,83 @@
 import React from "react";
+import { createUseStyles } from "react-jss";
+
+const useStyles = createUseStyles({
+  outerContainer: {
+    padding: "50px",
+    "@media (max-width: 600px)": {
+      padding: "2rem",
+    },
+  },
+  container: {
+    padding: "10px",
+    backgroundColor: "#ffffff",
+    maxWidth: "1400px",
+    margin: "0 auto",
+    lineHeight: 1.4,
+  },
+  title: {
+    fontSize: "40px",
+    fontWeight: "bold",
+    color: "#000000",
+    marginBottom: "10px",
+    marginTop: 0,
+    "@media (max-width: 600px)": {
+      fontSize: "40px",
+      textAlign: "center", // centers text inside the element
+      margin: "0 auto 10px", // keeps block element centered if it has a set width
+    },
+  },
+  subtitle: {
+    fontSize: "18px",
+    color: "#000",
+    fontStyle: "italic",
+    marginBottom: "40px",
+    fontWeight: "normal",
+  },
+  contentGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(3, 1fr)",
+    gap: "20px",
+    marginTop: "30px",
+
+    "@media (max-width: 1024px)": {
+      gridTemplateColumns: "repeat(2, 1fr)",
+    },
+    "@media (max-width: 600px)": {
+      gridTemplateColumns: "1fr",
+    },
+  },
+  topicSection: {
+    marginBottom: "20px",
+    padding: "15px",
+    borderRadius: "8px",
+    background: "#fafafa",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.05)",
+    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+
+    "&:hover": {
+      transform: "translateY(-4px)",
+      boxShadow: "0 6px 14px rgba(0,0,0,0.1)",
+    },
+  },
+  topicTitle: {
+    fontSize: "16px",
+    fontWeight: "bold",
+    color: "#000",
+    marginBottom: "8px",
+    marginTop: 0,
+    lineHeight: 1.3,
+  },
+  topicDescription: {
+    fontSize: "14px",
+    color: "#333333",
+    lineHeight: 1.4,
+    margin: 0,
+  },
+});
 
 const TechnicalAIContentPage: React.FC = () => {
-  const styles = {
-    outerContainer: {
-      padding: "50px",
-    },
-    container: {
-      fontFamily: "Arial, sans-serif",
-      padding: "10px",
-      backgroundColor: "#ffffff",
-      maxWidth: "1400px",
-      margin: "0 auto",
-      lineHeight: "1.4",
-      //border: "2px solid #000000",
-    },
-    title: {
-      fontSize: "48px",
-      fontWeight: "bold",
-      color: "#000000",
-      marginBottom: "10px",
-      marginTop: "0",
-    },
-    subtitle: {
-      fontSize: "18px",
-      color: "#8000ff",
-      fontStyle: "italic",
-      marginBottom: "40px",
-      fontWeight: "normal",
-    },
-    contentGrid: {
-      display: "grid",
-      gridTemplateColumns: "repeat(3, 1fr)",
-      gap: "5px",
-      marginTop: "30px",
-    },
-    topicSection: {
-      marginBottom: "30px",
-    },
-    topicTitle: {
-      fontSize: "16px",
-      fontWeight: "bold",
-      color: "#00405a",
-      marginBottom: "8px",
-      marginTop: "0",
-      lineHeight: "1.3",
-    },
-    topicDescription: {
-      fontSize: "14px",
-      color: "#333333",
-      lineHeight: "1.4",
-      margin: "0",
-    },
-  };
+  const classes = useStyles();
 
   const topics = [
     {
@@ -65,7 +91,7 @@ const TechnicalAIContentPage: React.FC = () => {
     {
       title: "Evolution to Transformer based Architecture",
       description:
-        "Evolution from probabilistic or statistical to neural networks based to transformer based",
+        "Evolution from probabilistic/statistical → neural networks → transformer based",
     },
     {
       title: "Key Technical Concepts",
@@ -75,7 +101,7 @@ const TechnicalAIContentPage: React.FC = () => {
     {
       title: "Transformer based Architecture",
       description:
-        "Strong focus on self attention technique the heart of transformer based architecture",
+        "Strong focus on self-attention technique at the heart of transformer architectures",
     },
     {
       title: "Fine Tuning LLMs",
@@ -98,7 +124,7 @@ const TechnicalAIContentPage: React.FC = () => {
         "Key capabilities of agents and how they can add efficiencies in processes and workflows",
     },
     {
-      title: "Retrieval Augmentation Generation (RAG)",
+      title: "Retrieval-Augmented Generation (RAG)",
       description: "Need for RAGs, RAG architectures, different RAG techniques",
     },
     {
@@ -124,19 +150,19 @@ const TechnicalAIContentPage: React.FC = () => {
   ];
 
   return (
-    <div style={styles.outerContainer}>
-      <div style={styles.container}>
-        <h1 style={styles.title}>Content</h1>
-        <p style={styles.subtitle}>
-          Instructor-led, in-person/virtual, 30 hours, 1-2-1 coaching (2 hours
+    <div className={classes.outerContainer}>
+      <div className={classes.container}>
+        <h1 className={classes.title}>Content</h1>
+        <p className={classes.subtitle}>
+          Instructor-led, in-person/virtual, 18 hours, 1-2-1 coaching (1 hour
           free)
         </p>
 
-        <div style={styles.contentGrid}>
+        <div className={classes.contentGrid}>
           {topics.map((topic, index) => (
-            <div key={index} style={styles.topicSection}>
-              <h3 style={styles.topicTitle}>{topic.title}</h3>
-              <p style={styles.topicDescription}>{topic.description}</p>
+            <div key={index} className={classes.topicSection}>
+              <h3 className={classes.topicTitle}>{topic.title}</h3>
+              <p className={classes.topicDescription}>{topic.description}</p>
             </div>
           ))}
         </div>

@@ -1,10 +1,10 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import {
-  BarChart3,
-  Mic,
-  Hand,
-  Heart,
+  //BarChart3,
+  //  Mic,
+  //Hand,
+  //Heart,
   Shield,
   Users,
   Beaker,
@@ -30,6 +30,11 @@ import {
   LineChart,
   Workflow,
 } from "lucide-react";
+import { GiVintageRobot } from "react-icons/gi";
+import { IoRocketOutline } from "react-icons/io5";
+//import { GoGear } from "react-icons/go";
+import { HiOutlineScale } from "react-icons/hi";
+import { TbPrompt } from "react-icons/tb";
 
 const useStyles = createUseStyles({
   container: {
@@ -48,10 +53,15 @@ const useStyles = createUseStyles({
     margin: "0 auto",
   },
   sectionTitle: {
-    fontSize: "48px",
+    fontSize: "36px",
     fontWeight: "bold",
     color: "#374151",
     marginBottom: "32px",
+    "@media (max-width: 500px)": {
+      fontSize: "32px",
+      display: "flex",
+      justifyContent: "center",
+    },
   },
   sectionDescription: {
     color: "#6b7280",
@@ -115,12 +125,18 @@ const AIEcosystems: React.FC = () => {
   const classes = useStyles();
 
   const ecosystemItems = [
-    { icon: <BarChart3 className={classes.icon} />, title: "Scaling GenAI" },
-    { icon: <Mic className={classes.icon} />, title: "LLM Fine Tuning" },
-    { icon: <Hand className={classes.icon} />, title: "Prompt Engineering" },
-    { icon: <Heart className={classes.icon} />, title: "Responsible AI (RAI)" },
+    {
+      icon: <IoRocketOutline className={classes.icon} />,
+      title: "Scaling GenAI",
+    },
+    { icon: <Blocks className={classes.icon} />, title: "LLM Fine Tuning" },
+    { icon: <GiVintageRobot className={classes.icon} />, title: "AI Agents" },
     {
       icon: <Shield className={classes.icon} />,
+      title: "Responsible AI (RAI)",
+    },
+    {
+      icon: <HiOutlineScale className={classes.icon} />,
       title: "EU AI Act, Risk Assessment",
     },
     { icon: <Users className={classes.icon} />, title: "Explainable AI (EAI)" },
@@ -149,12 +165,15 @@ const AIEcosystems: React.FC = () => {
       icon: <AlertCircle className={classes.icon} />,
       title: "Hallucinations and Guardrails",
     },
-    { icon: <Cloud className={classes.icon} />, title: "Cloud" },
+    {
+      icon: <TbPrompt className={classes.icon} />,
+      title: "Prompt Engineering",
+    },
     { icon: <Bot className={classes.icon} />, title: "Machine Learning (ML)" },
     { icon: <BadgeHelp className={classes.icon} />, title: "Metaverse·XR" },
     { icon: <Table className={classes.icon} />, title: "Data Science" },
     { icon: <Share2 className={classes.icon} />, title: "Internet of Things" },
-    { icon: <Blocks className={classes.icon} />, title: "Blockchain" },
+    { icon: <Cloud className={classes.icon} />, title: "cloud" },
     { icon: <Settings className={classes.icon} />, title: "Automation" },
     { icon: <Lock className={classes.icon} />, title: "Security" },
     { icon: <Spline className={classes.icon} />, title: "UI/UX" },

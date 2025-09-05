@@ -16,7 +16,7 @@ const useStyles = createUseStyles({
     gap: "60px",
     backgroundColor: "lightgrey",
     alignItems: "center",
-    fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+    //  fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
     "@media (max-width: 768px)": {
       flexDirection: "column",
       gap: "40px",
@@ -44,7 +44,7 @@ const useStyles = createUseStyles({
     },
   },
   title: {
-    fontSize: "42px",
+    fontSize: "36px",
     fontWeight: "600",
     color: "#2d3748",
     marginBottom: "50px",
@@ -126,7 +126,7 @@ const HowItWorks: React.FC = () => {
       number: "04",
       title: "Question Posting",
       description:
-        "When a collaborator wants to seek knowledge, he/she can post a new question by creating a new discussion thread on the collaboration forum, after specifying a knowledge category.",
+        "Collaborator can post a question on the collaboration forum, after specifying its knowledge category.",
     },
     {
       number: "05",

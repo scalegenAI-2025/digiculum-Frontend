@@ -42,6 +42,7 @@ const useStyles = createUseStyles({
   icon: {
     fontSize: "1.2rem",
     opacity: 0.5,
+    color: "white",
   },
   footerNote: {
     fontSize: "0.8rem",
@@ -128,6 +129,62 @@ const useStyles = createUseStyles({
     gap: "12px",
     //paddingTop: "1rem",
   },
+  "@media (max-width: 700px)": {
+    layout: {
+      flexDirection: "column-reverse",
+      alignItems: "center",
+      gap: "50px",
+      padding: "1rem",
+    },
+    formWrapper: {
+      width: "100%",
+      padding: "1rem",
+      marginTop: "1.5rem",
+    },
+    heading: {
+      fontSize: "1.2rem",
+      marginBottom: "1rem",
+      textAlign: "center",
+    },
+    formRow: {
+      flexDirection: "column", // stack inputs vertically
+      gap: "0.8rem",
+    },
+    input: {
+      fontSize: "0.9rem",
+      width: "100%", // take full width
+    },
+    textarea: {
+      fontSize: "0.9rem",
+      height: "80px",
+    },
+    link: {
+      fontSize: "0.85rem",
+    },
+    checkboxRow: {
+      fontSize: "0.85rem",
+      flexDirection: "column",
+      alignItems: "flex-start",
+      gap: "0.5rem",
+    },
+    submitButton: {
+      width: "100%",
+      fontSize: "0.9rem",
+      padding: "0.6rem",
+    },
+    socialWrapper: {
+      justifyContent: "center",
+      color: "white",
+    },
+    contact: {
+      textAlign: "center",
+    },
+    footerNote: {
+      fontSize: "0.7rem",
+      textAlign: "center",
+      marginTop: "1rem",
+    },
+  },
 });
 
 const FooterContact: FC = () => {
@@ -141,8 +198,8 @@ const FooterContact: FC = () => {
           <div className={classes.nav}>
             <div className={classes.link}>Reskilling</div>
             <div className={classes.link}>Ecosystem</div>
-            <div className={classes.link}>Assessment</div>
-            <div className={classes.link}>Enterprises</div>
+            <div className={classes.link}>Masterclass</div>
+            <div className={classes.link}>AboutUs</div>
           </div>
           <div className={classes.nav}>
             <div className={classes.link}>Privacy Policy</div>
@@ -152,11 +209,50 @@ const FooterContact: FC = () => {
           </div>
         </div>
         <div className={classes.socialWrapper}>
-          <FaLinkedin className={classes.icon} />
-          <FaYoutube className={classes.icon} />
-          <FaFacebook className={classes.icon} />
-          <FaInstagram className={classes.icon} />
-          <FaTwitter className={classes.icon} />
+          <a
+            href="https://www.linkedin.com/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedin className={classes.icon} />
+          </a>
+
+          <a
+            href="https://www.youtube.com/yourchannel"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+          >
+            <FaYoutube className={classes.icon} />
+          </a>
+
+          <a
+            href="https://www.facebook.com/yourpage"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <FaFacebook className={classes.icon} />
+          </a>
+
+          <a
+            href="https://www.instagram.com/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <FaInstagram className={classes.icon} />
+          </a>
+
+          <a
+            href="https://twitter.com/yourhandle"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+          >
+            <FaTwitter className={classes.icon} />
+          </a>
         </div>
 
         <div className={classes.contact}>info@digiculum.com</div>

@@ -10,7 +10,7 @@ const useStyles = createUseStyles({
     padding: "0 80px",
 
     backgroundColor: "#1a1a1a",
-    fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+    // fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
     position: "relative",
     overflow: "hidden",
     "@media (max-width: 1024px)": {
@@ -22,6 +22,9 @@ const useStyles = createUseStyles({
     "@media (max-width: 768px)": {
       padding: "40px 20px",
       gap: "30px",
+    },
+    "@media (max-width: 500px)": {
+      minHeight: "70vh",
     },
   },
   textSection: {
@@ -44,15 +47,15 @@ const useStyles = createUseStyles({
     },
     "@media (max-width: 768px)": {
       fontSize: "36px",
-      marginBottom: "20px",
+      marginBottom: "40px",
     },
   },
   ecosystems: {
-    color: "#e879f9",
+    color: "#FF00FF",
     fontWeight: "600",
   },
   learningText: {
-    fontSize: "48px",
+    fontSize: "40px",
     fontWeight: "400",
     color: "#ffffff",
     lineHeight: "1.1",
@@ -60,7 +63,7 @@ const useStyles = createUseStyles({
       fontSize: "48px",
     },
     "@media (max-width: 768px)": {
-      fontSize: "36px",
+      fontSize: "32px",
     },
   },
   multiplier: {
@@ -94,6 +97,11 @@ const useStyles = createUseStyles({
       width: "350px",
       height: "186px",
       transform: "rotate(-5deg)",
+    },
+    "@media (max-width: 500px)": {
+      width: "350px",
+      height: "186px",
+      transform: "rotate(-20deg)",
     },
   },
   video: {

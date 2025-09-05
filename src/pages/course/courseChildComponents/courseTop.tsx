@@ -1,5 +1,5 @@
 import { createUseStyles } from "react-jss";
-import CourseImage3 from "../../../assets/Courses.jpg";
+
 const useStyles = createUseStyles({
   "@global": {
     "*, *::before, *::after": {
@@ -9,7 +9,7 @@ const useStyles = createUseStyles({
       margin: 0,
       padding: 0,
       overflowX: "hidden",
-      fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+      // fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
       backgroundColor: "#000",
     },
   },
@@ -25,7 +25,6 @@ const useStyles = createUseStyles({
     paddingRight: "1rem",
     minHeight: "100vh",
     color: "#fff",
-    backgroundImage: `url(${CourseImage3})`,
     overflowX: "hidden",
     maxWidth: "100vw",
   },
@@ -48,6 +47,9 @@ const useStyles = createUseStyles({
     fontWeight: 700,
     lineHeight: 1.1,
     textShadow: "2px 2px 8px rgba(0, 0, 0, 0.7)",
+    "@media (max-width: 600px)": {
+      fontSize: "33px",
+    },
   },
 
   homeHeader3: {
@@ -65,10 +67,10 @@ const useStyles = createUseStyles({
       paddingBottom: "50px",
     },
     homeHeaderLine: {
-      fontSize: "clamp(1.8rem, 8vw, 2.5rem)",
+      fontSize: "42px",
     },
     homeHeader3: {
-      fontSize: "clamp(1rem, 5vw, 1.2rem)",
+      fontSize: "clamp(1.2rem, 5vw, 1.2rem)",
     },
   },
 });
@@ -81,7 +83,7 @@ const CourseTopPage = () => {
     <div className={classes.container}>
       <div className={classes.homeHeader}>
         <h1 className={classes.homeHeaderLine}>
-          AI Reskilling for all the levels of enterprise hierarchy
+          AI Reskilling at all levels of<br></br> Enterprise Hierarchy
         </h1>
       </div>
       <h3 className={classes.homeHeader3}>

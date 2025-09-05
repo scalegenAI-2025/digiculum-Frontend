@@ -276,22 +276,20 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import ccd from "../../../assets/ccd.png";
-// Define styles with react-jss
+
 const useStyles = createUseStyles({
   container: {
-    width: "100%",
-    //overflowX: "hidden",
+    width: "100%", // full width
+    display: "flex",
+    justifyContent: "center",
   },
-  section: {
-    height: "100vh", // Full screen height
-    /// width: "80%", // Full screen width
-    // backgroundSize: "cover",
-    // backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
+  image: {
+    width: "100%", // scale image to fit container width
+    height: "auto", // maintain aspect ratio
+    display: "block", // remove inline spacing
   },
 });
 
-// Image list (replace URLs with your own)
 const images: string[] = [ccd];
 
 const AIReskillingJourney: React.FC = () => {
@@ -300,10 +298,11 @@ const AIReskillingJourney: React.FC = () => {
   return (
     <div className={classes.container}>
       {images.map((img, idx) => (
-        <div
+        <img
           key={idx}
-          className={classes.section}
-          style={{ backgroundImage: `url(${img})` }}
+          src={img}
+          alt={`AI Journey ${idx}`}
+          className={classes.image}
         />
       ))}
     </div>

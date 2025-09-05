@@ -1,6 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import logo from "../../../assets/reskilling_home.jpg"; // Adjust path based on your folder
+import logo from "../../../assets/reskilling_home.jpg"; // Adjust path
 
 const useStyles = createUseStyles({
   container: {
@@ -13,13 +13,23 @@ const useStyles = createUseStyles({
     display: "flex",
     maxWidth: 1200,
     width: "100%",
-    alignItems: "flex-start", // Align items to the top so we can push contentCard down
+    alignItems: "flex-start",
     position: "relative",
+    "@media (max-width: 768px)": {
+      flexDirection: "column",
+      alignItems: "center",
+    },
+    "@media (max-width: 500px)": {
+      padding: "20px 10px",
+    },
   },
   imageContainer: {
     flex: 1,
     borderRadius: 8,
     overflow: "hidden",
+    "@media (max-width: 768px)": {
+      width: "100%",
+    },
   },
   image: {
     width: "100%",
@@ -33,21 +43,40 @@ const useStyles = createUseStyles({
     padding: "40px",
     borderRadius: 8,
     boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-    marginLeft: "-190px", // Horizontal overlap over image
-    marginTop: "150px", // Vertical downward shift
+    marginLeft: "-190px", // overlap for large screens
+    marginTop: "150px",
     zIndex: 2,
     position: "relative",
-    minHeight: 340, // 👈 Added height for better spacing
+    minHeight: 340,
     paddingRight: "0px",
     paddingBottom: "0px",
-  },
 
+    "@media (max-width: 768px)": {
+      marginLeft: 0,
+      marginTop: 30,
+      width: "90%",
+      minHeight: "auto",
+    },
+    "@media (max-width: 500px)": {
+      padding: "20px",
+      width: "100%",
+      marginTop: -20,
+      minHeight: "auto",
+    },
+  },
   title: {
     fontSize: 44,
     fontWeight: 500,
     marginBottom: 20,
     "& span": {
-      color: "#6a0dad", // Purple
+      color: "#6a0dad",
+    },
+    "@media (max-width: 768px)": {
+      fontSize: 36,
+      textAlign: "center",
+    },
+    "@media (max-width: 500px)": {
+      fontSize: 28,
     },
   },
   paragraph: {
@@ -59,6 +88,13 @@ const useStyles = createUseStyles({
     },
     "& em": {
       fontStyle: "italic",
+    },
+    "@media (max-width: 768px)": {
+      fontSize: 18,
+      textAlign: "center",
+    },
+    "@media (max-width: 500px)": {
+      fontSize: 16,
     },
   },
   button: {
@@ -72,6 +108,14 @@ const useStyles = createUseStyles({
     transition: "background 0.3s ease",
     "&:hover": {
       backgroundColor: "#e8a223",
+    },
+    "@media (max-width: 768px)": {
+      display: "block",
+      margin: "0 auto",
+    },
+    "@media (max-width: 500px)": {
+      fontSize: 14,
+      padding: "10px 16px",
     },
   },
 });

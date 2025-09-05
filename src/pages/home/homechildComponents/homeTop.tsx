@@ -491,7 +491,7 @@ const useStyles = createUseStyles({
       flexDirection: "column",
     },
 
-    "@media (max-width: 400px)": {
+    "@media (max-width: 500px)": {
       flexDirection: "column",
       height: "auto",
     },
@@ -516,7 +516,7 @@ const useStyles = createUseStyles({
       height: "40vh",
     },
 
-    "@media (max-width: 400px)": {
+    "@media (max-width: 500px)": {
       height: "30vh",
     },
   },
@@ -551,7 +551,7 @@ const useStyles = createUseStyles({
       padding: "80px 1.5rem 2rem",
     },
 
-    "@media (max-width: 400px)": {
+    "@media (max-width: 500px)": {
       padding: "60px 1rem 1.5rem",
       marginRight: 0,
     },
@@ -565,7 +565,7 @@ const useStyles = createUseStyles({
       maxWidth: "100%",
     },
 
-    "@media (max-width: 400px)": {
+    "@media (max-width: 500px)": {
       maxWidth: "100%",
     },
   },
@@ -604,7 +604,7 @@ const useStyles = createUseStyles({
     opacity: 0.8,
     maxWidth: "600px",
 
-    "@media (max-width: 400px)": {
+    "@media (max-width: 500px)": {
       fontSize: "24px",
     },
   },
@@ -627,7 +627,7 @@ const useStyles = createUseStyles({
       boxShadow: "0 10px 30px rgba(255, 110, 199, 0.3)",
     },
 
-    "@media (max-width: 400px)": {
+    "@media (max-width: 500px)": {
       padding: "0.8rem 1.5rem",
       fontSize: "1rem",
     },

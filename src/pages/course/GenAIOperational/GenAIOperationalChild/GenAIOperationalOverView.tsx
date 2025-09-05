@@ -1,11 +1,11 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import Framework from "../../../../assets/rocketFrame.png";
+import Framework from "../../../../assets/color-readiness rocket.png";
 
 const useStyles = createUseStyles({
   container: {
     padding: "2rem",
-    fontFamily: "Arial, sans-serif",
+    //fontFamily: "Arial, sans-serif",
     backgroundColor: "#fff",
     color: "#000",
     maxWidth: "1000px",
@@ -15,15 +15,18 @@ const useStyles = createUseStyles({
     fontSize: "40px",
     fontWeight: "bold",
     margin: "0px",
-    fontFamily: "Arial, sans-serif",
-    paddingLeft: "2rem",
+    display: "flex",
+    justifyContent: "center",
+    // fontFamily: "Arial, sans-serif",
+    // paddingLeft: "2rem",
     paddingTop: "1rem",
+    marginTop: "60px",
   },
   sectionTitle: {
     fontSize: "1.5rem",
     fontWeight: "bold",
     margin: "2rem 0 1rem",
-    color: "#002c3e",
+    color: "#000",
   },
   list: {
     paddingLeft: "1.5rem",
@@ -33,7 +36,8 @@ const useStyles = createUseStyles({
     fontWeight: "bold",
   },
   purpleText: {
-    color: "#8000ff",
+    color: "#000",
+    fontWeight: "bold",
   },
   image: {
     // width: "100%",
@@ -41,14 +45,53 @@ const useStyles = createUseStyles({
     height: "600px",
     borderRadius: "6px",
     //objectFit: "contain",
+    "@media (max-width: 500px)": {
+      height: "500px",
+    },
+  },
+  button: {
+    backgroundColor: "#1e3a5f",
+    color: "white",
+    border: "none",
+    //  margin: "20px",
+    borderRadius: "8px",
+    padding: "16px 32px",
+    fontSize: "1.1rem",
+    fontWeight: "500",
+    cursor: "pointer",
+    transition: "all 0.3s ease",
+    margin: "-30px auto" /* auto margins center block elements horizontally */,
+    display: "block",
+    boxShadow: "0 6px 12px rgba(92, 94, 95, 0.6)",
+    gap: "10px",
+    textDecoration: "none",
+    "&:hover": {
+      backgroundColor: "#2c4a6b",
+      transform: "translateY(-2px)",
+      boxShadow: "0 4px 12px rgba(30, 58, 95, 0.3)",
+    },
+    "&:active": {
+      transform: "translateY(0)",
+    },
+    "@media (max-width: 768px)": {
+      padding: "14px 28px",
+      fontSize: "1rem",
+    },
   },
 });
 
 const GenAIOperationalOverView: React.FC = () => {
   const classes = useStyles();
-
+  const handleClick = () => {
+    const mailtoLink =
+      "mailto:info@scalinggenai.com?subject=Scaling GenAI consultation request&body=Hello,%0D%0A%0D%0AI would like to know more about Scaling GenAI.%0D%0A%0D%0AName:%0D%0ACompany:%0D%0AEmail:%0D%0APhone:%0D%0A%0D%0ARegards,%0D%0Aname";
+    window.location.href = mailtoLink;
+  };
   return (
     <>
+      <button className={classes.button} onClick={handleClick}>
+        Book a Consultation →
+      </button>
       <h2 className={classes.sectionTitleTop}>Course</h2>
       <div className={classes.container}>
         {/* PROBLEM */}
@@ -60,15 +103,15 @@ const GenAIOperationalOverView: React.FC = () => {
           </li>
           <li>
             As per a study by BCG, only 10% of them have scaled genAI, whereas
-            90% of them are still lagging.
+            90% of them are still lagging
           </li>
           <li>
-            This has caused a huge gap between scaling and lagging companies.
+            This has caused a huge gap between scaling and lagging companies
           </li>
           <li>
             One of the key reasons for this huge gap is a lack of operational
             readiness, i.e most of the enterprises are not operationally ready
-            to scale genAI.
+            to scale genAI
           </li>
         </ul>
 
@@ -77,11 +120,11 @@ const GenAIOperationalOverView: React.FC = () => {
         <ul className={classes.list}>
           <li>
             Enterprises should implement the Operational Readiness, a.k.a
-            Readiness Rocket Framework.
-            <span className={classes.bold}>
-              It comprises the 4 readiness areas: Customers, Technology, Data,
-              People; boosters, launchpad, strategy and a maturity assessment.
-            </span>
+            Readiness Rocket Framework
+          </li>
+          <li>
+            It comprises the 4 readiness areas, boosters, launchpad, strategy,
+            and maturity assessment
           </li>
           <li>
             A convertible pilot or a genAI solution or MVP should be developed
@@ -104,7 +147,8 @@ const GenAIOperationalOverView: React.FC = () => {
           <li>Duration: 12 hours spanning over 2 days</li>
           <li>
             <span className={classes.purpleText}>Target Audience:</span> All
-            Leaders/Managers at levels L1, L2, L3 and L4
+            Leaders/Managers at levels L1,L2,L3 and L4, strategists,
+            transformation drivers, change agents, program/project managers
           </li>
         </ul>
 

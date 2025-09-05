@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { createUseStyles } from "react-jss";
 import skillVideo from "../../../assets/reskill.mp4";
+
 interface AIReskillVideoProps {
   videoSrc?: string;
 }
@@ -23,7 +24,6 @@ const useStyles = createUseStyles({
 
   mainContent: {
     position: "relative",
-    // width: "80%",
     maxWidth: "1200px",
     height: "80%",
     display: "flex",
@@ -152,16 +152,11 @@ const useStyles = createUseStyles({
     "100%": { transform: "translate(-50px, -50px)" },
   },
 
-  "@keyframes pulse": {
-    "0%, 100%": { opacity: 0.7 },
-    "50%": { opacity: 1 },
-  },
-
-  // Responsive design
   "@media (max-width: 768px)": {
     mainContent: {
       flexDirection: "column",
       textAlign: "center",
+      marginTop: "150px",
     },
     videoSection: {
       width: "300px",
@@ -181,10 +176,43 @@ const useStyles = createUseStyles({
       fontSize: "2rem",
     },
   },
+
+  // extra rules for very small phones
+  "@media (max-width: 500px)": {
+    container: {
+      height: "auto",
+      padding: "20px 0",
+    },
+    mainContent: {
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    videoSection: {
+      width: "220px",
+      height: "160px",
+      marginBottom: "20px",
+    },
+    mainText: {
+      fontSize: "1.8rem",
+      marginBottom: "15px",
+    },
+    reskillText: {
+      fontSize: "1.6rem",
+    },
+    nowText: {
+      fontSize: "1.2rem",
+    },
+    textSection: {
+      maxWidth: "90%",
+      marginLeft: 0,
+      textAlign: "center",
+    },
+  },
 });
 
 const AIReskillVideo: React.FC<AIReskillVideoProps> = ({
-  videoSrc = `{ ${skillVideo} }`,
+  videoSrc = skillVideo,
 }) => {
   const classes = useStyles();
   const videoRef = useRef<HTMLVideoElement>(null);
