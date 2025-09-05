@@ -1,12 +1,72 @@
+// import React, { useState } from "react";
+// import { createUseStyles } from "react-jss";
+// import { FaPlus, FaMinus } from "react-icons/fa";
+
+// const useStyles = createUseStyles({
+//   outer: {
+//     background: "#f0f0f0", // light grey outer background
+//     minHeight: "100vh",
+//     padding: "2rem",
+//   },
+//   container: {
+//     width: "100%",
+//     maxWidth: "1000px",
+//     margin: "0 auto",
+//     background: "#ffffff",
+//     borderRadius: 10,
+//     boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+//     overflow: "hidden",
+//     padding: "2rem",
+//     minHeight: "80vh", // 👈 makes it taller (80% of viewport height)
+//   },
+
+//   title: {
+//     fontSize: "2rem",
+//     textAlign: "center",
+//     padding: "1.5rem",
+//     backgroundColor: "#ffffff",
+//     // borderBottom: "2px solid rgba(106, 13, 173, 0.2)",
+//   },
+//   faqItem: {
+//     background: "#ffffff",
+//     borderBottom: "1px solid #eee",
+//   },
+//   question: {
+//     display: "flex",
+//     justifyContent: "space-between",
+//     alignItems: "center",
+//     padding: "1.5rem 1.5rem",
+//     cursor: "pointer",
+//     fontSize: "1rem",
+//     fontWeight: "normal",
+//     borderBottom: "2px solid rgba(106, 13, 173, 0.2)",
+//     backgroundColor: "#ffffff",
+//   },
+//   answer: {
+//     padding: "1rem 1.5rem",
+//     fontSize: "0.95rem",
+//     lineHeight: 1.5,
+//     color: "purple",
+//     //  backgroundColor: "#f9f9f9", // subtle contrast inside white box
+//   },
+// });
+
+// type FAQItem = {
+//   question: string;
+//   answer: string;
+// };
 import React, { useState } from "react";
 import { createUseStyles } from "react-jss";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
 const useStyles = createUseStyles({
   outer: {
-    background: "#f0f0f0", // light grey outer background
+    background: "#f0f0f0",
     minHeight: "100vh",
     padding: "2rem",
+    "@media (max-width: 500px)": {
+      padding: "1rem",
+    },
   },
   container: {
     width: "100%",
@@ -17,15 +77,21 @@ const useStyles = createUseStyles({
     boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
     overflow: "hidden",
     padding: "2rem",
-    minHeight: "80vh", // 👈 makes it taller (80% of viewport height)
+    minHeight: "80vh",
+    "@media (max-width: 500px)": {
+      padding: "1rem",
+      minHeight: "auto", // let height shrink naturally on mobile
+    },
   },
-
   title: {
     fontSize: "2rem",
     textAlign: "center",
     padding: "1.5rem",
     backgroundColor: "#ffffff",
-    // borderBottom: "2px solid rgba(106, 13, 173, 0.2)",
+    "@media (max-width: 500px)": {
+      fontSize: "1.4rem",
+      padding: "1rem",
+    },
   },
   faqItem: {
     background: "#ffffff",
@@ -41,13 +107,20 @@ const useStyles = createUseStyles({
     fontWeight: "normal",
     borderBottom: "2px solid rgba(106, 13, 173, 0.2)",
     backgroundColor: "#ffffff",
+    "@media (max-width: 500px)": {
+      padding: "1rem",
+      fontSize: "0.75rem",
+    },
   },
   answer: {
     padding: "1rem 1.5rem",
     fontSize: "0.95rem",
     lineHeight: 1.5,
     color: "purple",
-    //  backgroundColor: "#f9f9f9", // subtle contrast inside white box
+    "@media (max-width: 500px)": {
+      padding: "0.75rem 1rem",
+      fontSize: "0.9rem",
+    },
   },
 });
 
@@ -55,7 +128,6 @@ type FAQItem = {
   question: string;
   answer: string;
 };
-
 const faqData: FAQItem[] = [
   {
     question: "What is the difference between upskilling and reskilling?",
@@ -95,6 +167,39 @@ const faqData: FAQItem[] = [
   },
 ];
 
+// const FAQ: React.FC = () => {
+//   const classes = useStyles();
+//   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+//   const toggleAnswer = (index: number) => {
+//     setOpenIndex(openIndex === index ? null : index);
+//   };
+
+//   return (
+//     <div className={classes.outer}>
+//       <div className={classes.container}>
+//         <h1 className={classes.title}>Frequently asked questions</h1>
+//         {faqData.map((item, index) => (
+//           <div key={index} className={classes.faqItem}>
+//             <div
+//               className={classes.question}
+//               onClick={() => toggleAnswer(index)}
+//             >
+//               <span>{item.question}</span>
+//               {openIndex === index ? <FaMinus /> : <FaPlus />}
+//             </div>
+//             {openIndex === index && (
+//               <div className={classes.answer}>{item.answer}</div>
+//             )}
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default FAQ;
+
 const FAQ: React.FC = () => {
   const classes = useStyles();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -106,7 +211,7 @@ const FAQ: React.FC = () => {
   return (
     <div className={classes.outer}>
       <div className={classes.container}>
-        <h1 className={classes.title}>Frequently asked questions</h1>
+        <h1 className={classes.title}>Frequently Asked Questions</h1>
         {faqData.map((item, index) => (
           <div key={index} className={classes.faqItem}>
             <div
