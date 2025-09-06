@@ -56,13 +56,14 @@ const useStyles = createUseStyles({
   },
   bottomSection: {
     padding: "80px 20px",
+    paddingBottom: "50px",
 
     "@media (max-width: 500px)": {
       padding: "40px 16px",
     },
   },
   smallText: {
-    fontSize: 16,
+    fontSize: 18,
     color: "#555",
     marginBottom: 12,
 
@@ -72,7 +73,7 @@ const useStyles = createUseStyles({
     },
   },
   largeText: {
-    fontSize: 42,
+    fontSize: 36,
     fontWeight: 500,
     marginBottom: 24,
 

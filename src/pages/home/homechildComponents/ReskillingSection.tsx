@@ -32,7 +32,7 @@ const useStyles = createUseStyles({
     },
   },
   image: {
-    width: "100%",
+    width: "90%",
     height: "100%",
     objectFit: "cover",
     display: "block",
@@ -43,7 +43,7 @@ const useStyles = createUseStyles({
     padding: "40px",
     borderRadius: 8,
     boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-    marginLeft: "-190px", // overlap for large screens
+    marginLeft: "-170px", // overlap for large screens
     marginTop: "150px",
     zIndex: 2,
     position: "relative",

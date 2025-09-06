@@ -165,7 +165,7 @@ const GenAILeadershipCard2: React.FC = () => {
           Are you still unsure about your AI/GenAI path?
         </div>
         <div className={classes.subtext}>
-          Start your <span>Career Assessment </span>now
+          Start your <span>AI Reskilling Assessment </span>now
           {/* Cultivate the four essential <span>Competencies</span> */}
         </div>
         <button className={classes.button}>Find more</button>

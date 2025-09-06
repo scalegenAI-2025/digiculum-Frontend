@@ -4,6 +4,7 @@ import FooterContact from "./homechildComponents/FooterContact";
 import GenAILeadershipCard from "./homechildComponents/GenAILeadershipCard";
 import GenAILeadershipCard2 from "./homechildComponents/GenAILeadershipCard2";
 import GenAIMasterclassHero from "./homechildComponents/GenAIMasterclassHero";
+import ReskillingDownload from "./homechildComponents/ReskillingDownload";
 import ReskillingProgram from "./homechildComponents/ReskillingProgram";
 import ReskillingSectionComponent from "./homechildComponents/ReskillingSection";
 //import ThoughtLeadership from "./homechildComponents/ThoughtLeadership";
@@ -29,6 +30,7 @@ function Home() {
         <GenAILeadershipCard2 />
         {/* <ThoughtLeadership /> */}
         {/* <FAQ /> */}
+        <ReskillingDownload />
         <FooterContact />
       </div>
     </>

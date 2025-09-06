@@ -2,9 +2,9 @@ import { createUseStyles } from "react-jss";
 import {
   FaLinkedin,
   FaYoutube,
-  FaFacebook,
+  //FaFacebook,
   FaInstagram,
-  FaTwitter,
+  //  FaTwitter,
 } from "react-icons/fa";
 import type { FC } from "react";
 
@@ -31,7 +31,7 @@ const useStyles = createUseStyles({
   },
   link: {
     color: "white",
-    textDecoration: "underline",
+    // textDecoration: "underline",
     cursor: "pointer",
     fontSize: "1rem",
   },
@@ -82,6 +82,7 @@ const useStyles = createUseStyles({
   },
   input: {
     flex: 1,
+    width: "90%",
     border: "none",
     borderBottom: "2px solid black",
     padding: "0.5rem 0",
@@ -198,8 +199,8 @@ const FooterContact: FC = () => {
           <div className={classes.nav}>
             <div className={classes.link}>Reskilling</div>
             <div className={classes.link}>Ecosystem</div>
-            <div className={classes.link}>Masterclass</div>
-            <div className={classes.link}>AboutUs</div>
+            <div className={classes.link}>Courses</div>
+            <div className={classes.link}>About</div>
           </div>
           <div className={classes.nav}>
             <div className={classes.link}>Privacy Policy</div>
@@ -210,7 +211,7 @@ const FooterContact: FC = () => {
         </div>
         <div className={classes.socialWrapper}>
           <a
-            href="https://www.linkedin.com/yourprofile"
+            href="https://www.linkedin.com/in/amit-prabhu26"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -219,7 +220,7 @@ const FooterContact: FC = () => {
           </a>
 
           <a
-            href="https://www.youtube.com/yourchannel"
+            href="https://www.youtube.com/@theaiprabhu"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="YouTube"
@@ -227,17 +228,17 @@ const FooterContact: FC = () => {
             <FaYoutube className={classes.icon} />
           </a>
 
-          <a
+          {/* <a
             href="https://www.facebook.com/yourpage"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
           >
             <FaFacebook className={classes.icon} />
-          </a>
+          </a> */}
 
           <a
-            href="https://www.instagram.com/yourprofile"
+            href="https://www.instagram.com/theaiprabhu"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
@@ -245,14 +246,14 @@ const FooterContact: FC = () => {
             <FaInstagram className={classes.icon} />
           </a>
 
-          <a
+          {/* <a
             href="https://twitter.com/yourhandle"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Twitter"
           >
             <FaTwitter className={classes.icon} />
-          </a>
+          </a> */}
         </div>
 
         <div className={classes.contact}>info@digiculum.com</div>

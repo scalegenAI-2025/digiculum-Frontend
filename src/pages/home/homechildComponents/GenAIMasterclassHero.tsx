@@ -116,7 +116,7 @@ const GenAIMasterclassHero: React.FC = () => {
       position: "relative" as const,
     },
     title: {
-      fontSize: isMobile ? "26px" : "44px",
+      fontSize: isMobile ? "26px" : "40px",
       fontWeight: 500,
       color: "#1a1a1a",
       lineHeight: "1.2",

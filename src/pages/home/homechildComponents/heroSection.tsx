@@ -94,13 +94,12 @@ const HeroSection: React.FC<HeroSectionProps> = () => {
         <div className={classes.rightSection}>
           <p className={classes.para1}>
             that <span className={classes.highlight}>AI</span> holds the
-            potential to elevate humanity to unprecedented heights.
+            potential to elevate humanity to unprecedented heights. With a
+            profound commitment to benefiting humanity, Digiculum was founded.
           </p>
-          <p className={classes.para}>
-            With a profound commitment to benefiting humanity, Digiculum was
-            <br />
-            founded.
-          </p>
+          <p className={classes.para}></p>
+
+          {/* </p> */}
           <div className={classes.divider}></div>
         </div>
       </div>

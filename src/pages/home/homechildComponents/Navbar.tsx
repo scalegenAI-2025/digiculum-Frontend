@@ -209,7 +209,7 @@ const Navbar: React.FC = () => {
     { id: "Reskilling", label: "Reskilling", href: "/Reskilling" },
     { id: "ecosystem", label: "Ecosystem", href: "/ecosystem" },
 
-    { id: "Masterclass", label: "Masterclass", href: "/masterclass" },
+    { id: "Courses", label: "Courses", href: "/masterclass" },
 
     { id: "about-us", label: "About", href: "/about-us" },
   ];

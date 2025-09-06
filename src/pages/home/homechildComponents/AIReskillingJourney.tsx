@@ -279,14 +279,19 @@ import ccd from "../../../assets/ccd.png";
 
 const useStyles = createUseStyles({
   container: {
-    width: "100%", // full width
+    width: "90%", // full width
     display: "flex",
     justifyContent: "center",
+    marginBottom: "100px",
   },
   image: {
     width: "100%", // scale image to fit container width
     height: "auto", // maintain aspect ratio
     display: "block", // remove inline spacing
+    marginLeft: "200px",
+    "@media (max-width: 1000px)": {
+      marginLeft: "0px",
+    },
   },
 });
 
