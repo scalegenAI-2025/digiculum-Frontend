@@ -55,6 +55,13 @@ const useStyles = createUseStyles({
     height: "100%",
     objectFit: "cover",
   },
+  startText: {
+    fontSize: "1.8rem",
+    lineHeight: "1.2",
+    "@media (max-width: 500px)": {
+      fontSize: "1.4rem",
+    },
+  },
 
   glowEffect: {
     position: "absolute",
@@ -78,7 +85,7 @@ const useStyles = createUseStyles({
   mainText: {
     fontSize: "3.5rem",
     fontWeight: "bold",
-    marginBottom: "30px",
+    // marginBottom: "30px",
     lineHeight: "1.2",
     fontFamily: "Arial, sans-serif",
     "& .ai": {
@@ -143,9 +150,11 @@ const useStyles = createUseStyles({
     },
     mainText: {
       fontSize: "1.8rem",
-      marginBottom: "15px",
+      // marginBottom: "15px",
       marginTop: "50px",
+      paddingBottom: "30px",
     },
+
     reskillText: {
       fontSize: "1.6rem",
     },
@@ -192,8 +201,10 @@ const AIReskillVideoAbout: React.FC<AIReskillVideoProps> = ({
 
           <div className={classes.textSection}>
             <div className={classes.mainText}>
-              Personalized Continuous <span className="ai"> AI</span> Reskilling
-              Journey
+              <span className={classes.startText}> Start your </span>
+              <br></br>Personalized Continuous <span className="ai"> AI</span>{" "}
+              Reskilling Journey <br></br>
+              <span className={classes.startText}> with </span> Digiculum
             </div>
           </div>
         </div>
