@@ -5,7 +5,7 @@ import C4 from "../../../assets/C4.png";
 import C5 from "../../../assets/C5.png";
 import C6 from "../../../assets/C6.png";
 import C7 from "../../../assets/C7.png";
-import C8 from "../../../assets/C8.png";
+import C8 from "../../../assets/c8.png";
 import C9 from "../../../assets/C9.png";
 import C10 from "../../../assets/C10.png";
 import C11 from "../../../assets/C11.png";
