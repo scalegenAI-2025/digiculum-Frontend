@@ -83,11 +83,11 @@ const CourseTopPage = () => {
     <div className={classes.container}>
       <div className={classes.homeHeader}>
         <h1 className={classes.homeHeaderLine}>
-          AI Reskilling at all levels of<br></br> Enterprise Hierarchy
+          AI Reskilling for all types of Individuals
         </h1>
       </div>
       <h3 className={classes.homeHeader3}>
-        Early career, Mid-management, and Executives
+        Experts, techies, or absolute beginners
       </h3>
     </div>
     // </div>
