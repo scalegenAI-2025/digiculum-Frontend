@@ -90,7 +90,10 @@ const useStyles = createUseStyles({
     marginBottom: "60px",
     textAlign: "center",
     "& span": {
-      color: "#c084fc",
+      color: "#E547ED",
+      "@media (max-width: 600px)": {
+        paddingRight: "30px",
+      },
     },
     maxWidth: "1400px",
   },
@@ -128,7 +131,7 @@ const useStyles = createUseStyles({
   cardNumber: {
     fontSize: "24px",
     fontWeight: "700",
-    color: "#c084fc",
+    color: "#E547ED",
     marginBottom: "12px",
   },
   cardTitle: {

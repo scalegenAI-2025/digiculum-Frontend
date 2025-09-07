@@ -465,8 +465,19 @@ export default function CourseCards() {
   const classes = useStyles();
   const navigate = useNavigate();
 
+  const courseRoutes = [
+    "/courses/Essential-Competencies-of-AI/GenAI-Leader",
+    "/courses/Generative-AI-Technical-Masterclass",
+    "/courses/AI/GenAI-Transformation-Strategy",
+    "/courses/Cultivating-AI/GenAI-Mindset",
+    "/courses/AI/GenAI-Operational-Readiness",
+  ];
   const handleExploreClick = (index: number) => {
-    navigate(`masterclass${index + 1}`);
+    if (index >= 0 && index < courseRoutes.length) {
+      navigate(courseRoutes[index]);
+    } else {
+      console.error("No course route for index", index);
+    }
   };
 
   return (

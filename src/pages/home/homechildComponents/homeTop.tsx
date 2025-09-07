@@ -537,14 +537,13 @@ const useStyles = createUseStyles({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "flex-start",
+    alignItems: "flex-start", // <— default desktop
     paddingTop: "80px",
     color: "#ffffff",
-    backgroundColor: "#000",
     zIndex: 4,
     position: "relative",
-    paddingLeft: "3rem",
-    marginRight: "-5rem",
+    paddingLeft: "7rem",
+    marginRight: "-10rem",
 
     "@media (max-width: 768px)": {
       marginRight: 0,
@@ -554,6 +553,9 @@ const useStyles = createUseStyles({
     "@media (max-width: 500px)": {
       padding: "60px 1rem 1.5rem",
       marginRight: 0,
+      justifyContent: "center",
+      alignItems: "center", // <-- center horizontally
+      textAlign: "center", // <-- make text centered
     },
   },
 
@@ -616,6 +618,7 @@ const useStyles = createUseStyles({
     fontWeight: 600,
     color: "#ffffff",
     border: "none",
+    marginLeft: "130px", // desktop offset
     borderRadius: "8px",
     cursor: "pointer",
     transition: "all 0.3s ease",
@@ -624,12 +627,15 @@ const useStyles = createUseStyles({
 
     "&:hover": {
       transform: "translateY(-2px)",
-      boxShadow: "0 10px 30px rgba(255, 110, 199, 0.3)",
+      boxShadow: "0 8px 30px #FFC65C",
+      color: "white",
     },
 
     "@media (max-width: 500px)": {
       padding: "0.8rem 1.5rem",
       fontSize: "1rem",
+      marginLeft: 0, // <-- reset so it's centered
+      alignSelf: "center", // <-- center the button
     },
   },
 });

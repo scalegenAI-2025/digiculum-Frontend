@@ -10,67 +10,67 @@ interface Track {
 
 const tracks: Track[] = [
   {
-    id: 1,
+    id: 0,
     title: "Foundational Track",
     description:
       "For professionals/non-prof essionals from non-IT and non-technical aspiring to develop AI knowledge from scratch.",
   },
   {
-    id: 2,
+    id: 1,
     title: "Technical Track",
     description:
       "For individuals with a technical background, desiring to delve deeper into the workings of generative AI.",
   },
   {
-    id: 3,
+    id: 2,
     title: "Leadership Track",
     description:
       "For leaders at all levels (L1 to L4) empowered to decide, invest, influence, and act.",
   },
   {
-    id: 4,
+    id: 3,
     title: "Compliance Track",
     description:
       "For legal, compliance, and risk management professionals focusing on the three pillars of Responsible AI framework: legal, ethics, and governance.",
   },
   {
-    id: 5,
+    id: 4,
     title: "Agents Track",
     description:
       "For the SaaS 2.0 futurists determined to take generative AI to the next level through development and deployment of autonomous AI agents and their intelligent workflows.",
   },
   {
-    id: 6,
+    id: 5,
     title: "Data",
     description:
       "For data enthusiasts eager to the master annotation, fine-tuning, and inference evaluation.",
   },
   {
-    id: 7,
+    id: 6,
     title: "Developers",
     description:
       "For python missionaries set to build AI for the future leveraging APIs, SDKs, frameworks, and open-source communities",
   },
   {
-    id: 8,
+    id: 7,
     title: "Creative",
     description:
       "For artists and designers ready to explore, experiment, and reinvent their craft by harnessing the power of AI.",
   },
   {
-    id: 9,
+    id: 8,
     title: "Transformation",
     description:
       "For project and program managers, strategists, and change leaders driving enterprise-wide adoption and integration of AI/GenAI solutions.",
   },
   {
-    id: 10,
+    id: 9,
     title: "Security",
     description:
       "For cybersecurity professionals dedicated to ensuring AI systems remain safe, resilient, and continuously monitored against evolving threats.",
   },
   {
-    id: 11,
+    id: 10,
     title: "Infrastructure",
     description:
       "For individuals hands-on with GPUs, chips, datacenters, and cables, building the compute, connectivity, and cloud for your AI",

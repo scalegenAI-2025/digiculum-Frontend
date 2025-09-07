@@ -49,7 +49,7 @@ const useStyles = createUseStyles({
 
   homeHeaderLine: {
     margin: 0,
-    fontSize: "clamp(2.2rem, 6vw, 5rem)",
+    // fontSize: "clamp(2.2rem, 6vw, 5rem)",
     fontWeight: 700,
     lineHeight: 1.1,
     textShadow: "2px 2px 8px rgba(0, 0, 0, 0.7)",
@@ -58,7 +58,7 @@ const useStyles = createUseStyles({
   homeHeader3: {
     marginTop: "1.5rem",
     fontWeight: 400,
-    fontSize: "clamp(1.2rem, 4vw, 2rem)",
+    // fontSize: "clamp(1.2rem, 4vw, 2rem)",
     color: "#ffffff",
     maxWidth: "90%",
     textShadow: "2px 2px 6px rgba(0, 0, 0, 0.7)",
@@ -70,8 +70,9 @@ const useStyles = createUseStyles({
       paddingBottom: "50px",
     },
     homeHeaderLine: {
-      fontSize: "clamp(1.8rem, 8vw, 2.5rem)",
+      fontSize: "clamp(1.8rem, 5vw, 2rem)", // max font size reduced from 2.5rem to 2rem
     },
+
     homeHeader3: {
       fontSize: "clamp(1rem, 5vw, 1.2rem)",
     },
@@ -86,8 +87,8 @@ const EcosystemTop = () => {
     <div className={classes.container}>
       <div className={classes.homeHeader}>
         <h1 className={classes.homeHeaderLine}>
-          How fast a firm scales GenAI largely depends on it’s ability to work
-          in Ecosystems
+          How fast an individual reskills largely depends on his/her ability to
+          work in Ecosystems
         </h1>
       </div>
       <h3 className={classes.homeHeader3}>

@@ -107,7 +107,7 @@ const useStyles = createUseStyles({
     lineHeight: "1.2",
     fontFamily: "Arial, sans-serif",
     "& .ai": {
-      color: "#ff1493",
+      color: "#E547ED",
     },
   },
 
@@ -196,6 +196,7 @@ const useStyles = createUseStyles({
     mainText: {
       fontSize: "1.8rem",
       marginBottom: "15px",
+      marginTop: "50px",
     },
     reskillText: {
       fontSize: "1.6rem",
@@ -251,9 +252,11 @@ const AIReskillVideo: React.FC<AIReskillVideoProps> = ({
               jobs?
             </div>
 
-            <div className={classes.reskillText}>RESKILL</div>
+            <div className={classes.reskillText}>
+              RESKILL <span className={classes.nowText}>now...</span>
+            </div>
 
-            <div className={classes.nowText}>now...</div>
+            {/* <div className={classes.nowText}>now...</div> */}
           </div>
         </div>
       </div>

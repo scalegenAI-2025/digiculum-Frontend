@@ -55,8 +55,8 @@ const useStyles = createUseStyles({
     color: "#555",
   },
   button: {
-    backgroundColor: "#1e3a5f",
-    color: "white",
+    backgroundColor: "#f9b233",
+    color: "black",
     border: "none",
     borderRadius: "8px",
     padding: "16px 32px",
@@ -104,7 +104,7 @@ const AIReskilling = () => {
           consultation. */}
         </p>
         <button className={classes.button} onClick={handleClick}>
-          Explore →
+          Reskilling Assessment →
         </button>
       </div>
     </div>

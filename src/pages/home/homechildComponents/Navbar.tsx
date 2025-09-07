@@ -17,7 +17,7 @@ const useStyles = createUseStyles({
     alignItems: "center",
     justifyContent: "space-between",
     padding: "1rem 3rem",
-    backgroundColor: "rgba(26, 26, 26, 0.9)",
+    backgroundColor: "black",
     backdropFilter: "blur(10px)",
     borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
     position: "fixed",
@@ -110,12 +110,12 @@ const useStyles = createUseStyles({
       transform: "translateX(-50%)",
       width: "0",
       height: "2px",
-      backgroundColor: "#ff6ec7",
+      backgroundColor: "#E547ED",
       transition: "width 0.3s ease",
     },
 
     "&:hover": {
-      color: "#ff6ec7",
+      color: "#E547ED",
       "&:before": {
         width: "100%",
       },
@@ -123,13 +123,13 @@ const useStyles = createUseStyles({
   },
 
   lockIcon: {
-    fontSize: "1.2rem",
+    fontSize: "2rem",
     color: "#ffffff",
     cursor: "pointer",
     paddingLeft: "1rem",
 
     "&:hover": {
-      color: "#ff6ec7",
+      color: "#E547ED",
     },
   },
 
@@ -209,7 +209,7 @@ const Navbar: React.FC = () => {
     { id: "Reskilling", label: "Reskilling", href: "/Reskilling" },
     { id: "ecosystem", label: "Ecosystem", href: "/ecosystem" },
 
-    { id: "Courses", label: "Courses", href: "/masterclass" },
+    { id: "Courses", label: "Courses", href: "/courses" },
 
     { id: "about-us", label: "About", href: "/about-us" },
   ];
@@ -258,7 +258,7 @@ const Navbar: React.FC = () => {
 
         <div className={classes.lockIcon}>
           <Link to="/register">
-            <FaLock />
+            <FaLock className={classes.lockIcon} />
           </Link>
         </div>
       </div>

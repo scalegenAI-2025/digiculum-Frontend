@@ -283,6 +283,9 @@ const useStyles = createUseStyles({
     display: "flex",
     justifyContent: "center",
     marginBottom: "100px",
+    "@media (max-width: 500px)": {
+      marginBottom: "50px",
+    },
   },
   image: {
     width: "100%", // scale image to fit container width
@@ -291,6 +294,9 @@ const useStyles = createUseStyles({
     marginLeft: "200px",
     "@media (max-width: 1000px)": {
       marginLeft: "0px",
+    },
+    "@media (max-width: 500px)": {
+      marginLeft: "70px",
     },
   },
 });

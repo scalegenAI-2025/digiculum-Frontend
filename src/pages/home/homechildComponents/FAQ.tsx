@@ -66,6 +66,8 @@ const useStyles = createUseStyles({
     padding: "2rem",
     "@media (max-width: 500px)": {
       padding: "1rem",
+
+      minHeight: "70vh",
     },
   },
   container: {
@@ -81,6 +83,7 @@ const useStyles = createUseStyles({
     "@media (max-width: 500px)": {
       padding: "1rem",
       minHeight: "auto", // let height shrink naturally on mobile
+      marginTop: "40PX",
     },
   },
   title: {
@@ -116,7 +119,7 @@ const useStyles = createUseStyles({
     padding: "1rem 1.5rem",
     fontSize: "0.95rem",
     lineHeight: 1.5,
-    color: "purple",
+    color: "#585858ff",
     "@media (max-width: 500px)": {
       padding: "0.75rem 1rem",
       fontSize: "0.9rem",

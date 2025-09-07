@@ -1,15 +1,15 @@
-import AssetBckground from "../../assets//assetsBackground.jpg";
 import { createUseStyles } from "react-jss";
 import Navbar from "../../pages/home/homechildComponents/Navbar";
 
 import FooterContact from "../../pages/home/homechildComponents/FooterContact";
-import EcosystemTop from "./ecosystemChildComponents/ecosystemTop";
+//import EcosystemTop from "./ecosystemChildComponents/ecosystemTop";
 
 import HowItWorks from "./ecosystemChildComponents/HowItWorks";
 import EcosystemHero from "./ecosystemChildComponents/EcosystemHero";
 import CollaborationHero from "./ecosystemChildComponents/CollabirationnHero";
 import AIEcosystems from "./ecosystemChildComponents/AIEcosystems";
 import Benefits from "./ecosystemChildComponents/Benefits";
+import EcosystemVideoSection from "./ecosystemChildComponents/ecosystemVideo";
 
 // JSS styles
 const useStyles = createUseStyles({
@@ -26,7 +26,7 @@ const useStyles = createUseStyles({
     margin: 0,
     //overflow: "hidden",
     "@media (max-width: 500px)": {
-      height: "80vh",
+      height: "90vh",
     },
   },
   // backgroundOverlay: {
@@ -44,10 +44,6 @@ const useStyles = createUseStyles({
   // },
 
   backgroundOverlay: {
-    backgroundImage: `
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0)), 
-    url(${AssetBckground})
-  `,
     backgroundSize: "contain, cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "top center, center center",
@@ -76,7 +72,8 @@ function Ecosystem() {
         <div className={classes.backgroundOverlay}></div>
         <div className={classes.contentWrapper}>
           <Navbar />
-          <EcosystemTop />
+          {/* <EcosystemTop /> */}
+          <EcosystemVideoSection />
         </div>
       </div>
       <EcosystemHero />

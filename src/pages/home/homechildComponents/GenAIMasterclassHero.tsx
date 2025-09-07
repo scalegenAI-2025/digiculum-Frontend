@@ -17,7 +17,7 @@ const SHAPE_COUNT_MOBILE = 10;
 
 const GenAIMasterclassHero: React.FC = () => {
   const [shapes, setShapes] = useState<FloatingShape[]>([]);
-  const [isHovered, setIsHovered] = useState(false);
+  ///const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(
     typeof window !== "undefined" ? window.innerWidth < 500 : false
   );
@@ -68,15 +68,17 @@ const GenAIMasterclassHero: React.FC = () => {
   const shapeStyles = {
     container: {
       position: "relative" as const,
-      height: "100dvh", // better for mobile toolbars
+      height: isMobile ? "70dvh" : "100dvh",
       backgroundImage: `url(${starImage})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       overflow: "hidden",
       display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+      // ⬇️ Center for mobile, top for desktop
+      alignItems: isMobile ? "center" : "flex-start",
+      justifyContent: isMobile ? "center" : "center",
+      paddingTop: isMobile ? 0 : "80px",
     },
     shapesContainer: {
       position: "absolute" as const,
@@ -145,6 +147,9 @@ const GenAIMasterclassHero: React.FC = () => {
       fontSize: isMobile ? 14 : 16,
       cursor: "pointer",
       transition: "background 0.3s ease",
+      alignSelf: isMobile ? "center" : "flex-start", // ⬅️ center on flex children
+      display: "inline-block",
+      marginTop: isMobile ? "12px" : "0",
     },
     buttonHover: {
       transform: "translateY(-2px)",
@@ -177,17 +182,14 @@ const GenAIMasterclassHero: React.FC = () => {
             Technical Masterclass
           </span>
         </p>
-
-        <button
+        <div
           style={{
-            ...shapeStyles.button,
-            ...(isHovered ? shapeStyles.buttonHover : {}),
+            display: "flex",
+            justifyContent: isMobile ? "center" : "flex-start",
           }}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
         >
-          Find More
-        </button>
+          <button style={shapeStyles.button}>Find More</button>
+        </div>
       </div>
     </div>
   );

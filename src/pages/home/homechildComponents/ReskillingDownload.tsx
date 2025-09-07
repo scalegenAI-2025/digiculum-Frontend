@@ -39,6 +39,9 @@ const useStyles = createUseStyles({
     fontSize: 40,
     fontWeight: 600,
     margin: 0,
+    "@media (max-width: 600px)": {
+      fontSize: 32,
+    },
   },
   // inside createUseStyles
   button: {

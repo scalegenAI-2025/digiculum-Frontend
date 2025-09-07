@@ -12,8 +12,11 @@ const useStyles = createUseStyles({
     margin: "0 auto",
 
     "@media (max-width: 500px)": {
+      display: "flex",
       flexDirection: "column", // stack
       height: "auto",
+      justifyContent: "center",
+      alignItems: "center",
     },
   },
   textSection: {
@@ -27,6 +30,8 @@ const useStyles = createUseStyles({
     "@media (max-width: 500px)": {
       padding: "24px 16px",
       textAlign: "center",
+
+      justifyContent: "center",
       alignItems: "center",
       order: 2, // text shows AFTER the image
     },

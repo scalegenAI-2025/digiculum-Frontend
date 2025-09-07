@@ -1,12 +1,7 @@
 import { createUseStyles } from "react-jss";
-import {
-  FaLinkedin,
-  FaYoutube,
-  //FaFacebook,
-  FaInstagram,
-  //  FaTwitter,
-} from "react-icons/fa";
+
 import type { FC } from "react";
+import { Link } from "react-router-dom";
 
 const useStyles = createUseStyles({
   layout: {
@@ -186,6 +181,24 @@ const useStyles = createUseStyles({
       marginTop: "1rem",
     },
   },
+  follow: {
+    flex: "1 1 40%",
+    fontSize: "1.2rem", // increased from 1rem
+    "& strong": {
+      display: "block",
+      fontSize: "2.5rem", // increased from 2rem
+      marginTop: "0.3rem",
+      color: "#fff",
+      textDecoration: "none",
+      cursor: "pointer",
+      "&:hover": {
+        textDecoration: "underline",
+      },
+      "@media (max-width: 600px)": {
+        fontSize: "20px",
+      },
+    },
+  },
 });
 
 const FooterContact: FC = () => {
@@ -196,37 +209,65 @@ const FooterContact: FC = () => {
       {/* Left Section */}
       <div className={classes.leftSection}>
         <div className={classes.wrapper}>
-          <div className={classes.nav}>
-            <div className={classes.link}>Reskilling</div>
-            <div className={classes.link}>Ecosystem</div>
-            <div className={classes.link}>Courses</div>
-            <div className={classes.link}>About</div>
-          </div>
-          <div className={classes.nav}>
-            <div className={classes.link}>Privacy Policy</div>
-            <div className={classes.link}>Cookie Policy</div>
-            <div className={classes.link}>General Terms</div>
-            <div className={classes.link}>Refund Policy</div>
-          </div>
+          <nav className={classes.nav}>
+            <Link to="/reskilling" className={classes.link}>
+              Reskilling
+            </Link>
+            <Link to="/ecosystem" className={classes.link}>
+              Ecosystem
+            </Link>
+            <Link to="/courses" className={classes.link}>
+              Courses
+            </Link>
+            <Link to="/about-us" className={classes.link}>
+              About
+            </Link>
+          </nav>
+
+          <nav className={classes.nav}>
+            <Link to="/privacy" className={classes.link}>
+              Privacy Policy
+            </Link>
+            <Link to="/cookies" className={classes.link}>
+              Cookie Policy
+            </Link>
+            <Link to="/terms" className={classes.link}>
+              General Terms
+            </Link>
+            <Link to="/refund" className={classes.link}>
+              Refund Policy
+            </Link>
+          </nav>
         </div>
+
         <div className={classes.socialWrapper}>
-          <a
+          {/* <a
             href="https://www.linkedin.com/in/amit-prabhu26"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
           >
-            <FaLinkedin className={classes.icon} />
-          </a>
+            <FaLinkedin className={classes.icon} /> */}
+          <div className={classes.follow}>
+            Follow us on
+            <a
+              href="https://www.linkedin.com/company/digiculum/posts/?feedView=all"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.link}
+            >
+              <strong>LinkedIn</strong>
+            </a>
+          </div>
 
-          <a
+          {/* <a
             href="https://www.youtube.com/@theaiprabhu"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="YouTube"
           >
             <FaYoutube className={classes.icon} />
-          </a>
+          </a> */}
 
           {/* <a
             href="https://www.facebook.com/yourpage"
@@ -237,14 +278,14 @@ const FooterContact: FC = () => {
             <FaFacebook className={classes.icon} />
           </a> */}
 
-          <a
+          {/* <a
             href="https://www.instagram.com/theaiprabhu"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
           >
             <FaInstagram className={classes.icon} />
-          </a>
+          </a> */}
 
           {/* <a
             href="https://twitter.com/yourhandle"
@@ -259,7 +300,7 @@ const FooterContact: FC = () => {
         <div className={classes.contact}>info@digiculum.com</div>
         <div>
           <div className={classes.footerNote}>
-            Copyright 2025 © Digiculum. All Rights Reserved.
+            Copyright 2026 © Digiculum. All Rights Reserved.
           </div>
 
           {/* <div className={classes.policies}>

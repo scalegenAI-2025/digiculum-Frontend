@@ -61,6 +61,9 @@ const useStyles = createUseStyles({
     color: "#333",
     marginBottom: "40px",
     fontFamily: "Arial, sans-serif",
+    "@media (max-width: 640px)": {
+      fontSize: "2rem",
+    },
   },
   cardsGrid: {
     display: "grid",

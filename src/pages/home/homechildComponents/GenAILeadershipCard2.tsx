@@ -75,7 +75,7 @@ const useStyles = createUseStyles({
     },
     "@media (max-width: 500px)": {
       flexDirection: "column",
-      minHeight: "80vh",
+      minHeight: "60vh",
     },
   },
   textSection: {
@@ -88,10 +88,13 @@ const useStyles = createUseStyles({
       padding: "40px 20px",
     },
     "@media (max-width: 500px)": {
-      padding: "20px 15px",
-      justifyContent: "flex-start",
+      padding: "15px 15px",
+      justifyContent: "center",
+      alignItems: "center",
+      textAlign: "center",
     },
   },
+
   heading: {
     fontSize: 44,
     fontWeight: 400,
@@ -106,6 +109,7 @@ const useStyles = createUseStyles({
     },
     "@media (max-width: 500px)": {
       fontSize: 24,
+      textAlign: "center", // ensure heading is centered
     },
   },
   subtext: {
@@ -120,6 +124,7 @@ const useStyles = createUseStyles({
     },
     "@media (max-width: 500px)": {
       fontSize: 14,
+      textAlign: "center", // ensure subtext is centered
     },
   },
   button: {
@@ -138,18 +143,21 @@ const useStyles = createUseStyles({
     "@media (max-width: 500px)": {
       fontSize: 14,
       padding: "10px 20px",
+      alignSelf: "center", // center the button on small screens
     },
   },
+
   imageSection: {
     flex: 1,
     backgroundImage: `url(${starImage})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     "@media (max-width: 768px)": {
-      height: 250,
+      height: 300, // slightly taller than before
     },
     "@media (max-width: 500px)": {
-      height: 200,
+      height: 250, // bigger image on very small screens
+      flex: "auto",
     },
   },
 });

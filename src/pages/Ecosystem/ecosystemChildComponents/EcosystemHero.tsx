@@ -96,7 +96,7 @@ import AssetBckground from "../../../assets/super ecosystem image.jpg";
 // };
 
 // export default EcosystemHero;
-import { useNavigate } from "react-router-dom";
+
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
@@ -110,7 +110,7 @@ const useStyles = createUseStyles({
     //fontFamily: "Arial, sans-serif",
     padding: 60,
     "@media (max-width: 500px)": {
-      padding: 20, // stack on mobile
+      // padding: 20, // stack on mobile
     },
   },
   container: {
@@ -121,6 +121,9 @@ const useStyles = createUseStyles({
     textAlign: "center",
     maxWidth: 900,
     width: "100%",
+    "@media (max-width: 500px)": {
+      padding: 10, // stack on mobile
+    },
   },
   heading: {
     // fontSize: 36,
@@ -134,9 +137,9 @@ const useStyles = createUseStyles({
     color: "#555",
   },
   heading2: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: "bold",
-    marginBottom: 30,
+    //marginBottom: 30,
     marginTop: "0px",
     color: "#222",
     "@media (max-width: 500px)": {
@@ -193,11 +196,6 @@ const useStyles = createUseStyles({
 
 const EcosystemHero = () => {
   const classes = useStyles();
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate("/member");
-  };
 
   return (
     <>
@@ -205,13 +203,10 @@ const EcosystemHero = () => {
         <div className={classes.container}>
           {/* <h1 className={classes.heading2}>Need help with ecosystem?</h1> */}
           <h1 className={classes.heading2}>
-            An ecosystem is a cohort where people share AI knowledge, skills,
-            and best practices related to a certain AI topic with each other.
+            An ecosystem is a cohort where people seek and share AI knowledge,
+            skills, and best practices related to a certain AI topic with each
+            other.
           </h1>
-
-          <button className={classes.button} onClick={handleClick}>
-            Become a member →
-          </button>
         </div>
       </div>
       <div>

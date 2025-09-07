@@ -39,6 +39,10 @@ import ForgotPassword from "./pages/login/ForgotPassword";
 import ResetPassword from "./pages/login/ResetPassword";
 import React from "react";
 import FullScreenImages from "./pages/Journey/JourneyChildComponents/reskillingMappingTracks";
+import PrivacyPolicy from "./pages/home/homechildComponents/PrivacyPolicy";
+import CookiePolicy from "./pages/home/homechildComponents/CookiePolicy";
+import GeneralTerms from "./pages/home/homechildComponents/TermsAndCondition";
+import RefundPolicy from "./pages/home/homechildComponents/RefundPolicy";
 //import Contact from "./pages/contact/Contact"; // example additional page
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -62,20 +66,26 @@ function App() {
         {/* Add more routes as needed */}
         <Route path="/ecosystem" element={<Ecosystem />} />
 
-        <Route path="/masterclass" element={<Course />} />
         <Route path="/courses" element={<Course />} />
         <Route
-          path="/masterclass/masterclass1"
+          path="/courses/Essential-Competencies-of-AI/GenAI-Leader"
           element={<AIGenAILeadersBook />}
         />
-        <Route path="/masterclass/masterclass2" element={<GenerativeAI />} />
         <Route
-          path="/masterclass/masterclass3"
+          path="/courses/Generative-AI-Technical-Masterclass"
+          element={<GenerativeAI />}
+        />
+        <Route
+          path="/courses/AI/GenAI-Transformation-Strategy"
           element={<GenAITransformation />}
         />
         <Route
-          path="/masterclass/masterclass5"
+          path="/courses/Cultivating-AI/GenAI-Mindset"
           element={<GenAIOperational />}
+        />
+        <Route
+          path="/courses/AI/GenAI-Operational-Readiness"
+          element={<GenAIMindset />}
         />
         <Route path="/masterclass/masterclass4" element={<GenAIMindset />} />
         <Route path="/register" element={<Register />} />
@@ -84,6 +94,11 @@ function App() {
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/about-us" element={<AboutAs />} />
         <Route path="/tracks" element={<FullScreenImages />} />
+
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/cookies" element={<CookiePolicy />} />
+        <Route path="/terms" element={<GeneralTerms />} />
+        <Route path="/refund" element={<RefundPolicy />} />
       </Routes>
     </Router>
   );
