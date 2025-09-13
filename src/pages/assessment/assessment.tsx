@@ -510,6 +510,19 @@ export default function Assessment() {
         }
       }
     }
+    // ---------- Q5-level checks (stay in current role?)
+    if (question.id === "5") {
+      const q2 = answers["2"];
+      const q5 = currentAnswer; // this is the answer for Q5
+
+      if (q2 === "B6" && q5 === "E1") {
+        showRoleCard(
+          "VITA Creator",
+          "Assessment terminates here with recommended role: VITA Creator."
+        );
+        return;
+      }
+    }
 
     // ---------- Q9.1: if user picks a role -> stop or "Uncertain" fallback to next
     if (question.id === "9.1") {
