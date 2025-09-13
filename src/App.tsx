@@ -43,6 +43,7 @@ import PrivacyPolicy from "./pages/home/homechildComponents/PrivacyPolicy";
 import CookiePolicy from "./pages/home/homechildComponents/CookiePolicy";
 import GeneralTerms from "./pages/home/homechildComponents/TermsAndCondition";
 import RefundPolicy from "./pages/home/homechildComponents/RefundPolicy";
+import Assessment from "./pages/assessment/assessment";
 //import Contact from "./pages/contact/Contact"; // example additional page
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -99,6 +100,7 @@ function App() {
         <Route path="/cookies" element={<CookiePolicy />} />
         <Route path="/terms" element={<GeneralTerms />} />
         <Route path="/refund" element={<RefundPolicy />} />
+        <Route path="/assessments" element={<Assessment />} />
       </Routes>
     </Router>
   );
