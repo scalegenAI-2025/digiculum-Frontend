@@ -719,6 +719,38 @@ const CoursesPage: React.FC = () => {
           label: "Coursera",
           url: "https://www.coursera.org/learn/data-security",
         },
+        {
+          label: "Coursera",
+          url: "https://www.coursera.org/learn/data-security",
+        },
+        {
+          label: "Coursera",
+          url: "https://www.coursera.org/learn/data-security",
+        },
+        {
+          label: "Coursera",
+          url: "https://www.coursera.org/learn/data-security",
+        },
+        {
+          label: "Coursera",
+          url: "https://www.coursera.org/learn/data-security",
+        },
+        {
+          label: "Coursera",
+          url: "https://www.coursera.org/learn/data-security",
+        },
+        {
+          label: "Coursera",
+          url: "https://www.coursera.org/learn/data-security",
+        },
+        {
+          label: "Coursera",
+          url: "https://www.coursera.org/learn/data-security",
+        },
+        {
+          label: "Coursera",
+          url: "https://www.coursera.org/learn/data-security",
+        },
       ],
       // 🚨 will fill with 9 buttons
     },
@@ -728,6 +760,24 @@ const CoursesPage: React.FC = () => {
       subtitle: "Explore the popular network security certifications",
       image: `${C41}`,
       // 🚨 will fill with 4 buttons
+      links: [
+        {
+          label: "Coursera",
+          url: "https://www.coursera.org/learn/introduction-to-cloud",
+        },
+        {
+          label: "Coursera",
+          url: "https://www.coursera.org/learn/introduction-to-cloud",
+        },
+        {
+          label: "Coursera",
+          url: "https://www.coursera.org/learn/introduction-to-cloud",
+        },
+        {
+          label: "Coursera",
+          url: "https://www.coursera.org/learn/introduction-to-cloud",
+        },
+      ],
     },
     {
       id: 42,
