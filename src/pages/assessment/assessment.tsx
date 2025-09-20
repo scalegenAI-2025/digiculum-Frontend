@@ -313,7 +313,7 @@ const questions: Question[] = [
   // Q8
   {
     id: "8",
-    text: "Q.8 Would you like to be a domain expert in your industry?",
+    text: "Q.8 Would you like to be a domain expert in your industry? ",
     options: [
       { value: "H1", label: "Yes" },
       { value: "H2", label: "No" },
