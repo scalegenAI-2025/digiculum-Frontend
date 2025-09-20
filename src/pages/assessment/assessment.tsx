@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { useState } from "react";
 import { createUseStyles } from "react-jss";
@@ -108,11 +109,6 @@ const q3ToRole: Record<string, string> = {
   C12: "Compliance Guardian",
 };
 
-/*
-  Q9.4 and Q9.5 major->role mapping (stops immediately)
-  Q9.4: L1..L8
-  Q9.5: M1..M7
-*/
 const majorToRole_Q94: Record<string, string> = {
   L1: "Agent Architect", // Technical/STEM
   L2: "Sales Advocate", // Business & Management
@@ -345,11 +341,12 @@ const questions: Question[] = [
     text: "Q.9.2 If you are absolutely certain and clear about the new AI/GenAI role then select the role from the options 1 to 6 else select option 7 uncertain",
     options: [
       { value: "J1", label: "Agent Architect" },
-      { value: "J2", label: "Data Annotator" },
-      { value: "J3", label: "DAC Consultant" },
-      { value: "J4", label: "Security Specialist" },
-      { value: "J5", label: "Infrastructure Catalyst" },
-      { value: "J6", label: "Uncertain" },
+      { value: "J2", label: "fine tuner" },
+      { value: "J3", label: "Data Annotator" },
+      { value: "J4", label: "DAC Consultant" },
+      { value: "J5", label: "Security Specialist" },
+      { value: "J6", label: "Infrastructure Catalyst" },
+      { value: "J7", label: "Uncertain" },
     ],
   },
 
@@ -406,6 +403,8 @@ export default function Assessment() {
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [details, setDetails] = useState<Record<string, string>>({});
+  const [_history, setHistory] = useState<string[]>([]);
+
   const [terminated, setTerminated] = useState(false);
   const [card, setCard] = useState<{ title: string; text: string } | null>(
     null
@@ -437,6 +436,7 @@ export default function Assessment() {
 
   // goNext implements all branching rules
   const goNext = () => {
+    setHistory((prev) => [...prev, question.id]);
     // ---------- Q2-level checks (these check Q1 + Q2 + Q5 where needed)
     if (question.id === "2") {
       // If Q1 was A1 or A2 -> Foundational track recommended (terminate)
@@ -525,23 +525,66 @@ export default function Assessment() {
     }
 
     // ---------- Q9.1: if user picks a role -> stop or "Uncertain" fallback to next
+    // ---------- Q9.1: if user picks a role -> stop or "Uncertain" fallback
     if (question.id === "9.1") {
-      if (currentAnswer && currentAnswer !== "I11") {
-        // any definite choice maps directly to role label
+      if (!currentAnswer) return;
+
+      if (currentAnswer === "I11") {
+        // Uncertain (option 11) -> fallback similar to Q9.3
+        const q3 = answers["3"];
+        const mapped = q3ToRole[q3];
+        if (mapped) {
+          showRoleCard(
+            mapped,
+            `Fallback from Q9.1 uncertain — mapped from your Q3 (${q3}) to ${mapped}.`
+          );
+          return;
+        } else {
+          // If Q3 empty, move to next question or handle another fallback
+          setCurrent((c) => c + 1);
+          return;
+        }
+      } else {
+        // definite role selected
         const opt = question.options?.find((o) => o.value === currentAnswer);
         showRoleCard(opt?.label ?? "Selected Role");
         return;
       }
-      // if "Uncertain" (I11) -> fall through to next question (or fallback)
     }
 
     // ---------- Q9.2 behavior:
     // Q9.2 options are role choices (J1..J5) with J6 = Uncertain.
     // If user picks J1..J5 -> stop and show that role; if J6 -> fall back to Q3->mapping.
+    //     if (question.id === "9.2") {
+    //       if (!currentAnswer) return;
+    //       if (currentAnswer === "J6") {
+    //         // Uncertain -> check Q3 mapping
+    //         const q3 = answers["3"];
+    //         const mapped = q3ToRole[q3];
+    //         if (mapped) {
+    //           showRoleCard(
+    //             mapped,
+    //             `Fallback from Q9.2 uncertain — mapped from your Q3 (${q3}) to ${mapped}.`
+    //           );
+    //           return;
+    //         } else {
+    //           // If Q3 empty, move to next question (ask Q9.5 or stop)
+    //           setCurrent((c) => c + 1);
+    //           return;
+    //         }
+    //       } else {
+    //         // definite role selected
+    //         const opt = question.options?.find((o) => o.value === currentAnswer);
+    //         showRoleCard(opt?.label ?? "Selected Role");
+    //         return;
+    //       }
+    //     }
+    // ---------- Q9.2 behavior:
     if (question.id === "9.2") {
       if (!currentAnswer) return;
-      if (currentAnswer === "J6") {
-        // Uncertain -> check Q3 mapping
+
+      if (currentAnswer === "J7") {
+        // Uncertain (option 7) -> fallback similar to Q9.3 / Q9.1
         const q3 = answers["3"];
         const mapped = q3ToRole[q3];
         if (mapped) {
@@ -551,7 +594,7 @@ export default function Assessment() {
           );
           return;
         } else {
-          // If Q3 empty, move to next question (ask Q9.5 or stop)
+          // If Q3 empty, move to next question or handle another fallback
           setCurrent((c) => c + 1);
           return;
         }
@@ -632,6 +675,17 @@ export default function Assessment() {
     // default: go to next question
     setCurrent((c) => c + 1);
   };
+  const handleBack = () => {
+    setHistory((prev) => {
+      if (prev.length === 0) return prev;
+      const lastQ = prev[prev.length - 1];
+      setCurrent(questions.findIndex((q) => q.id === lastQ));
+      return prev.slice(0, -1); // remove last
+    });
+  };
+  const handleExit = () => {
+    window.location.href = "/";
+  };
 
   const isNextDisabled =
     !currentAnswer ||
@@ -639,12 +693,27 @@ export default function Assessment() {
       !currentDetail?.trim());
 
   // Card Back handler — bring user back one step so they can change answers
+  //   const handleCardBack = () => {
+  //     setTerminated(false);
+  //     setCard(null);
+  //     // move back to previous question index where decision was made.
+  //     // For safety, move back one question unless we can detect a more appropriate previous.
+  //     setCurrent((c) => (c > 0 ? c - 1 : 0));
+  //   };
+
   const handleCardBack = () => {
     setTerminated(false);
     setCard(null);
-    // move back to previous question index where decision was made.
-    // For safety, move back one question unless we can detect a more appropriate previous.
-    setCurrent((c) => (c > 0 ? c - 1 : 0));
+
+    setHistory((prev) => {
+      if (prev.length === 0) {
+        setCurrent(0);
+        return prev;
+      }
+      const lastQ = prev[prev.length - 1];
+      setCurrent(questions.findIndex((q) => q.id === lastQ));
+      return prev.slice(0, -1); // remove last
+    });
   };
 
   return (
@@ -696,13 +765,23 @@ export default function Assessment() {
               display: "flex",
               justifyContent: "flex-end",
               marginTop: "1rem",
+              gap: "0.5rem",
             }}
           >
+            {/* Back button to edit answers */}
             <button
               onClick={handleCardBack}
               className={`${classes.button} ${classes.prevButton}`}
             >
               Back
+            </button>
+
+            {/* Exit button to go to /profile */}
+            <button
+              onClick={() => (window.location.href = "/profile")}
+              className={`${classes.button} ${classes.nextButton}`}
+            >
+              Exit
             </button>
           </div>
         </div>
@@ -711,11 +790,18 @@ export default function Assessment() {
       {!terminated && (
         <div className={classes.nav}>
           <button
-            onClick={() => setCurrent((c) => (c > 0 ? c - 1 : 0))}
+            onClick={handleBack}
             className={`${classes.button} ${classes.prevButton}`}
             disabled={current === 0}
           >
             Back
+          </button>
+
+          <button
+            onClick={handleExit}
+            className={`${classes.button} ${classes.prevButton}`}
+          >
+            Exit
           </button>
 
           <button
