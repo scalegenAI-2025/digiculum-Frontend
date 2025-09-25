@@ -137,44 +137,47 @@ const questions: Question[] = [
   // Q1
   {
     id: "1",
-    text: "Q.1 Rate your current AI/GenAI competence level on a scale of 1 to 10",
+    text: " Rate your current AI/GenAI competence level on a scale of 1 to 10.",
     options: [
-      { value: "A1", label: "Nil (No IT skills, no experience with AI/GenAI)" },
+      {
+        value: "A1",
+        label: "1) Nil (No IT skills, no experience with AI/GenAI)",
+      },
       {
         value: "A2",
-        label: "Remarkably low (No IT skills, minimal AI exposure)",
+        label: "2) Remarkably low (No IT skills, minimal AI exposure)",
       },
       {
         value: "A3",
-        label: "Very low (Basic computer skills, no AI experience)",
+        label: "3) Very low (Basic computer skills, no AI experience)",
       },
       {
         value: "A4",
-        label: "Low (Preliminary IT skills, some AI understanding)",
+        label: "4) Low (Preliminary IT skills, some AI understanding)",
       },
       {
         value: "A5",
-        label: "Lower Moderate (Moderate IT skills, limited AI knowledge)",
+        label: "5) Lower Moderate (Moderate IT skills, limited AI knowledge)",
       },
       {
         value: "A6",
-        label: "Mid-Moderate (Can use ChatGPT but no deep AI knowledge)",
+        label: "6) Mid-Moderate (Can use ChatGPT but no deep AI knowledge)",
       },
       {
         value: "A7",
-        label: "Upper-Moderate (Clear differentiation of AI/ML/DL concepts)",
+        label: "7) Upper-Moderate (Clear differentiation of AI/ML/DL concepts)",
       },
       {
         value: "A8",
-        label: "High (Architect IT solutions, good AI theory knowledge)",
+        label: "8) High (Architect IT solutions, good AI theory knowledge)",
       },
       {
         value: "A9",
-        label: "Very High (Can confidently develop AI solutions)",
+        label: "9) Very High (Can confidently develop AI solutions)",
       },
       {
         value: "A10",
-        label: "Superhuman (Grayed out fictional)",
+        label: "10) Superhuman (Grayed out fictional)",
         disabled: true,
       },
     ],
@@ -183,76 +186,76 @@ const questions: Question[] = [
   // Q2
   {
     id: "2",
-    text: "Q.2 Which of the following describes your current role or background?",
+    text: " Which of the following describes your current role or background?.",
     options: [
       {
         value: "B1",
-        label: "Technical/IT-related (Please specify)",
+        label: "1) Technical/IT-related (Please specify)",
         requireText: true,
       },
       {
         value: "B2",
-        label: "Non-technical/non-IT related (Please specify)",
+        label: "2) Non-technical/non-IT related (Please specify)",
         requireText: true,
       },
       {
         value: "B3",
-        label: "Business/Management/Consulting (Please specify)",
+        label: "3) Business/Management/Consulting (Please specify)",
         requireText: true,
       },
       {
         value: "B4",
-        label: "Academic/Research (Please specify)",
+        label: "4) Academic/Research (Please specify)",
         requireText: true,
       },
       {
         value: "B5",
-        label: "Entrepreneur/Startup Founder (Please specify)",
+        label: "5) Entrepreneur/Startup Founder (Please specify)",
         requireText: true,
       },
       {
         value: "B6",
-        label: "Creative/Design/Fine-arts (Please specify)",
+        label: "6) Creative/Design/Fine-arts (Please specify)",
         requireText: true,
       },
-      { value: "B7", label: "Student (Please specify)", requireText: true },
+      { value: "B7", label: "7)Student (Please specify)", requireText: true },
     ],
   },
 
   // Q3-Q7 (common)
   {
     id: "3",
-    text: "Q.3 Which of the following describes your function/team?",
+    text: " Which of the following describes your function/team?.",
     options: [
-      { value: "C1", label: "IT" },
-      { value: "C2", label: "Data and AI" },
-      { value: "C3", label: "Marketing" },
-      { value: "C4", label: "Sales" },
-      { value: "C5", label: "Legal" },
-      { value: "C6", label: "Product Development" },
-      { value: "C7", label: "Project Management" },
-      { value: "C8", label: "Business Operations/Service Delivery" },
-      { value: "C9", label: "HR" },
-      { value: "C10", label: "Finance" },
-      { value: "C11", label: "Executives/Leadership" },
-      { value: "C12", label: "None (Please specify)", requireText: true },
+      { value: "C1", label: "1) IT" },
+      { value: "C2", label: "2) Data and AI" },
+      { value: "C3", label: "3) Marketing" },
+      { value: "C4", label: "4) Sales" },
+      { value: "C5", label: "5) Legal" },
+      { value: "C6", label: "6) Product Development" },
+      { value: "C7", label: "7) Project Management" },
+      { value: "C8", label: "8) Business Operations/Service Delivery" },
+      { value: "C9", label: "9) HR" },
+      { value: "C10", label: "10) Finance" },
+      { value: "C11", label: "11) Executives/Leadership" },
+      { value: "C12", label: "12) Other", requireText: true },
     ],
   },
   {
     id: "4",
-    text: "Q.4 How do you rate your skills or competencies in your current role?",
+    text: " How do you rate your skills or competencies in your current role?",
     options: [
-      { value: "D1", label: "Very high" },
-      { value: "D2", label: "High" },
-      { value: "D3", label: "Medium" },
-      { value: "D4", label: "Low" },
-      { value: "D5", label: "Very Low" },
-      { value: "D6", label: "Not applicable" },
+      { value: "D1", label: "1) Very high" },
+      { value: "D2", label: "2) High" },
+      { value: "D3", label: "3) Medium" },
+      { value: "D4", label: "4) Low" },
+      { value: "D5", label: "5) Very Low" },
+      { value: "D6", label: "6) Not applicable" },
     ],
   },
   {
     id: "5",
-    text: "Q.5 Would you like to stay in your current role?",
+    text: " Would you like to stay in your current role?",
     options: [
       { value: "E1", label: "Yes" },
       { value: "E2", label: "No" },
@@ -261,55 +264,55 @@ const questions: Question[] = [
   },
   {
     id: "6",
-    text: "Q.6 To what extent is your current role impacted or will be impacted by AI?",
+    text: " To what extent is your current role impacted or will be impacted by AI?",
     options: [
-      { value: "F1", label: "Completely eliminated by AI" },
-      { value: "F2", label: "Will continue but high AI impact" },
-      { value: "F3", label: "Moderate AI impact" },
-      { value: "F4", label: "Low AI impact" },
-      { value: "F5", label: "No AI impact" },
-      { value: "F6", label: "Not sure" },
+      { value: "F1", label: "1) Completely eliminated by AI" },
+      { value: "F2", label: "2) Will continue but high AI impact" },
+      { value: "F3", label: "3) Moderate AI impact" },
+      { value: "F4", label: "4) Low AI impact" },
+      { value: "F5", label: "5) No AI impact" },
+      { value: "F6", label: "6) Not sure" },
     ],
   },
   {
     id: "7",
-    text: "Q.7 Please select your industry",
+    text: " Please select your industry.",
     options: [
-      { value: "G1", label: "Agriculture, Forestry, Fishing & Mining" },
-      { value: "G2", label: "Automotive" },
-      { value: "G3", label: "Aerospace & Defense" },
-      { value: "G4", label: "Biotechnology / Life Sciences" },
-      { value: "G5", label: "Chemicals & Materials" },
-      { value: "G6", label: "Construction & Real Estate" },
-      { value: "G7", label: "Consumer Goods / FMCG" },
-      { value: "G8", label: "Education & Training" },
-      { value: "G9", label: "Energy & Utilities" },
-      { value: "G10", label: "Entertainment, Media & Publishing" },
-      { value: "G11", label: "Financial Services & Banking" },
-      { value: "G12", label: "Government & Public Sector" },
-      { value: "G13", label: "Healthcare & Pharmaceuticals" },
-      { value: "G14", label: "Hospitality, Travel & Tourism" },
-      { value: "G15", label: "Insurance" },
-      { value: "G16", label: "Legal Services" },
-      { value: "G17", label: "Logistics, Supply Chain & Transportation" },
-      { value: "G18", label: "Manufacturing & Industrial" },
-      { value: "G19", label: "Marketing, Advertising & PR" },
-      { value: "G20", label: "Nonprofit / NGOs / Social Impact" },
-      { value: "G21", label: "Professional Services & Consulting" },
-      { value: "G22", label: "Retail & E-commerce" },
-      { value: "G23", label: "Software & IT Services" },
-      { value: "G24", label: "Telecommunications" },
-      { value: "G25", label: "Venture Capital & Private Equity" },
-      { value: "G26", label: "Wholesale & Distribution" },
-      { value: "G27", label: "Other (please specify)", requireText: true },
-      { value: "G28", label: "Not applicable" },
+      { value: "G1", label: "1) Agriculture, Forestry, Fishing & Mining" },
+      { value: "G2", label: "2) Automotive" },
+      { value: "G3", label: "3) Aerospace & Defense" },
+      { value: "G4", label: "4) Biotechnology / Life Sciences" },
+      { value: "G5", label: "5) Chemicals & Materials" },
+      { value: "G6", label: "6) Construction & Real Estate" },
+      { value: "G7", label: "7) Consumer Goods / FMCG" },
+      { value: "G8", label: "8) Education & Training" },
+      { value: "G9", label: "9) Energy & Utilities" },
+      { value: "G10", label: "10) Entertainment, Media & Publishing" },
+      { value: "G11", label: "11) Financial Services & Banking" },
+      { value: "G12", label: "12) Government & Public Sector" },
+      { value: "G13", label: "13) Healthcare & Pharmaceuticals" },
+      { value: "G14", label: "14) Hospitality, Travel & Tourism" },
+      { value: "G15", label: "15) Insurance" },
+      { value: "G16", label: "16) Legal Services" },
+      { value: "G17", label: "17) Logistics, Supply Chain & Transportation" },
+      { value: "G18", label: "18) Manufacturing & Industrial" },
+      { value: "G19", label: "19) Marketing, Advertising & PR" },
+      { value: "G20", label: "20) Nonprofit / NGOs / Social Impact" },
+      { value: "G21", label: "21) Professional Services & Consulting" },
+      { value: "G22", label: "22) Retail & E-commerce" },
+      { value: "G23", label: "23) Software & IT Services" },
+      { value: "G24", label: "24) Telecommunications" },
+      { value: "G25", label: "25) Venture Capital & Private Equity" },
+      { value: "G26", label: "26) Wholesale & Distribution" },
+      { value: "G27", label: "27) Other (please specify)", requireText: true },
+      { value: "G28", label: "28) Not applicable" },
     ],
   },
 
   // Q8
   {
     id: "8",
-    text: "Q.8 Would you like to be a domain expert in your industry? ",
+    text: " Would you like to be a domain expert in your industry? ",
     options: [
       { value: "H1", label: "Yes" },
       { value: "H2", label: "No" },
@@ -319,79 +322,79 @@ const questions: Question[] = [
   // Q9.1 (role selection 1-10 else uncertain)
   {
     id: "9.1",
-    text: "Q.9.1 If you are absolutely certain and clear about the new AI/GenAI role you would like to move to then select the role from the options 1 to 10, else select option 11 uncertain",
+    text: " If you are absolutely certain and clear about the new AI/GenAI role you would like to move to then select the role from the options 1 to 10, else select option 11 uncertain.",
     options: [
-      { value: "I1", label: "Fine Tuner" },
-      { value: "I2", label: "Agent Architect" },
-      { value: "I3", label: "Data Annotator" },
-      { value: "I4", label: "DAC Consultant" },
-      { value: "I5", label: "Sales Advocate" },
-      { value: "I6", label: "Compliance Guardian" },
-      { value: "I7", label: "Security Specialist" },
-      { value: "I8", label: "AI Executive" },
-      { value: "I9", label: "Program Overseer" },
-      { value: "I10", label: "Infrastructure Catalyst" },
-      { value: "I11", label: "Uncertain" },
+      { value: "I1", label: "1) Fine Tuner" },
+      { value: "I2", label: "2) Agent Architect" },
+      { value: "I3", label: "3) Data Annotator" },
+      { value: "I4", label: "4) DAC Consultant" },
+      { value: "I5", label: "5) Sales Advocate" },
+      { value: "I6", label: "6) Compliance Guardian" },
+      { value: "I7", label: "7) Security Specialist" },
+      { value: "I8", label: "8) AI Executive" },
+      { value: "I9", label: "9) Program Overseer" },
+      { value: "I10", label: "10) Infrastructure Catalyst" },
+      { value: "I11", label: "11) Uncertain" },
     ],
   },
 
   // Q9.2 (role options / uncertain fallback to Q3 mapping)
   {
     id: "9.2",
-    text: "Q.9.2 If you are absolutely certain and clear about the new AI/GenAI role then select the role from the options 1 to 6 else select option 7 uncertain",
+    text: "If you are absolutely certain and clear about the new AI/GenAI role then select the role from the options 1 to 6 else select option 7 uncertain.",
     options: [
-      { value: "J1", label: "Agent Architect" },
-      { value: "J2", label: "fine tuner" },
-      { value: "J3", label: "Data Annotator" },
-      { value: "J4", label: "DAC Consultant" },
-      { value: "J5", label: "Security Specialist" },
-      { value: "J6", label: "Infrastructure Catalyst" },
-      { value: "J7", label: "Uncertain" },
+      { value: "J1", label: "1) Agent Architect" },
+      { value: "J2", label: "2) fine tuner" },
+      { value: "J3", label: "3) Data Annotator" },
+      { value: "J4", label: "4) DAC Consultant" },
+      { value: "J5", label: "5) Security Specialist" },
+      { value: "J6", label: "6) Infrastructure Catalyst" },
+      { value: "J7", label: "7) Uncertain" },
     ],
   },
 
   // Q9.3
   {
     id: "9.3",
-    text: "Q.9.3 If you are absolutely certain and clear about the new AI/GenAI role then select the role from the options 1 to 5 else select option 6 uncertain",
+    text: "If you are absolutely certain and clear about the new AI/GenAI role then select the role from the options 1 to 5 else select option 6 uncertain.",
     options: [
-      { value: "K1", label: "DAC Consultant" },
-      { value: "K2", label: "Sales Advocate" },
-      { value: "K3", label: "Compliance Guardian" },
-      { value: "K4", label: "AI Executive" },
-      { value: "K5", label: "Program Overseer" },
-      { value: "K6", label: "Uncertain" },
+      { value: "K1", label: "1) DAC Consultant" },
+      { value: "K2", label: "2) Sales Advocate" },
+      { value: "K3", label: "3) Compliance Guardian" },
+      { value: "K4", label: "4) AI Executive" },
+      { value: "K5", label: "5) Program Overseer" },
+      { value: "K6", label: "6) Uncertain" },
     ],
   },
 
   // Q9.4 (major -> role)
   {
     id: "9.4",
-    text: "Q.9.4 Which of the following best describes your major?",
+    text: " Which of the following best describes your major?",
     options: [
-      { value: "L1", label: "Technical/STEM" },
-      { value: "L2", label: "Business & Management" },
-      { value: "L3", label: "Social Sciences" },
-      { value: "L4", label: "Humanities" },
-      { value: "L5", label: "Creativity & Design" },
-      { value: "L6", label: "Health & Life Sciences" },
-      { value: "L7", label: "Law & Policy" },
-      { value: "L8", label: "Education" },
+      { value: "L1", label: "1) Technical/STEM" },
+      { value: "L2", label: "2) Business & Management" },
+      { value: "L3", label: "3) Social Sciences" },
+      { value: "L4", label: "4) Humanities" },
+      { value: "L5", label: "5) Creativity & Design" },
+      { value: "L6", label: "6) Health & Life Sciences" },
+      { value: "L7", label: "7) Law & Policy" },
+      { value: "L8", label: "8) Education" },
     ],
   },
 
   // Q9.5 (education degree/major -> role)
   {
     id: "9.5",
-    text: "Q.9.5 Which of the following best describes your education degree/major?",
+    text: " Which of the following best describes your education degree/major?",
     options: [
-      { value: "M1", label: "Business & Management" },
-      { value: "M2", label: "Social Sciences" },
-      { value: "M3", label: "Humanities" },
-      { value: "M4", label: "Creativity & Design" },
-      { value: "M5", label: "Health & Life Sciences" },
-      { value: "M6", label: "Law & Policy" },
-      { value: "M7", label: "Education" },
+      { value: "M1", label: "1) Business & Management" },
+      { value: "M2", label: "2) Social Sciences" },
+      { value: "M3", label: "3) Humanities" },
+      { value: "M4", label: "4) Creativity & Design" },
+      { value: "M5", label: "5) Health & Life Sciences" },
+      { value: "M6", label: "6) Law & Policy" },
+      { value: "M7", label: "7) Education" },
     ],
   },
 ];
@@ -443,18 +446,15 @@ export default function Assessment() {
       if (answers["1"] === "A1" || answers["1"] === "A2") {
         setTerminated(true);
         setCard({
-          title: "Foundational Track Recommended",
-          text: "At this moment, no AI/GenAI target role will be provided to you. We recommend you complete the foundational track first to gain basic knowledge and understanding of IT and AI. For further guidance or coaching, click the button below.",
+          title: "Foundational Track",
+          text: "At this moment, no AI/GenAI target role will be provided to you. We recommend you complete the foundational track first to gain basic knowledge and understanding of IT and AI.For further guidance or coaching, write to us at info@digiculum.com",
         });
         return;
       }
 
       // If Q2 = B6 AND Q5 = E1 -> VITA Creator
       if (currentAnswer === "B6" && answers["5"] === "E1") {
-        showRoleCard(
-          "VITA Creator",
-          "Assessment terminates here with recommended role: VITA Creator."
-        );
+        showRoleCard("VITA Creator", "Your Target role is VITA Creator");
         return;
       }
 
@@ -789,13 +789,13 @@ export default function Assessment() {
 
       {!terminated && (
         <div className={classes.nav}>
-          <button
+          {/* <button
             onClick={handleBack}
             className={`${classes.button} ${classes.prevButton}`}
             disabled={current === 0}
           >
             Back
-          </button>
+          </button> */}
 
           <button
             onClick={handleExit}

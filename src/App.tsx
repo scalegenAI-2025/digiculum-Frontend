@@ -33,10 +33,10 @@ import GenAITransformation from "./pages/course/GenAITransformation/GenAITransfo
 import GenAIOperational from "./pages/course/GenAIOperational/GenAIOperational";
 import GenAIMindset from "./pages/course/GenAIMindset/GenAIMindset";
 import AboutAs from "./pages/about/aboutAs";
-import Register from "./pages/login/Register";
-import Login from "./pages/login/Login";
+//import Register from "./pages/login/Register";
+import Login from ".//pages/authentication/Login";
 import ForgotPassword from "./pages/login/ForgotPassword";
-import ResetPassword from "./pages/login/ResetPassword";
+import ResetPassword from "./pages/authentication/ResetPassword";
 import React from "react";
 import FullScreenImages from "./pages/Journey/JourneyChildComponents/reskillingMappingTracks";
 import PrivacyPolicy from "./pages/home/homechildComponents/PrivacyPolicy";
@@ -44,6 +44,11 @@ import CookiePolicy from "./pages/home/homechildComponents/CookiePolicy";
 import GeneralTerms from "./pages/home/homechildComponents/TermsAndCondition";
 import RefundPolicy from "./pages/home/homechildComponents/RefundPolicy";
 import Assessment from "./pages/assessment/assessment";
+import Signup from "./pages/authentication/Signup";
+import SendResetLink from "./pages/authentication/SendResetLink";
+import ProtectedRoute from "./components/navbar/ProtectedRoute";
+import Profile from "./pages/authentication/Profile";
+import ActivateAccount from "./pages/authentication/ActivateAccount";
 //import Contact from "./pages/contact/Contact"; // example additional page
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -89,8 +94,8 @@ function App() {
           element={<GenAIMindset />}
         />
         <Route path="/masterclass/masterclass4" element={<GenAIMindset />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        {/* <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} /> */}
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password/:token" element={<ResetPassword />} />
         <Route path="/about-us" element={<AboutAs />} />
@@ -101,6 +106,26 @@ function App() {
         <Route path="/terms" element={<GeneralTerms />} />
         <Route path="/refund" element={<RefundPolicy />} />
         <Route path="/assessments" element={<Assessment />} />
+
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+        {/* <Route path="/send-reset-link" element={<SendResetLink />} /> */}
+
+        <Route
+          path="/profile/:email"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="/activate/:email/:token" element={<ActivateAccount />} />
+
+        <Route
+          path="/reset-password/:email/:token"
+          element={<ResetPassword />}
+        />
+        <Route path="/send-reset-link" element={<SendResetLink />} />
       </Routes>
     </Router>
   );
