@@ -71,7 +71,7 @@ const Profile: React.FC = () => {
   const classes = useStyles();
   const { email } = useParams<{ email: string }>();
   const { user } = useContext(AuthContext);
-  const [profileMessage, setProfileMessage] = useState("");
+  const [_profileMessage, setProfileMessage] = useState("");
   const [targetRole, setTargetRole] = useState<string | null>(null);
 
   const location = useLocation();
