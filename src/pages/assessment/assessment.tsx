@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { createUseStyles } from "react-jss";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 type Option = {
   value: string;
@@ -401,7 +403,8 @@ const questions: Question[] = [
 
 export default function Assessment() {
   const classes = useStyles();
-
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
   // component state
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -775,10 +778,21 @@ export default function Assessment() {
             >
               Back
             </button>
-
             {/* Exit button to go to /profile */}
-            <button
+            {/* <button
               onClick={() => (window.location.href = "/profile")}
+              className={`${classes.button} ${classes.nextButton}`}
+            >
+              Exit
+            </button> */}
+
+            <button
+              onClick={() => {
+                if (!user?.email) return;
+                navigate(`/profile/${user.email}`, {
+                  state: { targetRole: card?.title },
+                });
+              }}
               className={`${classes.button} ${classes.nextButton}`}
             >
               Exit
