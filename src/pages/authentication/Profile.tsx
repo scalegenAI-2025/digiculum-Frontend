@@ -146,9 +146,8 @@
 
 // export default Profile;
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { createUseStyles } from "react-jss";
 import Navbar from "../home/homechildComponents/Navbar";
@@ -215,7 +214,7 @@ const roles = [
 
 const Profile: React.FC = () => {
   const classes = useStyles();
-  const { email } = useParams<{ email: string }>();
+  //  const { email } = useParams<{ email: string }>();
   const { user } = useContext(AuthContext);
   const [targetRole, setTargetRole] = useState<string | null>(null);
   const [isAssessmentDone, setIsAssessmentDone] = useState(false);
