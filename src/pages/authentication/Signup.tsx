@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import { signup } from "../../apis/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
@@ -11,11 +11,13 @@ const useStyles = createUseStyles({
     padding: "20px",
     border: "1px solid #ccc",
     borderRadius: "10px",
+    textAlign: "center",
   },
   input: {
     width: "100%",
     padding: "8px",
     margin: "10px 0",
+    boxSizing: "border-box",
   },
   button: {
     width: "100%",
@@ -28,6 +30,17 @@ const useStyles = createUseStyles({
   },
   message: {
     marginTop: "10px",
+    color: "red",
+  },
+  loginLink: {
+    marginTop: "20px",
+    display: "block",
+    color: "#444394",
+    textDecoration: "none",
+    fontWeight: "bold",
+    "&:hover": {
+      textDecoration: "underline",
+    },
   },
 });
 
@@ -90,6 +103,9 @@ const Signup: React.FC = () => {
         </button>
       </form>
       {message && <p className={classes.message}>{message}</p>}
+      <Link className={classes.loginLink} to="/login">
+        Already have an account? Login
+      </Link>
     </div>
   );
 };

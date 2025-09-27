@@ -80,7 +80,7 @@ const Profile: React.FC = () => {
   }, [email]);
 
   const handleAssessment = () => {
-    navigate("/assessment"); // update with correct path
+    navigate("/assessments"); // update with correct path
   };
 
   return (
