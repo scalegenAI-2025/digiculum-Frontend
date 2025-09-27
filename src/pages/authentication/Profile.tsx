@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // /* eslint-disable @typescript-eslint/no-unused-vars */
 // /* eslint-disable @typescript-eslint/no-explicit-any */
 // import React, { useContext, useEffect, useState } from "react";
@@ -145,9 +146,8 @@
 // };
 
 // export default Profile;
-
 import React, { useContext, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { createUseStyles } from "react-jss";
 import Navbar from "../home/homechildComponents/Navbar";
@@ -214,7 +214,7 @@ const roles = [
 
 const Profile: React.FC = () => {
   const classes = useStyles();
-  //  const { email } = useParams<{ email: string }>();
+  const { email } = useParams<{ email: string }>();
   const { user } = useContext(AuthContext);
   const [targetRole, setTargetRole] = useState<string | null>(null);
   const [isAssessmentDone, setIsAssessmentDone] = useState(false);
@@ -222,25 +222,32 @@ const Profile: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Load targetRole from state or localStorage
+  const storageKeyRole = `targetRole_${email}`;
+  const storageKeyDone = `assessmentDone_${email}`;
+
   useEffect(() => {
     const state = location.state as { targetRole?: string } | undefined;
     if (state?.targetRole) {
       setTargetRole(state.targetRole);
       setIsAssessmentDone(true);
-      localStorage.setItem("targetRole", state.targetRole);
-      localStorage.setItem("assessmentDone", "true");
+      localStorage.setItem(storageKeyRole, state.targetRole);
+      localStorage.setItem(storageKeyDone, "true");
     } else {
-      const storedRole = localStorage.getItem("targetRole");
-      const assessmentDone = localStorage.getItem("assessmentDone");
+      const storedRole = localStorage.getItem(storageKeyRole);
+      const assessmentDone = localStorage.getItem(storageKeyDone);
       if (storedRole && assessmentDone === "true") {
         setTargetRole(storedRole);
         setIsAssessmentDone(true);
+      } else {
+        setTargetRole(null);
+        setIsAssessmentDone(false);
       }
     }
-  }, [location.state]);
+  }, [location.state, email]);
 
-  const handleAssessment = () => navigate("/assessments");
+  const handleAssessment = () => {
+    navigate("/assessments");
+  };
 
   return (
     <>
