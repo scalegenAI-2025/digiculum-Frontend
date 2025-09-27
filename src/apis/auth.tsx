@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 
-const API_URL = "https://digiculum-backend.onrender.com/";
+const API_URL = "https://digiculum-backend.onrender.com/api/auth";
 
 axios.defaults.withCredentials = true;
 
