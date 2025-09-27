@@ -307,19 +307,22 @@ const Profile: React.FC = () => {
               {roles.map((role) => {
                 const isActive = role.name === targetRole;
                 return (
-                  <button
+                  <a
                     key={role.name}
+                    href={isActive ? role.link : undefined}
                     className={classes.button}
                     style={{
+                      display: "inline-block",
+                      textAlign: "center",
+                      textDecoration: "none",
                       backgroundColor: isActive ? "#6a0dad" : "#ccc",
                       color: isActive ? "#fff" : "#666",
                       cursor: isActive ? "pointer" : "not-allowed",
+                      pointerEvents: isActive ? "auto" : "none", // disables clicks if not active
                     }}
-                    disabled={!isActive}
-                    onClick={() => isActive && navigate(role.link)}
                   >
                     {role.name}
-                  </button>
+                  </a>
                 );
               })}
             </div>
