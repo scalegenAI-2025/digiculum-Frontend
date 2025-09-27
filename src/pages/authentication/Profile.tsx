@@ -147,10 +147,8 @@
 // export default Profile;
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useContext, useEffect, useState } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
-import { getProfile } from "../../apis/auth";
 import { AuthContext } from "../../context/AuthContext";
 import { createUseStyles } from "react-jss";
 import Navbar from "../home/homechildComponents/Navbar";
@@ -158,7 +156,7 @@ import Navbar from "../home/homechildComponents/Navbar";
 const useStyles = createUseStyles({
   container: {
     marginTop: "100px",
-    height: "100vh",
+    minHeight: "100vh",
     width: "100%",
     display: "flex",
     flexDirection: "column",
@@ -219,46 +217,31 @@ const Profile: React.FC = () => {
   const classes = useStyles();
   const { email } = useParams<{ email: string }>();
   const { user } = useContext(AuthContext);
-  const [_profileMessage, setProfileMessage] = useState("");
   const [targetRole, setTargetRole] = useState<string | null>(null);
   const [isAssessmentDone, setIsAssessmentDone] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Check localStorage for assessment completion
-  useEffect(() => {
-    const done = localStorage.getItem("assessmentDone");
-    if (done === "true") setIsAssessmentDone(true);
-  }, []);
-
-  // Fetch profile from backend (optional for message/role)
-  useEffect(() => {
-    const fetchProfile = async () => {
-      if (email) {
-        try {
-          const res = await getProfile(email);
-          setProfileMessage(res.data.message);
-        } catch (err: any) {
-          setProfileMessage(
-            err.response?.data?.message || "Error fetching profile"
-          );
-        }
-      }
-    };
-    fetchProfile();
-  }, [email]);
-
-  // Get targetRole from navigation state
+  // Load targetRole from state or localStorage
   useEffect(() => {
     const state = location.state as { targetRole?: string } | undefined;
-    if (state?.targetRole) setTargetRole(state.targetRole);
+    if (state?.targetRole) {
+      setTargetRole(state.targetRole);
+      setIsAssessmentDone(true);
+      localStorage.setItem("targetRole", state.targetRole);
+      localStorage.setItem("assessmentDone", "true");
+    } else {
+      const storedRole = localStorage.getItem("targetRole");
+      const assessmentDone = localStorage.getItem("assessmentDone");
+      if (storedRole && assessmentDone === "true") {
+        setTargetRole(storedRole);
+        setIsAssessmentDone(true);
+      }
+    }
   }, [location.state]);
 
-  const handleAssessment = () => {
-    localStorage.setItem("assessmentDone", "true"); // mark assessment done
-    navigate("/assessments");
-  };
+  const handleAssessment = () => navigate("/assessments");
 
   return (
     <>
@@ -270,7 +253,7 @@ const Profile: React.FC = () => {
         </div>
 
         <div className={classes.bottomSection}>
-          {!targetRole && !isAssessmentDone ? (
+          {!isAssessmentDone ? (
             <button className={classes.button} onClick={handleAssessment}>
               Take Assessment
             </button>

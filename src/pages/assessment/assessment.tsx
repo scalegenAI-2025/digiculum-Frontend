@@ -789,6 +789,7 @@ export default function Assessment() {
             <button
               onClick={() => {
                 if (!user?.email) return;
+                // Navigate to Profile page and send the role as state
                 navigate(`/profile/${user.email}`, {
                   state: { targetRole: card?.title },
                 });
