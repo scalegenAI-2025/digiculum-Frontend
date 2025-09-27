@@ -201,55 +201,55 @@ const useStyles = createUseStyles({
 const roles = [
   {
     name: "Fine Tuner",
-    link: "/https://reskill.digiculum.com/courses/Fine-Tuner-68d7e97f4ef2d036835b31b7",
+    link: "https://reskill.digiculum.com/courses/Fine-Tuner-68d7e97f4ef2d036835b31b7",
   },
   {
     name: "Agent Architect",
-    link: "/https://reskill.digiculum.com/courses/Agent-Architect-68d7ea4517fe8b631668bdb8",
+    link: "https://reskill.digiculum.com/courses/Agent-Architect-68d7ea4517fe8b631668bdb8",
   },
   {
     name: "Data Annotator",
-    link: "/https://reskill.digiculum.com/courses/Data-Annotator-68d7eab774cfc34612ee1f1a",
+    link: "https://reskill.digiculum.com/courses/Data-Annotator-68d7eab774cfc34612ee1f1a",
   },
   {
     name: "DAC Consultant",
-    link: "/https://reskill.digiculum.com/courses/DAC-Consultant-68d7ead516db9f465f7edf20",
+    link: "https://reskill.digiculum.com/courses/DAC-Consultant-68d7ead516db9f465f7edf20",
   },
   {
     name: "Sales Advocate",
-    link: "/https://reskill.digiculum.com/courses/Sales-Advocate-68d7eb234b4f7668c01c2c14",
+    link: "https://reskill.digiculum.com/courses/Sales-Advocate-68d7eb234b4f7668c01c2c14",
   },
   {
     name: "Compliance Guardian",
-    link: "/https://reskill.digiculum.com/courses/Compliance-Guardian-68d7eb4d96afaa2133af2122",
+    link: "https://reskill.digiculum.com/courses/Compliance-Guardian-68d7eb4d96afaa2133af2122",
   },
   {
     name: "Security Specialist",
-    link: "/https://reskill.digiculum.com/courses/Security-Specialist-68d7ebe2ddafb77e68e9a571",
+    link: "https://reskill.digiculum.com/courses/Security-Specialist-68d7ebe2ddafb77e68e9a571",
   },
   {
     name: "AI Executive",
-    link: "/https://reskill.digiculum.com/courses/AI-Executive-68d7ebfd14701e6af8167004",
+    link: "https://reskill.digiculum.com/courses/AI-Executive-68d7ebfd14701e6af8167004",
   },
   {
     name: "Program Overseer",
-    link: "/https://reskill.digiculum.com/courses/Program-Overseer-68d7ecc896afaa2133af2186",
+    link: "https://reskill.digiculum.com/courses/Program-Overseer-68d7ecc896afaa2133af2186",
   },
   {
     name: "Infrastructure Catalyst",
-    link: "/https://reskill.digiculum.com/courses/Infrastructure-Catalyst-68d7ece5c0c04119ff3d2db9",
+    link: "https://reskill.digiculum.com/courses/Infrastructure-Catalyst-68d7ece5c0c04119ff3d2db9",
   },
   {
     name: "VITA Creator",
-    link: "/https://reskill.digiculum.com/courses/VITA-Creator-68d7ea61be54aa2549953fe9",
+    link: "https://reskill.digiculum.com/courses/VITA-Creator-68d7ea61be54aa2549953fe9",
   },
   {
     name: "Domain Visionary",
-    link: "/https://reskill.digiculum.com/courses/Domain-Visionary-68d7eb6e865e214e68a24356",
+    link: "https://reskill.digiculum.com/courses/Domain-Visionary-68d7eb6e865e214e68a24356",
   },
   {
     name: "Foundational Track",
-    link: "/https://reskill.digiculum.com/courses/Foundational-Track-68d82167569dd422ebd2144d",
+    link: "https://reskill.digiculum.com/courses/Foundational-Track-68d82167569dd422ebd2144d",
   },
 ];
 
