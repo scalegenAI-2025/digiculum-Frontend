@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { createUseStyles } from "react-jss";
 import { FaLock } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/digi_logo_new_updated.png";
 import { NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthContext";
 
-interface NavItem {
-  id: string;
-  label: string;
-  href: string;
-}
+// interface NavItem {
+//   id: string;
+//   label: string;
+//   href: string;
+// }
 
 const useStyles = createUseStyles({
   navbar: {
@@ -199,18 +200,16 @@ const useStyles = createUseStyles({
     width: "190px",
   },
 });
-
 const Navbar: React.FC = () => {
   const classes = useStyles();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const { user, logoutUser } = useContext(AuthContext);
 
-  const navItems: NavItem[] = [
+  const navItems = [
     { id: "Reskilling", label: "Reskilling", href: "/Reskilling" },
     { id: "ecosystem", label: "Ecosystem", href: "/ecosystem" },
-
     { id: "Courses", label: "Courses", href: "/courses" },
-
     { id: "about-us", label: "About", href: "/about-us" },
   ];
 
@@ -219,20 +218,16 @@ const Navbar: React.FC = () => {
     navigate(href);
   };
 
+  const handleLogout = () => {
+    logoutUser(); // clear context and localStorage
+    navigate("/login"); // redirect to login
+  };
+
   return (
     <nav className={classes.navbar}>
-      <a
-        href="/"
-        className={classes.logo}
-        onClick={(e) => {
-          e.preventDefault();
-          //  handleNavClick("/", " ");
-        }}
-      >
-        <Link to="/" className={classes.logo}>
-          <img src={logo} alt="Digiculum Logo" className={classes.logoImage} />
-        </Link>
-      </a>
+      <Link to="/" className={classes.logo}>
+        <img src={logo} alt="Digiculum Logo" className={classes.logoImage} />
+      </Link>
 
       <div className={classes.navGroup}>
         <ul className={classes.navLinks}>
@@ -248,7 +243,7 @@ const Navbar: React.FC = () => {
                 className={({ isActive }) =>
                   `${classes.navLink} ${isActive ? classes.activeNavLink : ""}`
                 }
-                onClick={() => setIsMobileMenuOpen(false)} // close mobile menu on click
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
               </NavLink>
@@ -256,11 +251,15 @@ const Navbar: React.FC = () => {
           ))}
         </ul>
 
-        <div className={classes.lockIcon}>
-          <Link to="/signup">
-            <FaLock className={classes.lockIcon} />
-          </Link>
-        </div>
+        {user && (
+          <div
+            className={classes.lockIcon}
+            onClick={handleLogout}
+            title="Logout"
+          >
+            <FaLock />
+          </div>
+        )}
       </div>
 
       <button
@@ -288,6 +287,15 @@ const Navbar: React.FC = () => {
               </a>
             </div>
           ))}
+          {user && (
+            <div
+              className={classes.mobileMenuItem}
+              onClick={handleLogout}
+              style={{ color: "#ff4d4f", cursor: "pointer" }}
+            >
+              Logout
+            </div>
+          )}
         </div>
       )}
     </nav>
