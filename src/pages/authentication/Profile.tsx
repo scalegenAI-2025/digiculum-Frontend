@@ -188,6 +188,8 @@ const useStyles = createUseStyles({
   button: {
     padding: "15px 30px",
     fontSize: "1.2rem",
+    backgroundColor: "purple",
+    color: "white",
     borderRadius: "8px",
     border: "none",
     fontWeight: "bold",
