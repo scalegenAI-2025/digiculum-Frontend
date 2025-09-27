@@ -257,7 +257,7 @@ const Navbar: React.FC = () => {
         </ul>
 
         <div className={classes.lockIcon}>
-          <Link to="/register">
+          <Link to="/signup">
             <FaLock className={classes.lockIcon} />
           </Link>
         </div>

@@ -1,22 +1,60 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { getProfile } from "../../apis/auth";
 import { AuthContext } from "../../context/AuthContext";
 import { createUseStyles } from "react-jss";
+import Navbar from "../home/homechildComponents/Navbar";
 
 const useStyles = createUseStyles({
   container: {
-    maxWidth: "600px",
-    margin: "40px auto",
-    padding: "20px",
-    border: "1px solid #ccc",
-    borderRadius: "10px",
-    textAlign: "center",
+    marginTop: "100px",
+    height: "100vh",
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
   },
-  heading: {
+  topSection: {
+    backgroundColor: "#6a0dad", // purple
+    color: "white",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "60px 20px",
+  },
+  greeting: {
+    fontSize: "4rem",
+    margin: "0 0 10px 0",
+    fontWeight: "bold",
+  },
+  email: {
     fontSize: "1.5rem",
-    marginBottom: "20px",
+    margin: "0",
+    opacity: 0.9,
+  },
+  bottomSection: {
+    flex: 1,
+    backgroundColor: "white",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  button: {
+    padding: "15px 30px",
+    fontSize: "1.2rem",
+    backgroundColor: "#6a0dad",
+    color: "white",
+    border: "none",
+    borderRadius: "8px",
+    cursor: "pointer",
+    fontWeight: "bold",
+    transition: "transform 0.2s, background-color 0.3s",
+    "&:hover": {
+      transform: "scale(1.05)",
+      backgroundColor: "#520d91",
+    },
   },
 });
 
@@ -24,7 +62,8 @@ const Profile: React.FC = () => {
   const classes = useStyles();
   const { email } = useParams<{ email: string }>();
   const { user } = useContext(AuthContext);
-  const [message, setMessage] = useState("");
+  const [_message, setMessage] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -40,14 +79,25 @@ const Profile: React.FC = () => {
     fetchProfile();
   }, [email]);
 
+  const handleAssessment = () => {
+    navigate("/assessment"); // update with correct path
+  };
+
   return (
-    <div className={classes.container}>
-      <h2 className={classes.heading}>Profile Page</h2>
-      <p>
-        <strong>Logged in as:</strong> {user?.email}
-      </p>
-      <p>{message}</p>
-    </div>
+    <>
+      <Navbar />
+      <div className={classes.container}>
+        <div className={classes.topSection}>
+          <h1 className={classes.greeting}>Hiii</h1>
+          <p className={classes.email}>{user?.email}</p>
+        </div>
+        <div className={classes.bottomSection}>
+          <button className={classes.button} onClick={handleAssessment}>
+            Take Assessment
+          </button>
+        </div>
+      </div>
+    </>
   );
 };
 
