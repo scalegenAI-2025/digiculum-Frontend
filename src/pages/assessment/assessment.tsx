@@ -675,14 +675,14 @@ export default function Assessment() {
     // default: go to next question
     setCurrent((c) => c + 1);
   };
-  const handleBack = () => {
-    setHistory((prev) => {
-      if (prev.length === 0) return prev;
-      const lastQ = prev[prev.length - 1];
-      setCurrent(questions.findIndex((q) => q.id === lastQ));
-      return prev.slice(0, -1); // remove last
-    });
-  };
+  // const handleBack = () => {
+  //   setHistory((prev) => {
+  //     if (prev.length === 0) return prev;
+  //     const lastQ = prev[prev.length - 1];
+  //     setCurrent(questions.findIndex((q) => q.id === lastQ));
+  //     return prev.slice(0, -1); // remove last
+  //   });
+  // };
   const handleExit = () => {
     window.location.href = "/";
   };
