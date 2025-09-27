@@ -108,7 +108,7 @@ const Profile: React.FC = () => {
         <div className={classes.topSection}>
           <h1 className={classes.greeting}>Hiii</h1>
           <p className={classes.email}>{user?.email}</p>
-          <p>{profileMessage}</p>
+          {/* <p>{profileMessage}</p> */}
         </div>
 
         <div className={classes.bottomSection}>
