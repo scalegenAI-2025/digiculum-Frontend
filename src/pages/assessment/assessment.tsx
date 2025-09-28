@@ -488,6 +488,61 @@ export default function Assessment() {
     }
 
     // ---------- Q8 branching (domain expert question)
+    // if (question.id === "8") {
+    //   // If Q8 = Yes -> terminate with Domain Visionary
+    //   if (currentAnswer === "H1") {
+    //     showRoleCard(
+    //       "Domain Visionary",
+    //       "You chose to be a domain expert — recommended track: Domain Visionary."
+    //     );
+    //     return;
+    //   }
+
+    //   // If Q8 = No
+    //   if (currentAnswer === "H2") {
+    //     const q2 = answers["2"];
+    //     const q5 = answers["5"];
+
+    //     // 🔥 New rule: If Q2 ∈ {B1..B7 except B6} AND Q5 = E3 (Uncertain)
+    //     if (["B1", "B2", "B3", "B4", "B5", "B7"].includes(q2) && q5 === "E3") {
+    //       const q3 = answers["3"];
+    //       const mapped = q3ToRole_A[q3];
+    //       if (mapped) {
+    //         showRoleCard(
+    //           mapped,
+    //           `Based on your Q3 selection (${q3}), your recommended role is: ${mapped}.`
+    //         );
+    //         return;
+    //       }
+    //     }
+
+    //     // Existing rule: Q5 = E1 → go to specialized Q9.x
+    //     if (q5 === "E1") {
+    //       if (q2 === "B1") {
+    //         setCurrent(questions.findIndex((q) => q.id === "9.2"));
+    //         return;
+    //       } else if (q2 === "B2") {
+    //         setCurrent(questions.findIndex((q) => q.id === "9.5"));
+    //         return;
+    //       } else if (q2 === "B3") {
+    //         setCurrent(questions.findIndex((q) => q.id === "9.3"));
+    //         return;
+    //       } else if (q2 === "B7") {
+    //         setCurrent(questions.findIndex((q) => q.id === "9.4"));
+    //         return;
+    //       } else {
+    //         setCurrent((c) => c + 1);
+    //         return;
+    //       }
+    //     } else {
+    //       // If Q5 !== E1 we simply continue
+    //       setCurrent((c) => c + 1);
+    //       return;
+    //     }
+    //   }
+    // }
+    // ---------- Q8 branching (domain expert question)
+    // ---------- Q8 branching (domain expert question)
     if (question.id === "8") {
       // If Q8 = Yes -> terminate with Domain Visionary
       if (currentAnswer === "H1") {
@@ -503,10 +558,10 @@ export default function Assessment() {
         const q2 = answers["2"];
         const q5 = answers["5"];
 
-        // 🔥 New rule: If Q2 ∈ {B1..B7 except B6} AND Q5 = E3 (Uncertain)
+        // NEW RULE: If Q2 = B1..B7 except B6 AND Q5 = E3 (Uncertain) → map Q3 → Role
         if (["B1", "B2", "B3", "B4", "B5", "B7"].includes(q2) && q5 === "E3") {
           const q3 = answers["3"];
-          const mapped = q3ToRole_A[q3];
+          const mapped = q3ToRole[q3]; // ✅ uses your existing mapping (C1..C12)
           if (mapped) {
             showRoleCard(
               mapped,
