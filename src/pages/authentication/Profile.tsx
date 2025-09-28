@@ -487,15 +487,25 @@ const Profile: React.FC = () => {
       <Navbar />
       <div className={classes.container}>
         <div className={classes.topSection}>
-          <h1 className={classes.greeting}>Hiii</h1>
+          <h1 className={classes.greeting}>Hello</h1>
           <p className={classes.email}>{user?.email}</p>
         </div>
 
         <div className={classes.bottomSection}>
           {!isAssessmentDone ? (
-            <button className={classes.button} onClick={handleAssessment}>
-              Take Assessment
-            </button>
+            <>
+              <p>
+                You will be provided a set of questions. Based on the response
+                you provide, you shall get a target role from a set of 12 new
+                AI/GenAI roles. Note that this version 1.0 of the reskilling
+                assessment maps you to one of the 12 new AI/GenAI roles. In the
+                future versions, we shall add sub-roles, skills and competencies
+                to it.
+              </p>
+              <button className={classes.button} onClick={handleAssessment}>
+                Take Assessment
+              </button>
+            </>
           ) : (
             <div className={classes.buttonGrid}>
               {roles.map((role) => {

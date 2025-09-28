@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { signup } from "../../apis/auth";
 import { useNavigate, Link } from "react-router-dom";
 import { createUseStyles } from "react-jss";
+import Navbar from "../home/homechildComponents/Navbar";
+import FooterContact from "../home/homechildComponents/FooterContact";
 
 const useStyles = createUseStyles({
   container: {
@@ -69,44 +71,48 @@ const Signup: React.FC = () => {
   };
 
   return (
-    <div className={classes.container}>
-      <h2>Signup</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          className={classes.input}
-          name="name"
-          placeholder="Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          className={classes.input}
-          name="email"
-          placeholder="Email"
-          type="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          className={classes.input}
-          name="password"
-          placeholder="Password"
-          type="password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <button className={classes.button} type="submit">
-          Signup
-        </button>
-      </form>
-      {message && <p className={classes.message}>{message}</p>}
-      <Link className={classes.loginLink} to="/login">
-        Already have an account? Login
-      </Link>
-    </div>
+    <>
+      <Navbar />
+      <div className={classes.container}>
+        <h2>Register</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            className={classes.input}
+            name="name"
+            placeholder="Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+          <input
+            className={classes.input}
+            name="email"
+            placeholder="Email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            className={classes.input}
+            name="password"
+            placeholder="Password"
+            type="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          <button className={classes.button} type="submit">
+            Register
+          </button>
+        </form>
+        {message && <p className={classes.message}>{message}</p>}
+        <Link className={classes.loginLink} to="/login">
+          Already have an account? Login
+        </Link>
+      </div>
+      <FooterContact />
+    </>
   );
 };
 

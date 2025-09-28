@@ -566,7 +566,7 @@ const Navbar: React.FC = () => {
                 className={classes.logoutButton}
                 onClick={handleStartJourney}
               >
-                Profile
+                My Page
               </button>
               <button className={classes.logoutButton} onClick={handleLogout}>
                 Logout
@@ -622,7 +622,7 @@ const Navbar: React.FC = () => {
                     setIsMobileMenuOpen(false);
                   }}
                 >
-                  Profile
+                  My Page
                 </button>
                 <button
                   className={classes.logoutButton}

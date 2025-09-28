@@ -96,7 +96,7 @@ const Login: React.FC = () => {
           </button>
         </form>
         <p>
-          Forgot password? <a href="/send-reset-link">Reset here</a>
+          <a href="/send-reset-link">Forgot password</a>
         </p>
         {message && <p className={classes.message}>{message}</p>}
         <Link className={classes.loginLink} to="/signup">

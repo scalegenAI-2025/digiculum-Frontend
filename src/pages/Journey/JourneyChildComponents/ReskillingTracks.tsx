@@ -13,7 +13,7 @@ const tracks: Track[] = [
     id: 0,
     title: "Foundational Track",
     description:
-      "For professionals/non-prof essionals from non-IT and non-technical aspiring to develop AI knowledge from scratch.",
+      "For professionals/non-professionals from non-IT and non-technical aspiring to develop AI knowledge from scratch.",
   },
   {
     id: 1,
@@ -49,7 +49,7 @@ const tracks: Track[] = [
     id: 6,
     title: "Developers",
     description:
-      "For python missionaries set to build AI for the future leveraging APIs, SDKs, frameworks, and open-source communities",
+      "For python missionaries set to build AI for the future leveraging APIs, SDKs, frameworks, and open-source communities.",
   },
   {
     id: 7,
@@ -73,7 +73,7 @@ const tracks: Track[] = [
     id: 10,
     title: "Infrastructure",
     description:
-      "For individuals hands-on with GPUs, chips, datacenters, and cables, building the compute, connectivity, and cloud for your AI",
+      "For individuals hands-on with GPUs, chips, datacenters, and cables, building the compute, connectivity, and cloud for your AI.",
   },
 ];
 

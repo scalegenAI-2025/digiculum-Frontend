@@ -71,15 +71,19 @@ const useStyles = createUseStyles({
     minHeight: "100vh",
   },
   title: {
-    fontSize: "4rem",
+    fontSize: "2.5rem",
     fontWeight: "bold",
     textAlign: "center",
     color: "#333",
-    marginBottom: "40px",
+    // marginBottom: "40px",
     fontFamily: "Arial, sans-serif",
     "@media (max-width: 640px)": {
       fontSize: "2rem",
     },
+  },
+  subTitle: {
+    textAlign: "center",
+    marginBottom: "40px",
   },
   cardsGrid: {
     display: "grid",
@@ -753,40 +757,40 @@ const CoursesPage: React.FC = () => {
       image: `${C40}`,
       links: [
         {
-          label: "Coursera",
-          url: "https://www.coursera.org/learn/data-security",
+          label: "CCSP",
+          url: "https://www.isc2.org/certifications/ccsp",
         },
         {
-          label: "Coursera",
-          url: "https://www.coursera.org/learn/data-security",
+          label: "CompTIA",
+          url: "https://partners.comptia.org/certifications/cloud",
         },
         {
-          label: "Coursera",
-          url: "https://www.coursera.org/learn/data-security",
+          label: "CCSK",
+          url: "https://cloudsecurityalliance.org/education/ccsk",
         },
         {
-          label: "Coursera",
-          url: "https://www.coursera.org/learn/data-security",
+          label: "CISSP",
+          url: "https://www.isc2.org/certifications/cissp",
         },
         {
-          label: "Coursera",
-          url: "https://www.coursera.org/learn/data-security",
+          label: "GCSA",
+          url: "https://www.giac.org/certifications/cloud-security-automation-gcsa/",
         },
         {
-          label: "Coursera",
-          url: "https://www.coursera.org/learn/data-security",
+          label: "CKS",
+          url: "https://training.linuxfoundation.org/certification/certified-kubernetes-security-specialist/",
         },
         {
-          label: "Coursera",
-          url: "https://www.coursera.org/learn/data-security",
+          label: "AWS",
+          url: "https://aws.amazon.com/certification/certified-security-specialty/",
         },
         {
-          label: "Coursera",
-          url: "https://www.coursera.org/learn/data-security",
+          label: "Azure",
+          url: "https://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/?practice-assessment-type=certification",
         },
         {
-          label: "Coursera",
-          url: "https://www.coursera.org/learn/data-security",
+          label: "Google",
+          url: "https://cloud.google.com/learn/certification/cloud-security-engineer",
         },
       ],
       // 🚨 will fill with 9 buttons
@@ -799,20 +803,20 @@ const CoursesPage: React.FC = () => {
       // 🚨 will fill with 4 buttons
       links: [
         {
-          label: "Coursera",
-          url: "https://www.coursera.org/learn/introduction-to-cloud",
+          label: "CompTIA",
+          url: "https://partners.comptia.org/certifications/security",
         },
         {
-          label: "Coursera",
-          url: "https://www.coursera.org/learn/introduction-to-cloud",
+          label: "SSCP",
+          url: "https://www.isc2.org/certifications/sscp",
         },
         {
-          label: "Coursera",
-          url: "https://www.coursera.org/learn/introduction-to-cloud",
+          label: "CISSP",
+          url: "https://www.isc2.org/certifications/cissp",
         },
         {
-          label: "Coursera",
-          url: "https://www.coursera.org/learn/introduction-to-cloud",
+          label: "CCNP",
+          url: "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/security/ccnp-security/index.html",
         },
       ],
     },
@@ -946,6 +950,10 @@ const CoursesPage: React.FC = () => {
   return (
     <div className={classes.container}>
       <h1 className={classes.title}>Courses</h1>
+      <p className={classes.subTitle}>
+        We strongly recommend you to take assessment and begin your AI
+        Reskilling Journey instead of enrolling in standalone courses.
+      </p>
       <div className={classes.cardsGrid}>
         {cardData.map((card) => (
           <CourseCard key={card.id} card={card} />

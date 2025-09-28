@@ -482,7 +482,7 @@ export default function CourseCards() {
 
   return (
     <div className={classes.container}>
-      <h1 className={classes.header}>Our Courses</h1>
+      <h1 className={classes.header}>Instructor-led Courses</h1>
       <div className={classes.cardsContainer}>
         {courses.map((course, index) => (
           <div key={index} className={classes.darkCard}>
