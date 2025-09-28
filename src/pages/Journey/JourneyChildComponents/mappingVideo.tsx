@@ -12,7 +12,7 @@ const useStyles = createUseStyles({
     //alignItems: "center",
     // paddingBottom: "150px",
     "@media (max-width: 500px)": {
-      height: "55vh",
+      height: "60vh",
     },
   },
   container: {
@@ -47,7 +47,7 @@ const useStyles = createUseStyles({
     textAlign: "center",
 
     "@media (max-width: 500px)": {
-      fontSize: "2rem", // or whatever looks right
+      fontSize: "1rem", // or whatever looks right
       paddingLeft: 20,
       paddingRight: 20,
       paddingBottom: 30,
@@ -58,7 +58,7 @@ const useStyles = createUseStyles({
     color: "#E547ED",
     fontSize: "3.2rem",
     "@media (max-width: 500px)": {
-      fontSize: "2rem", // or whatever looks right
+      fontSize: "1.2rem", // or whatever looks right
     },
   },
   para: {
