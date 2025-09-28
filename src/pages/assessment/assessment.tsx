@@ -804,14 +804,15 @@ export default function Assessment() {
     // default: go to next question
     setCurrent((c) => c + 1);
   };
-  // const handleBack = () => {
-  //   setHistory((prev) => {
-  //     if (prev.length === 0) return prev;
-  //     const lastQ = prev[prev.length - 1];
-  //     setCurrent(questions.findIndex((q) => q.id === lastQ));
-  //     return prev.slice(0, -1); // remove last
-  //   });
-  // };
+  const handleBack = () => {
+    setHistory((prev) => {
+      if (prev.length === 0) return prev;
+      const lastQ = prev[prev.length - 1];
+      setCurrent(questions.findIndex((q) => q.id === lastQ));
+      return prev.slice(0, -1); // remove last
+    });
+  };
+
   const handleExit = () => {
     window.location.href = "/";
   };
@@ -830,57 +831,58 @@ export default function Assessment() {
   //     setCurrent((c) => (c > 0 ? c - 1 : 0));
   //   };
 
-  const handleCardBack = () => {
-    setTerminated(false);
-    setCard(null);
+  // const handleCardBack = () => {
+  //   setTerminated(false);
+  //   setCard(null);
 
-    setHistory((prev) => {
-      if (prev.length === 0) {
-        setCurrent(0);
-        return prev;
-      }
-      const lastQ = prev[prev.length - 1];
-      setCurrent(questions.findIndex((q) => q.id === lastQ));
-      return prev.slice(0, -1); // remove last
-    });
-  };
+  //   setHistory((prev) => {
+  //     if (prev.length === 0) {
+  //       setCurrent(0);
+  //       return prev;
+  //     }
+  //     const lastQ = prev[prev.length - 1];
+  //     setCurrent(questions.findIndex((q) => q.id === lastQ));
+  //     return prev.slice(0, -1); // remove last
+  //   });
+  // };
+  // const handleBack = () => {
+  //   setHistory((prev) => {
+  //     if (prev.length === 0) return prev; // no previous question
+  //     const lastQ = prev[prev.length - 1];
+  //     setCurrent(questions.findIndex((q) => q.id === lastQ));
+  //     return prev.slice(0, -1); // remove last
+  //   });
+  // };
 
   return (
     <div className={classes.container}>
       <h2 className={classes.title}>Question {question.id}</h2>
       <p className={classes.questionText}>{question.text}</p>
 
-      {!terminated && question.options && (
-        <div className={question.id === "7" ? classes.scrollBox : ""}>
-          {question.options.map((opt) => (
-            <div key={opt.value}>
-              <label
-                className={`${classes.option} ${
-                  opt.disabled ? classes.disabledOption : ""
-                }`}
-              >
-                <input
-                  type="radio"
-                  name={`q-${question.id}`}
-                  value={opt.value}
-                  checked={answers[question.id] === opt.value}
-                  onChange={(e) => handleAnswer(e.target.value)}
-                  disabled={opt.disabled}
-                />
-                <span>{opt.label}</span>
-              </label>
+      {!terminated && (
+        <div className={classes.nav}>
+          <button
+            onClick={handleBack}
+            className={`${classes.button} ${classes.prevButton}`}
+            disabled={_history.length === 0} // disable if no history
+          >
+            Back
+          </button>
 
-              {opt.requireText && answers[question.id] === opt.value && (
-                <input
-                  type="text"
-                  placeholder="Please specify..."
-                  className={classes.textInput}
-                  value={details[question.id] || ""}
-                  onChange={(e) => handleDetail(e.target.value)}
-                />
-              )}
-            </div>
-          ))}
+          <button
+            onClick={handleExit}
+            className={`${classes.button} ${classes.prevButton}`}
+          >
+            Exit
+          </button>
+
+          <button
+            onClick={goNext}
+            className={`${classes.button} ${classes.nextButton}`}
+            disabled={isNextDisabled}
+          >
+            Next
+          </button>
         </div>
       )}
 
