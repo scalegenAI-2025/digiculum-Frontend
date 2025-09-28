@@ -898,12 +898,12 @@ export default function Assessment() {
             }}
           >
             {/* Back button to edit answers */}
-            <button
+            {/* <button
               onClick={handleCardBack}
               className={`${classes.button} ${classes.prevButton}`}
             >
               Back
-            </button>
+            </button> */}
             {/* Exit button to go to /profile */}
             {/* <button
               onClick={() => (window.location.href = "/profile")}
