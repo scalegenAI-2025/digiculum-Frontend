@@ -804,14 +804,15 @@ export default function Assessment() {
     // default: go to next question
     setCurrent((c) => c + 1);
   };
-  // const handleBack = () => {
-  //   setHistory((prev) => {
-  //     if (prev.length === 0) return prev;
-  //     const lastQ = prev[prev.length - 1];
-  //     setCurrent(questions.findIndex((q) => q.id === lastQ));
-  //     return prev.slice(0, -1); // remove last
-  //   });
-  // };
+  const handleBack = () => {
+    setHistory((prev) => {
+      if (prev.length === 0) return prev; // no previous question
+      const lastQ = prev[prev.length - 1];
+      setCurrent(questions.findIndex((q) => q.id === lastQ));
+      return prev.slice(0, -1); // remove last
+    });
+  };
+
   const handleExit = () => {
     window.location.href = "/";
   };
@@ -933,33 +934,6 @@ export default function Assessment() {
               Exit
             </button>
           </div>
-        </div>
-      )}
-
-      {!terminated && (
-        <div className={classes.nav}>
-          {/* <button
-            onClick={handleBack}
-            className={`${classes.button} ${classes.prevButton}`}
-            disabled={current === 0}
-          >
-            Back
-          </button> */}
-
-          <button
-            onClick={handleExit}
-            className={`${classes.button} ${classes.prevButton}`}
-          >
-            Exit
-          </button>
-
-          <button
-            onClick={goNext}
-            className={`${classes.button} ${classes.nextButton}`}
-            disabled={isNextDisabled}
-          >
-            Next
-          </button>
         </div>
       )}
     </div>
