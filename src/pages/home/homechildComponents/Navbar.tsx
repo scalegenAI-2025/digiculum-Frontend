@@ -298,10 +298,10 @@
 
 import React, { useState, useContext } from "react";
 import { createUseStyles } from "react-jss";
-import { FaLock } from "react-icons/fa";
+import { FaLock, FaBars, FaTimes } from "react-icons/fa";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../../assets/digi_logo_new_updated.png";
-import { AuthContext } from "../../../context/AuthContext"; // adjust path
+import { AuthContext } from "../../../context/AuthContext";
 
 interface NavItem {
   id: string;
@@ -327,7 +327,6 @@ const useStyles = createUseStyles({
     minHeight: "80px",
     boxSizing: "border-box",
     transition: "all 0.3s ease",
-
     "@media (max-width: 768px)": {
       padding: "1rem 1.5rem",
     },
@@ -343,7 +342,6 @@ const useStyles = createUseStyles({
 
   activeNavLink: {
     color: "#E547ED !important",
-
     "&:before": {
       width: "100% !important",
       backgroundColor: "#E547ED",
@@ -357,23 +355,16 @@ const useStyles = createUseStyles({
     textDecoration: "none",
     letterSpacing: "0.05em",
     fontFamily: "Arial, sans-serif",
-
-    "&:hover": {
-      opacity: 0.9,
-    },
+    "&:hover": { opacity: 0.9 },
   },
 
-  logoImage: {
-    width: "190px",
-  },
+  logoImage: { width: "190px" },
 
   navGroup: {
     flex: 1,
     display: "flex",
     justifyContent: "center",
-    "@media (max-width: 768px)": {
-      display: "none",
-    },
+    "@media (max-width: 768px)": { display: "none" },
   },
 
   navLinks: {
@@ -386,9 +377,7 @@ const useStyles = createUseStyles({
     position: "relative",
   },
 
-  navItem: {
-    position: "relative",
-  },
+  navItem: { position: "relative" },
 
   navItemWithDivider: {
     "&::after": {
@@ -411,7 +400,6 @@ const useStyles = createUseStyles({
     padding: "0.5rem 0",
     transition: "all 0.3s ease",
     position: "relative",
-
     "&:before": {
       content: '""',
       position: "absolute",
@@ -423,12 +411,9 @@ const useStyles = createUseStyles({
       backgroundColor: "#E547ED",
       transition: "width 0.3s ease",
     },
-
     "&:hover": {
       color: "#E547ED",
-      "&:before": {
-        width: "100%",
-      },
+      "&:before": { width: "100%" },
     },
   },
 
@@ -437,10 +422,8 @@ const useStyles = createUseStyles({
     color: "#ffffff",
     cursor: "pointer",
     marginLeft: "1rem",
-
-    "&:hover": {
-      color: "#E547ED",
-    },
+    "&:hover": { color: "#E547ED" },
+    "@media (max-width: 768px)": { display: "none" }, // hide on mobile
   },
 
   logoutButton: {
@@ -452,7 +435,6 @@ const useStyles = createUseStyles({
     fontSize: "0.95rem",
     cursor: "pointer",
     transition: "all 0.3s ease",
-
     "&:hover": {
       backgroundColor: "#E547ED",
       color: "#fff",
@@ -467,10 +449,7 @@ const useStyles = createUseStyles({
     fontSize: "1.5rem",
     cursor: "pointer",
     padding: "0.5rem",
-
-    "@media (max-width: 768px)": {
-      display: "block",
-    },
+    "@media (max-width: 768px)": { display: "block" },
   },
 
   mobileMenu: {
@@ -483,22 +462,12 @@ const useStyles = createUseStyles({
     backdropFilter: "blur(10px)",
     borderTop: "1px solid rgba(255, 255, 255, 0.1)",
     padding: "1rem 0",
-
-    "@media (max-width: 768px)": {
-      display: "flex",
-      flexDirection: "column",
-    },
+    "@media (max-width: 768px)": { display: "flex", flexDirection: "column" },
   },
 
   "@keyframes slideDown": {
-    from: {
-      opacity: 0,
-      transform: "translateY(-10px)",
-    },
-    to: {
-      opacity: 1,
-      transform: "translateY(0)",
-    },
+    from: { opacity: 0, transform: "translateY(-10px)" },
+    to: { opacity: 1, transform: "translateY(0)" },
   },
 
   mobileMenuOpen: {
@@ -506,9 +475,7 @@ const useStyles = createUseStyles({
     animation: "$slideDown 0.3s ease-out",
   },
 
-  mobileMenuItem: {
-    padding: "0.75rem 1.5rem",
-  },
+  mobileMenuItem: { padding: "0.75rem 1.5rem" },
 
   mobileMenuLink: {
     color: "#ffffff",
@@ -516,10 +483,13 @@ const useStyles = createUseStyles({
     fontSize: "1rem",
     fontWeight: 400,
     display: "block",
+    "&:hover": { color: "#ff6ec7" },
+  },
 
-    "&:hover": {
-      color: "#ff6ec7",
-    },
+  authSection: {
+    display: "flex",
+    alignItems: "center",
+    gap: "1rem",
   },
 });
 
@@ -543,18 +513,26 @@ const Navbar: React.FC = () => {
 
   const handleLogout = () => {
     logoutUser();
-    navigate("/"); // redirect after logout
+    navigate("/");
+  };
+
+  const handleStartJourney = () => {
+    if (user) {
+      navigate(`/profile/${user.email}`);
+    } else {
+      navigate("/login");
+    }
   };
 
   return (
     <nav className={classes.navbar}>
       <div className={classes.navbarInner}>
-        {/* Logo (left) */}
+        {/* Logo */}
         <Link to="/" className={classes.logo}>
           <img src={logo} alt="Digiculum Logo" className={classes.logoImage} />
         </Link>
 
-        {/* Nav Links (center) */}
+        {/* Nav Links */}
         <div className={classes.navGroup}>
           <ul className={classes.navLinks}>
             {navItems.map((item, index) => (
@@ -580,30 +558,38 @@ const Navbar: React.FC = () => {
           </ul>
         </div>
 
-        {/* Auth Section (right) */}
-        <div>
+        {/* Auth Section */}
+        <div className={classes.authSection}>
           {user ? (
-            <button className={classes.logoutButton} onClick={handleLogout}>
-              Logout
-            </button>
+            <>
+              <button
+                className={classes.logoutButton}
+                onClick={handleStartJourney}
+              >
+                Profile
+              </button>
+              <button className={classes.logoutButton} onClick={handleLogout}>
+                Logout
+              </button>
+            </>
           ) : (
             <Link to="/login">
               <FaLock className={classes.lockIcon} />
             </Link>
           )}
         </div>
-      </div>
 
-      {/* Mobile Menu Toggle */}
-      <button
-        className={classes.mobileMenuButton}
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        aria-label="Toggle mobile menu"
-        aria-expanded={isMobileMenuOpen}
-        aria-controls="mobile-menu"
-      >
-        ☰
-      </button>
+        {/* Mobile Menu Toggle */}
+        <button
+          className={classes.mobileMenuButton}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-menu"
+        >
+          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
@@ -624,19 +610,36 @@ const Navbar: React.FC = () => {
             </li>
           ))}
 
-          {/* Auth for mobile */}
+          {/* Auth for Mobile */}
           <li className={classes.mobileMenuItem}>
             {user ? (
-              <button className={classes.logoutButton} onClick={handleLogout}>
-                Logout
-              </button>
+              <>
+                <button
+                  className={classes.logoutButton}
+                  onClick={() => {
+                    handleStartJourney();
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  Profile
+                </button>
+                <button
+                  className={classes.logoutButton}
+                  onClick={() => {
+                    handleLogout();
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  Logout
+                </button>
+              </>
             ) : (
               <NavLink
                 to="/login"
                 className={classes.mobileMenuLink}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <FaLock className={classes.lockIcon} /> Login
+                Login
               </NavLink>
             )}
           </li>
