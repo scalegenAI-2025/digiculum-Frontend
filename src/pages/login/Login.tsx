@@ -276,7 +276,7 @@
 import { useState } from "react";
 import { createUseStyles } from "react-jss";
 import api from "../../utils/api";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 const useStyles = createUseStyles({
   container: {
@@ -374,9 +374,6 @@ export default function Login() {
       </form>
       {error && <div className={classes.error}>{error}</div>}
       {success && <div className={classes.success}>{success}</div>}
-      <div className={classes.link}>
-        Do not have an account? <Link to="/signup">Signup</Link>
-      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@
 import React, { useState, useContext } from "react";
 import { login } from "../../apis/auth";
 import { AuthContext } from "../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
@@ -29,6 +29,16 @@ const useStyles = createUseStyles({
   },
   message: {
     marginTop: "10px",
+  },
+  loginLink: {
+    marginTop: "20px",
+    display: "block",
+    color: "#444394",
+    textDecoration: "none",
+    fontWeight: "bold",
+    "&:hover": {
+      textDecoration: "underline",
+    },
   },
 });
 
@@ -84,6 +94,9 @@ const Login: React.FC = () => {
         Forgot password? <a href="/send-reset-link">Reset here</a>
       </p>
       {message && <p className={classes.message}>{message}</p>}
+      <Link className={classes.loginLink} to="/signup">
+        Do not have an account? Signup
+      </Link>
     </div>
   );
 };
