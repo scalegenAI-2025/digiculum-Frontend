@@ -844,14 +844,14 @@ export default function Assessment() {
   //     return prev.slice(0, -1); // remove last
   //   });
   // };
-  const handleBack = () => {
-    setHistory((prev) => {
-      if (prev.length === 0) return prev; // no previous question
-      const lastQ = prev[prev.length - 1];
-      setCurrent(questions.findIndex((q) => q.id === lastQ));
-      return prev.slice(0, -1); // remove last
-    });
-  };
+  // const handleBack = () => {
+  //   setHistory((prev) => {
+  //     if (prev.length === 0) return prev; // no previous question
+  //     const lastQ = prev[prev.length - 1];
+  //     setCurrent(questions.findIndex((q) => q.id === lastQ));
+  //     return prev.slice(0, -1); // remove last
+  //   });
+  // };
 
   return (
     <div className={classes.container}>
