@@ -313,7 +313,7 @@ const useStyles = createUseStyles({
   navbar: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "center",
     padding: "1rem 3rem",
     backgroundColor: "black",
     backdropFilter: "blur(10px)",
@@ -332,6 +332,15 @@ const useStyles = createUseStyles({
       padding: "1rem 1.5rem",
     },
   },
+
+  navbarInner: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+    maxWidth: "1200px",
+  },
+
   activeNavLink: {
     color: "#E547ED !important",
 
@@ -359,10 +368,9 @@ const useStyles = createUseStyles({
   },
 
   navGroup: {
+    flex: 1,
     display: "flex",
-    alignItems: "center",
-    gap: "3rem",
-
+    justifyContent: "center",
     "@media (max-width: 768px)": {
       display: "none",
     },
@@ -428,7 +436,7 @@ const useStyles = createUseStyles({
     fontSize: "2rem",
     color: "#ffffff",
     cursor: "pointer",
-    paddingLeft: "1rem",
+    marginLeft: "1rem",
 
     "&:hover": {
       color: "#E547ED",
@@ -540,49 +548,50 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className={classes.navbar}>
-      {/* Logo */}
-      <Link to="/" className={classes.logo}>
-        <img src={logo} alt="Digiculum Logo" className={classes.logoImage} />
-      </Link>
+      <div className={classes.navbarInner}>
+        {/* Logo (left) */}
+        <Link to="/" className={classes.logo}>
+          <img src={logo} alt="Digiculum Logo" className={classes.logoImage} />
+        </Link>
 
-      {/* Desktop Menu */}
-      <div className={classes.navGroup}>
-        <ul className={classes.navLinks}>
-          {navItems.map((item, index) => (
-            <li
-              key={item.id}
-              className={`${classes.navItem} ${
-                index < navItems.length - 1 ? classes.navItemWithDivider : ""
-              }`}
-            >
-              <NavLink
-                to={item.href}
-                className={({ isActive }) =>
-                  `${classes.navLink} ${isActive ? classes.activeNavLink : ""}`
-                }
-                onClick={() => setIsMobileMenuOpen(false)}
+        {/* Nav Links (center) */}
+        <div className={classes.navGroup}>
+          <ul className={classes.navLinks}>
+            {navItems.map((item, index) => (
+              <li
+                key={item.id}
+                className={`${classes.navItem} ${
+                  index < navItems.length - 1 ? classes.navItemWithDivider : ""
+                }`}
               >
-                {item.label}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+                <NavLink
+                  to={item.href}
+                  className={({ isActive }) =>
+                    `${classes.navLink} ${
+                      isActive ? classes.activeNavLink : ""
+                    }`
+                  }
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        {/* Auth Section */}
-        {user ? (
-          <button className={classes.logoutButton} onClick={handleLogout}>
-            Logout
-          </button>
-        ) : (
-          <>
-            <Link to="/login" className={classes.navLink}>
-              Login
-            </Link>
-            <Link to="/signup">
+        {/* Auth Section (right) */}
+        <div>
+          {user ? (
+            <button className={classes.logoutButton} onClick={handleLogout}>
+              Logout
+            </button>
+          ) : (
+            <Link to="/login">
               <FaLock className={classes.lockIcon} />
             </Link>
-          </>
-        )}
+          )}
+        </div>
       </div>
 
       {/* Mobile Menu Toggle */}
@@ -622,22 +631,13 @@ const Navbar: React.FC = () => {
                 Logout
               </button>
             ) : (
-              <>
-                <NavLink
-                  to="/login"
-                  className={classes.mobileMenuLink}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Login
-                </NavLink>
-                <NavLink
-                  to="/signup"
-                  className={classes.mobileMenuLink}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Sign Up
-                </NavLink>
-              </>
+              <NavLink
+                to="/login"
+                className={classes.mobileMenuLink}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <FaLock className={classes.lockIcon} /> Login
+              </NavLink>
             )}
           </li>
         </ul>
