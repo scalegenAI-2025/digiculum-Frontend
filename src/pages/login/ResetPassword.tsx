@@ -3,37 +3,36 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { createUseStyles } from "react-jss";
 import api from "../../utils/api";
-
 const useStyles = createUseStyles({
   container: {
-    maxWidth: 400,
-    margin: "50px auto",
-    padding: 20,
-    border: "1px solid #ccc",
-    borderRadius: 8,
+    maxWidth: 450,
+    margin: "60px auto",
+    padding: 35,
+    borderRadius: 12,
     background: "#f9f9f9",
     textAlign: "center",
   },
   input: {
-    display: "block",
     width: "100%",
-    padding: 10,
+    padding: 12,
     margin: "10px 0",
-    borderRadius: 4,
+    borderRadius: 6,
     border: "1px solid #ccc",
   },
   button: {
     width: "100%",
-    padding: 10,
-    backgroundColor: "#28a745",
-    color: "#fff",
+    padding: 12,
+    marginTop: 15,
+    borderRadius: 6,
     border: "none",
-    borderRadius: 4,
+    backgroundColor: "#007bff",
+    color: "#fff",
     cursor: "pointer",
   },
-  title: { marginBottom: 20 },
+  link: { marginTop: 15, fontSize: 14 },
   error: { color: "red", marginTop: 10 },
   success: { color: "green", marginTop: 10 },
+  title: { marginBottom: 20 },
 });
 
 export default function ResetPassword() {
