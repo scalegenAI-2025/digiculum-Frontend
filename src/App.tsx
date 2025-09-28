@@ -43,7 +43,7 @@ import PrivacyPolicy from "./pages/home/homechildComponents/PrivacyPolicy";
 import CookiePolicy from "./pages/home/homechildComponents/CookiePolicy";
 import GeneralTerms from "./pages/home/homechildComponents/TermsAndCondition";
 import RefundPolicy from "./pages/home/homechildComponents/RefundPolicy";
-import Assessment from "./pages/assessment/assessment";
+//import Assessment from "./pages/assessment/assessment";
 import Signup from "./pages/authentication/Signup";
 import SendResetLink from "./pages/authentication/SendResetLink";
 import ProtectedRoute from "./components/navbar/ProtectedRoute";
@@ -105,7 +105,7 @@ function App() {
         <Route path="/cookies" element={<CookiePolicy />} />
         <Route path="/terms" element={<GeneralTerms />} />
         <Route path="/refund" element={<RefundPolicy />} />
-        <Route path="/assessments" element={<Assessment />} />
+        {/* <Route path="/assessments" element={<Assessment />} /> */}
 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
