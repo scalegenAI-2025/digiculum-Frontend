@@ -4,11 +4,14 @@ import { login } from "../../apis/auth";
 import { AuthContext } from "../../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { createUseStyles } from "react-jss";
+import Navbar from "../home/homechildComponents/Navbar";
+import FooterContact from "../home/homechildComponents/FooterContact";
 
 const useStyles = createUseStyles({
   container: {
     maxWidth: "400px",
-    margin: "50px auto",
+
+    margin: "140px auto",
     padding: "20px",
     border: "1px solid #ccc",
     borderRadius: "10px",
@@ -65,39 +68,43 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className={classes.container}>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          className={classes.input}
-          name="email"
-          placeholder="Email"
-          type="email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          className={classes.input}
-          name="password"
-          placeholder="Password"
-          type="password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <button className={classes.button} type="submit">
-          Login
-        </button>
-      </form>
-      <p>
-        Forgot password? <a href="/send-reset-link">Reset here</a>
-      </p>
-      {message && <p className={classes.message}>{message}</p>}
-      <Link className={classes.loginLink} to="/signup">
-        Do not have an account? Signup
-      </Link>
-    </div>
+    <>
+      <Navbar />
+      <div className={classes.container}>
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            className={classes.input}
+            name="email"
+            placeholder="Email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            className={classes.input}
+            name="password"
+            placeholder="Password"
+            type="password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          <button className={classes.button} type="submit">
+            Login
+          </button>
+        </form>
+        <p>
+          Forgot password? <a href="/send-reset-link">Reset here</a>
+        </p>
+        {message && <p className={classes.message}>{message}</p>}
+        <Link className={classes.loginLink} to="/signup">
+          Register
+        </Link>
+      </div>
+      <FooterContact />
+    </>
   );
 };
 
