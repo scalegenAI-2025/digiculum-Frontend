@@ -592,6 +592,7 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu */}
+      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <ul id="mobile-menu" className={classes.mobileMenuOpen} role="menu">
           {navItems.map((item) => (
