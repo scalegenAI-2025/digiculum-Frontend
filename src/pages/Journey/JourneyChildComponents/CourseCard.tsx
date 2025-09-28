@@ -59,8 +59,10 @@ import Creativity1 from "../../../assets/Creativity1.png";
 import VITA_UX from "../../../assets/VITA_UX.png";
 import UXnAI from "../../../assets/UXnAI.png";
 
-import React from "react";
+import React, { useContext } from "react";
 import { createUseStyles } from "react-jss";
+import { AuthContext } from "../../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = createUseStyles({
   container: {
@@ -170,7 +172,8 @@ interface CardData {
 
 const CourseCard: React.FC<{ card: CardData }> = ({ card }) => {
   const classes = useStyles();
-
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   return (
     <div className={classes.card}>
       <div className={classes.cardContent}>
@@ -191,7 +194,7 @@ const CourseCard: React.FC<{ card: CardData }> = ({ card }) => {
           </div>
         </div>
 
-        {card.links && card.links.length > 0 ? (
+        {/* {card.links && card.links.length > 0 ? (
           <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
             {card.links.map((link, i) => (
               <a
@@ -206,6 +209,40 @@ const CourseCard: React.FC<{ card: CardData }> = ({ card }) => {
           </div>
         ) : (
           <button className={classes.readMoreButton}>Enroll</button>
+        )} */}
+        {card.links && card.links.length > 0 ? (
+          <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+            {card.links.map((link, i) => (
+              <button
+                key={i}
+                className={classes.readMoreButton}
+                onClick={() => {
+                  if (!user) {
+                    alert("You must log in to access this course.");
+                    navigate("/login");
+                    return;
+                  }
+                  window.open(link.url, "_blank");
+                }}
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+        ) : (
+          <button
+            className={classes.readMoreButton}
+            onClick={() => {
+              if (!user) {
+                alert("You must log in to access this course.");
+                navigate("/login");
+                return;
+              }
+              alert("Enrolled successfully!");
+            }}
+          >
+            Enroll
+          </button>
         )}
       </div>
     </div>

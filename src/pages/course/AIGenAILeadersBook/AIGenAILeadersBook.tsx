@@ -6,7 +6,7 @@ import CourseOverview from "./AIGenAIChild/CourseOverview";
 import CourseContentPage from "./AIGenAIChild/CourseContentPage";
 import CoachingPage from "./AIGenAIChild/CoachingPage";
 import EcosystemPage from "../GenAIMindset/GenAIMindsetChild/ecosystem";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import OrderFirstBook from "./AIGenAIChild/orderBook";
 
 const useStyles = createUseStyles({
@@ -47,10 +47,10 @@ const useStyles = createUseStyles({
 
 function AIGenAILeadersBook() {
   const classes = useStyles();
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/member");
-  };
+  //const navigate = useNavigate();
+  // const handleClick = () => {
+  //   navigate("/member");
+  // };
   return (
     <>
       <div className={classes.heroSection}>
@@ -62,9 +62,9 @@ function AIGenAILeadersBook() {
           <CoachingPage />
           <EcosystemPage />
         </div>
-        <button className={classes.orderButton} onClick={handleClick}>
+        {/* <button className={classes.orderButton} onClick={handleClick}>
           Become a member →
-        </button>
+        </button> */}
       </div>
       <OrderFirstBook />
       <FooterContact />

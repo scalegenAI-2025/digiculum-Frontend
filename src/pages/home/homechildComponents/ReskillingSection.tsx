@@ -1,6 +1,7 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import logo from "../../../assets/reskilling_home.jpg"; // Adjust path
+import { useNavigate } from "react-router-dom";
 
 const useStyles = createUseStyles({
   container: {
@@ -122,7 +123,7 @@ const useStyles = createUseStyles({
 
 const ReskillingCard: React.FC = () => {
   const classes = useStyles();
-
+  const navigate = useNavigate();
   return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
@@ -142,7 +143,13 @@ const ReskillingCard: React.FC = () => {
               <strong>Will you allow AI to take away your job?</strong>
             </em>
           </div>
-          <button className={classes.button}>Find more</button>
+
+          <button
+            className={classes.button}
+            onClick={() => navigate("/Reskilling")}
+          >
+            Find more
+          </button>
         </div>
       </div>
     </div>

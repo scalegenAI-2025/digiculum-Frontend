@@ -1,6 +1,7 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import starImage from "../../../assets/Leaders_home.jpg";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = createUseStyles({
   container: {
@@ -96,7 +97,7 @@ const useStyles = createUseStyles({
 
 const GenAILeadershipCard: React.FC = () => {
   const classes = useStyles();
-
+  const navigate = useNavigate();
   return (
     <div className={classes.container}>
       <div className={classes.imageSection}></div>
@@ -111,7 +112,15 @@ const GenAILeadershipCard: React.FC = () => {
         <div className={classes.subtext}>
           Cultivate the four essential <span>Competencies</span>
         </div>
-        <button className={classes.button}>Find more</button>
+        {/* <button className={classes.button}>Find more</button> */}
+        <button
+          className={classes.button}
+          onClick={() =>
+            navigate("/courses/Essential-Competencies-of-AI/GenAI-Leader")
+          }
+        >
+          Find more
+        </button>
       </div>
     </div>
   );

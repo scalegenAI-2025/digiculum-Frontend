@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import starImage from "../../../assets/master_home.jpg";
-
+import { useNavigate } from "react-router-dom";
 interface FloatingShape {
   id: number;
   x: number;
@@ -21,7 +21,7 @@ const GenAIMasterclassHero: React.FC = () => {
   const [isMobile, setIsMobile] = useState(
     typeof window !== "undefined" ? window.innerWidth < 500 : false
   );
-
+  const navigate = useNavigate();
   // Track window resize for responsiveness
   useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth < 500);
@@ -188,7 +188,14 @@ const GenAIMasterclassHero: React.FC = () => {
             justifyContent: isMobile ? "center" : "flex-start",
           }}
         >
-          <button style={shapeStyles.button}>Find More</button>
+          <button
+            style={shapeStyles.button}
+            onClick={() =>
+              navigate("/courses/Generative-AI-Technical-Masterclass")
+            }
+          >
+            Find more
+          </button>
         </div>
       </div>
     </div>

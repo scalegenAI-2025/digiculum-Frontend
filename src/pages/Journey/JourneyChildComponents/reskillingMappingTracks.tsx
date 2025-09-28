@@ -103,19 +103,20 @@ import MapFin from "../../../assets/MAP_Finance.png";
 import MapHr from "../../../assets/MAP_HR.png";
 import MapIt from "../../../assets/MAP_IT.png";
 import MapLeg from "../../../assets/MAP_Legal.png";
-import MapMar from "../../../assets/MAP_Legal.png";
+import MapMar from "../../../assets/MAP_Mark.png";
 import MapOper from "../../../assets/MAP_Operations.png";
 import MapProd from "../../../assets/MAP_PROJ_MANAGE.png";
 import Mapdev from "../../../assets/MAP_Prod_Dev.png";
 import Mapsales from "../../../assets/MAP_Sales.png";
 
-import track1 from "../../../assets/Tracks n courses.png";
+import track1 from "../../../assets/Tracks_skill_ppt.png";
 import track2 from "../../../assets/tracks2.png";
 import track_role_map from "../../../assets/Track_role_map.png";
 import FooterContact from "../../home/homechildComponents/FooterContact";
 import Navbar from "../../home/homechildComponents/Navbar";
 import MappingVideoSection from "./mappingVideo";
 import AIReskillingAssessment from "./AIReskillingAssessment";
+//import IT from "../../../assets/Tracks_skill_ppt.png";
 
 const useStyles = createUseStyles({
   "@global": {

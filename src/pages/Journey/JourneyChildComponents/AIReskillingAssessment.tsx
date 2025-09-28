@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { createUseStyles } from "react-jss";
+import { AuthContext } from "../../../context/AuthContext"; // adjust path
 
 const useStyles = createUseStyles({
   wrapper: {
@@ -7,9 +9,7 @@ const useStyles = createUseStyles({
     alignItems: "center",
     justifyContent: "center",
     maxHeight: "1400px",
-    //height: "100%",
     backgroundColor: "#F9F7F2",
-    //fontFamily: "Arial, sans-serif",
     padding: 20,
   },
   container: {
@@ -31,14 +31,6 @@ const useStyles = createUseStyles({
       marginBottom: "30px",
     },
   },
-  heading2: {
-    fontSize: 46,
-    fontWeight: "bold",
-    marginBottom: 20,
-    marginTop: "0px",
-    color: "#222",
-  },
-
   heading1: {
     fontSize: "1.4rem",
     color: "#5a6c7d",
@@ -86,23 +78,24 @@ const useStyles = createUseStyles({
 const AIReskillingAssessment = () => {
   const classes = useStyles();
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   const handleClick = () => {
-    navigate("");
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+    navigate(`/profile/${user.email}`);
   };
 
   return (
     <div className={classes.wrapper}>
       <div className={classes.container}>
         <h1 className={classes.heading}>
-          AI Reskilling Journey <br></br>
+          AI Reskilling Journey <br />
           <span className={classes.heading1}>for Individuals</span>
         </h1>
-        {/* <h1 className={classes.heading2}>Ecosystem</h1> */}
-        <p className={classes.description}>
-          {/* Fill out the membership form and we shall get back to you for a
-          consultation. */}
-        </p>
+        <p className={classes.description}></p>
         <button className={classes.button} onClick={handleClick}>
           Reskilling Assessment →
         </button>

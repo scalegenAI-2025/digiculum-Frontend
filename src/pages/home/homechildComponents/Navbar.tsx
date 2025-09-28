@@ -433,7 +433,7 @@ const useStyles = createUseStyles({
   },
 
   lockIcon: {
-    fontSize: "2rem",
+    fontSize: "1.3rem",
     color: "#ffffff",
     cursor: "pointer",
     marginLeft: "1rem",

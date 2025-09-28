@@ -6,7 +6,7 @@ import GenAIOperationalOverView from "./GenAIOperationalChild/GenAIOperationalOv
 import GenAIOperationalContent from "./GenAIOperationalChild/GenAIOperationalContent";
 import GenAIOperationalCoach from "./GenAIOperationalChild/GenAIOperationalCoach";
 import EcosystemPage from "../GenAIMindset/GenAIMindsetChild/ecosystem";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import OrderFirstBook from "./GenAIOperationalChild/orderBookThree";
 import Navbar from "../../home/homechildComponents/Navbar";
 
@@ -50,10 +50,10 @@ const useStyles = createUseStyles({
 
 function GenAIOperational() {
   const classes = useStyles();
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/member");
-  };
+  //const navigate = useNavigate();
+  // const handleClick = () => {
+  //   navigate("/member");
+  // };
   return (
     <>
       <div className={classes.heroSection}>
@@ -65,9 +65,9 @@ function GenAIOperational() {
           <GenAIOperationalCoach />
           <EcosystemPage />
         </div>
-        <button className={classes.button} onClick={handleClick}>
+        {/* <button className={classes.button} onClick={handleClick}>
           Become a member →
-        </button>
+        </button> */}
       </div>
       <OrderFirstBook />
       <FooterContact />

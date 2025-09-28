@@ -6,7 +6,7 @@ import CourseOverview from "./GenAITransformationChild/GenAITransformationOvervi
 import GenAITransformationContain from "./GenAITransformationChild/GenAITransformationContain";
 import GenAITransformationCoach from "./GenAITransformationChild/GenAITransformationCoach";
 import EcosystemPage from "../GenAIMindset/GenAIMindsetChild/ecosystem";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import OrderFirstBook from "./GenAITransformationChild/orderBookFour";
 import Navbar from "../../home/homechildComponents/Navbar";
 import FooterContact from "../../home/homechildComponents/FooterContact";
@@ -50,10 +50,10 @@ const useStyles = createUseStyles({
 
 function GenAITransformation() {
   const classes = useStyles();
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate("/member");
-  };
+  //const navigate = useNavigate();
+  // const handleClick = () => {
+  //   navigate("/member");
+  // };
   return (
     <>
       <div className={classes.heroSection}>
@@ -65,9 +65,9 @@ function GenAITransformation() {
           <GenAITransformationCoach />
           <EcosystemPage />
         </div>
-        <button className={classes.button} onClick={handleClick}>
+        {/* <button className={classes.button} onClick={handleClick}>
           Become a member →
-        </button>
+        </button> */}
       </div>
       <OrderFirstBook />
       <FooterContact />

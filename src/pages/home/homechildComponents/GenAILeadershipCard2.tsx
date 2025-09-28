@@ -1,66 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { createUseStyles } from "react-jss";
-import starImage from "../../../assets/career_home.jpg"; // adjust path if needed
-
-// const useStyles = createUseStyles({
-//   container: {
-//     display: "flex",
-//     flexDirection: "row",
-//     backgroundColor: "#ffffff",
-//     // padding: "60px 0",
-//     maxWidth: 1400,
-//     height: "90vh",
-//     margin: "0 auto",
-//   },
-//   textSection: {
-//     flex: 1,
-//     padding: "60px 40px",
-//     display: "flex",
-//     paddingRight: "0",
-//     flexDirection: "column",
-//     justifyContent: "center",
-//   },
-//   heading: {
-//     fontSize: 44,
-//     fontWeight: 400,
-//     marginBottom: 20,
-//     lineHeight: 1.4,
-//     "& span": {
-//       color: "#6a0dad",
-//       fontWeight: 600,
-//     },
-//   },
-//   subtext: {
-//     fontSize: 20,
-//     marginBottom: 30,
-//     "& span": {
-//       color: "#6a0dad",
-//       fontWeight: 500,
-//     },
-//   },
-//   button: {
-//     backgroundColor: "#f9b233",
-//     color: "#000",
-//     border: "none",
-//     padding: "12px 24px",
-//     borderRadius: 4,
-//     fontSize: 16,
-//     cursor: "pointer",
-//     transition: "background 0.3s ease",
-//     alignSelf: "flex-start",
-//     "&:hover": {
-//       backgroundColor: "#e8a223",
-//     },
-//   },
-//   imageSection: {
-//     flex: 1,
-//     backgroundImage: `url(${starImage})`,
-//     backgroundSize: "cover",
-//     backgroundPosition: "center",
-//     borderTopLeftRadius: 0,
-//     borderBottomLeftRadius: 0,
-//   },
-// });
+import { useNavigate } from "react-router-dom";
+import starImage from "../../../assets/career_home.jpg";
+import { AuthContext } from "../../../context/AuthContext"; // adjust path
 
 const useStyles = createUseStyles({
   container: {
@@ -94,7 +36,6 @@ const useStyles = createUseStyles({
       textAlign: "center",
     },
   },
-
   heading: {
     fontSize: 44,
     fontWeight: 400,
@@ -109,7 +50,7 @@ const useStyles = createUseStyles({
     },
     "@media (max-width: 500px)": {
       fontSize: 24,
-      textAlign: "center", // ensure heading is centered
+      textAlign: "center",
     },
   },
   subtext: {
@@ -124,7 +65,7 @@ const useStyles = createUseStyles({
     },
     "@media (max-width: 500px)": {
       fontSize: 14,
-      textAlign: "center", // ensure subtext is centered
+      textAlign: "center",
     },
   },
   button: {
@@ -143,20 +84,19 @@ const useStyles = createUseStyles({
     "@media (max-width: 500px)": {
       fontSize: 14,
       padding: "10px 20px",
-      alignSelf: "center", // center the button on small screens
+      alignSelf: "center",
     },
   },
-
   imageSection: {
     flex: 1,
     backgroundImage: `url(${starImage})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     "@media (max-width: 768px)": {
-      height: 300, // slightly taller than before
+      height: 300,
     },
     "@media (max-width: 500px)": {
-      height: 250, // bigger image on very small screens
+      height: 250,
       flex: "auto",
     },
   },
@@ -164,6 +104,18 @@ const useStyles = createUseStyles({
 
 const GenAILeadershipCard2: React.FC = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+
+  const handleClick = () => {
+    if (user) {
+      // Navigate to the dynamic profile page
+      navigate(`/profile/${user.email}`);
+    } else {
+      // Navigate to login if not logged in
+      navigate("/login");
+    }
+  };
 
   return (
     <div className={classes.container}>
@@ -173,10 +125,11 @@ const GenAILeadershipCard2: React.FC = () => {
           Are you still unsure about your AI/GenAI path?
         </div>
         <div className={classes.subtext}>
-          Start your <span>AI Reskilling Assessment </span>now
-          {/* Cultivate the four essential <span>Competencies</span> */}
+          Start your <span>AI Reskilling Assessment </span> now
         </div>
-        <button className={classes.button}>Find more</button>
+        <button className={classes.button} onClick={handleClick}>
+          Find more
+        </button>
       </div>
     </div>
   );
