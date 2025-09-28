@@ -97,20 +97,20 @@ const useStyles = createUseStyles({
   Q3 -> role mapping (used when fallback from uncertain)
 */
 
-const q3ToRole_A: Record<string, string> = {
-  A1: "Agent Architect", // IT
-  A2: "Agent Architect", // Data and AI
-  A3: "VITA Creator", // Marketing
-  A4: "Sales Advocate", // Sales
-  A5: "Sales Advocate", // Legal
-  A6: "Sales Advocate", // Product Development
-  A7: "Program Overseer", // Project Management
-  A8: "Program Overseer", // Business Ops
-  A9: "Compliance Guardian", // HR
-  A10: "Compliance Guardian", // Finance
-  A11: "AI Executive", // Executives
-  A12: "Compliance Guardian", // Other (fallback)
-};
+// const q3ToRole_A: Record<string, string> = {
+//   A1: "Agent Architect", // IT
+//   A2: "Agent Architect", // Data and AI
+//   A3: "VITA Creator", // Marketing
+//   A4: "Sales Advocate", // Sales
+//   A5: "Sales Advocate", // Legal
+//   A6: "Sales Advocate", // Product Development
+//   A7: "Program Overseer", // Project Management
+//   A8: "Program Overseer", // Business Ops
+//   A9: "Compliance Guardian", // HR
+//   A10: "Compliance Guardian", // Finance
+//   A11: "AI Executive", // Executives
+//   A12: "Compliance Guardian", // Other (fallback)
+// };
 
 const q3ToRole: Record<string, string> = {
   C1: "Agent Architect",
