@@ -511,7 +511,7 @@ const Profile: React.FC = () => {
                     disabled={!isActive}
                     onClick={() => {
                       if (isActive && role.link) {
-                        window.open(role.link, "_blank"); // opens external link
+                        window.open(role.link, "_blank"); // or use href to open in same tab
                       }
                     }}
                   >
