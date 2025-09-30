@@ -105,7 +105,7 @@ function App() {
         <Route path="/cookies" element={<CookiePolicy />} />
         <Route path="/terms" element={<GeneralTerms />} />
         <Route path="/refund" element={<RefundPolicy />} />
-        <Route path="/assessments" element={<Assessment />} />
+        <Route path="/assessmentsdemo" element={<Assessment />} />
 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
