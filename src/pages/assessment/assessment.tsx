@@ -1,4 +1,5 @@
-// /* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 // "use client";
 // import { useContext, useState } from "react";
 // import { createUseStyles } from "react-jss";
@@ -159,43 +160,43 @@
 //     options: [
 //       {
 //         value: "A1",
-//         label: "1) Nil (No IT skills, no experience with AI/GenAI)",
+//         label: "1. Nil (No IT skills, no experience with AI/GenAI)",
 //       },
 //       {
 //         value: "A2",
-//         label: "2) Remarkably low (No IT skills, minimal AI exposure)",
+//         label: "2. Remarkably low (No IT skills, minimal AI exposure)",
 //       },
 //       {
 //         value: "A3",
-//         label: "3) Very low (Basic computer skills, no AI experience)",
+//         label: "3. Very low (Basic computer skills, no AI experience)",
 //       },
 //       {
 //         value: "A4",
-//         label: "4) Low (Preliminary IT skills, some AI understanding)",
+//         label: "4. Low (Preliminary IT skills, some AI understanding)",
 //       },
 //       {
 //         value: "A5",
-//         label: "5) Lower Moderate (Moderate IT skills, limited AI knowledge)",
+//         label: "5. Lower Moderate (Moderate IT skills, limited AI knowledge)",
 //       },
 //       {
 //         value: "A6",
-//         label: "6) Mid-Moderate (Can use ChatGPT but no deep AI knowledge)",
+//         label: "6. Mid-Moderate (Can use ChatGPT but no deep AI knowledge)",
 //       },
 //       {
 //         value: "A7",
-//         label: "7) Upper-Moderate (Clear differentiation of AI/ML/DL concepts)",
+//         label: "7. Upper-Moderate (Clear differentiation of AI/ML/DL concepts)",
 //       },
 //       {
 //         value: "A8",
-//         label: "8) High (Architect IT solutions, good AI theory knowledge)",
+//         label: "8. High (Architect IT solutions, good AI theory knowledge)",
 //       },
 //       {
 //         value: "A9",
-//         label: "9) Very High (Can confidently develop AI solutions)",
+//         label: "9. Very High (Can confidently develop AI solutions)",
 //       },
 //       {
 //         value: "A10",
-//         label: "10) Superhuman (Grayed out fictional)",
+//         label: "10. Superhuman (Grayed out fictional)",
 //         disabled: true,
 //       },
 //     ],
@@ -208,35 +209,35 @@
 //     options: [
 //       {
 //         value: "B1",
-//         label: "1) Technical/IT-related (Please specify)",
+//         label: "Technical/IT-related (Please specify)",
 //         requireText: true,
 //       },
 //       {
 //         value: "B2",
-//         label: "2) Non-technical/non-IT related (Please specify)",
+//         label: "Non-technical/non-IT related (Please specify)",
 //         requireText: true,
 //       },
 //       {
 //         value: "B3",
-//         label: "3) Business/Management/Consulting (Please specify)",
+//         label: "Business/Management/Consulting (Please specify)",
 //         requireText: true,
 //       },
 //       {
 //         value: "B4",
-//         label: "4) Academic/Research (Please specify)",
+//         label: "Academic/Research (Please specify)",
 //         requireText: true,
 //       },
 //       {
 //         value: "B5",
-//         label: "5) Entrepreneur/Startup Founder (Please specify)",
+//         label: "Entrepreneur/Startup Founder (Please specify)",
 //         requireText: true,
 //       },
 //       {
 //         value: "B6",
-//         label: "6) Creative/Design/Fine-arts (Please specify)",
+//         label: "Creative/Design/Fine-arts (Please specify)",
 //         requireText: true,
 //       },
-//       { value: "B7", label: "7)Student (Please specify)", requireText: true },
+//       { value: "B7", label: "Student (Please specify)", requireText: true },
 //     ],
 //   },
 
@@ -245,30 +246,30 @@
 //     id: "3",
 //     text: " Which of the following describes your function/team?.",
 //     options: [
-//       { value: "C1", label: "1) IT" },
-//       { value: "C2", label: "2) Data and AI" },
-//       { value: "C3", label: "3) Marketing" },
-//       { value: "C4", label: "4) Sales" },
-//       { value: "C5", label: "5) Legal" },
-//       { value: "C6", label: "6) Product Development" },
-//       { value: "C7", label: "7) Project Management" },
-//       { value: "C8", label: "8) Business Operations/Service Delivery" },
-//       { value: "C9", label: "9) HR" },
-//       { value: "C10", label: "10) Finance" },
-//       { value: "C11", label: "11) Executives/Leadership" },
-//       { value: "C12", label: "12) Other", requireText: true },
+//       { value: "C1", label: "IT" },
+//       { value: "C2", label: "Data and AI" },
+//       { value: "C3", label: "Marketing" },
+//       { value: "C4", label: "Sales" },
+//       { value: "C5", label: "Legal" },
+//       { value: "C6", label: "Product Development" },
+//       { value: "C7", label: "Project Management" },
+//       { value: "C8", label: "Business Operations/Service Delivery" },
+//       { value: "C9", label: "HR" },
+//       { value: "C10", label: "Finance" },
+//       { value: "C11", label: "Executives/Leadership" },
+//       { value: "C12", label: "Other", requireText: true },
 //     ],
 //   },
 //   {
 //     id: "4",
 //     text: " How do you rate your skills or competencies in your current role?",
 //     options: [
-//       { value: "D1", label: "1) Very high" },
-//       { value: "D2", label: "2) High" },
-//       { value: "D3", label: "3) Medium" },
-//       { value: "D4", label: "4) Low" },
-//       { value: "D5", label: "5) Very Low" },
-//       { value: "D6", label: "6) Not applicable" },
+//       { value: "D1", label: "Very high" },
+//       { value: "D2", label: "High" },
+//       { value: "D3", label: "Medium" },
+//       { value: "D4", label: "Low" },
+//       { value: "D5", label: "Very Low" },
+//       { value: "D6", label: "Not applicable" },
 //     ],
 //   },
 //   {
@@ -284,12 +285,12 @@
 //     id: "6",
 //     text: " To what extent is your current role impacted or will be impacted by AI?",
 //     options: [
-//       { value: "F1", label: "1) Completely eliminated by AI" },
-//       { value: "F2", label: "2) Will continue but high AI impact" },
-//       { value: "F3", label: "3) Moderate AI impact" },
-//       { value: "F4", label: "4) Low AI impact" },
-//       { value: "F5", label: "5) No AI impact" },
-//       { value: "F6", label: "6) Not sure" },
+//       { value: "F1", label: "Completely eliminated by AI" },
+//       { value: "F2", label: "Will continue but high AI impact" },
+//       { value: "F3", label: "Moderate AI impact" },
+//       { value: "F4", label: "Low AI impact" },
+//       { value: "F5", label: "No AI impact" },
+//       { value: "F6", label: "Not sure" },
 //     ],
 //   },
 //   {
@@ -362,7 +363,7 @@
 //     text: "If you are absolutely certain and clear about the new AI/GenAI role then select the role from the options 1 to 6 else select option 7 uncertain.",
 //     options: [
 //       { value: "J1", label: "1) Agent Architect" },
-//       { value: "J2", label: "2) fine tuner" },
+//       { value: "J2", label: "2) Fine Tuner" },
 //       { value: "J3", label: "3) Data Annotator" },
 //       { value: "J4", label: "4) DAC Consultant" },
 //       { value: "J5", label: "5) Security Specialist" },
@@ -390,14 +391,14 @@
 //     id: "9.4",
 //     text: " Which of the following best describes your major?",
 //     options: [
-//       { value: "L1", label: "1) Technical/STEM" },
-//       { value: "L2", label: "2) Business & Management" },
-//       { value: "L3", label: "3) Social Sciences" },
-//       { value: "L4", label: "4) Humanities" },
-//       { value: "L5", label: "5) Creativity & Design" },
-//       { value: "L6", label: "6) Health & Life Sciences" },
-//       { value: "L7", label: "7) Law & Policy" },
-//       { value: "L8", label: "8) Education" },
+//       { value: "L1", label: "Technical/STEM" },
+//       { value: "L2", label: "Business & Management" },
+//       { value: "L3", label: "Social Sciences" },
+//       { value: "L4", label: "Humanities" },
+//       { value: "L5", label: "Creativity & Design" },
+//       { value: "L6", label: "Health & Life Sciences" },
+//       { value: "L7", label: "Law & Policy" },
+//       { value: "L8", label: "Education" },
 //     ],
 //   },
 
@@ -431,6 +432,7 @@
 //   const [card, setCard] = useState<{ title: string; text: string } | null>(
 //     null
 //   );
+//   const [pendingRole, setPendingRole] = useState<string | null>(null);
 
 //   const question = questions[current];
 //   const currentAnswer = answers[question.id];
@@ -478,11 +480,17 @@
 //       }
 
 //       // If Q2 = B4 or B5 -> Domain Visionary (terminate)
+//       // if (currentAnswer === "B4" || currentAnswer === "B5") {
+//       //   showRoleCard(
+//       //     "Domain Visionary",
+//       //     "Assessment terminates here with recommended track: Domain Visionary."
+//       //   );
+//       //   return;
+//       // }
 //       if (currentAnswer === "B4" || currentAnswer === "B5") {
-//         showRoleCard(
-//           "Domain Visionary",
-//           "Assessment terminates here with recommended track: Domain Visionary."
-//         );
+//         // Instead of terminating now, mark it pending
+//         setPendingRole("Domain Visionary");
+//         setCurrent((c) => c + 1); // continue to next question
 //         return;
 //       }
 //     }
@@ -647,10 +655,19 @@
 //       if (q2 === "B6" && q5 === "E1") {
 //         showRoleCard(
 //           "VITA Creator",
-//           "Assessment terminates here with recommended role: VITA Creator."
+//           "Your recommend target role is: VITA Creator."
 //         );
 //         return;
 //       }
+//     }
+//     // After moving to next question
+//     if (question.id === "7" && pendingRole) {
+//       showRoleCard(
+//         pendingRole,
+//         "Based on your responses, your recommended track is Domain Visionary."
+//       );
+//       setPendingRole(null); // clear
+//       return;
 //     }
 
 //     // ---------- Q9.1: if user picks a role -> stop or "Uncertain" fallback to next
@@ -676,7 +693,10 @@
 //       } else {
 //         // definite role selected
 //         const opt = question.options?.find((o) => o.value === currentAnswer);
-//         showRoleCard(opt?.label ?? "Selected Role");
+//         //   showRoleCard(opt?.label ?? "Selected Role");
+//         const cleanLabel = opt?.label.replace(/^\d+(\.\d+)?\)\s*/, ""); // remove number prefix
+//         showRoleCard(cleanLabel ?? "Selected Role");
+
 //         return;
 //       }
 //     }
@@ -730,7 +750,10 @@
 //       } else {
 //         // definite role selected
 //         const opt = question.options?.find((o) => o.value === currentAnswer);
-//         showRoleCard(opt?.label ?? "Selected Role");
+//         //showRoleCard(opt?.label ?? "Selected Role");
+//         const cleanLabel = opt?.label.replace(/^\d+(\.\d+)?\)\s*/, ""); // remove number prefix
+//         showRoleCard(cleanLabel ?? "Selected Role");
+
 //         return;
 //       }
 //     }
@@ -754,7 +777,11 @@
 //         }
 //       } else {
 //         const opt = question.options?.find((o) => o.value === currentAnswer);
-//         showRoleCard(opt?.label ?? "Selected Role");
+//         //showRoleCard(opt?.label ?? "Selected Role");
+
+//         const cleanLabel = opt?.label.replace(/^\d+(\.\d+)?\)\s*/, "");
+//         showRoleCard(cleanLabel ?? "Selected Role");
+
 //         return;
 //       }
 //     }
@@ -856,8 +883,18 @@
 
 //   return (
 //     <div className={classes.container}>
-//       <h2 className={classes.title}>Question {question.id}</h2>
-//       <p className={classes.questionText}>{question.text}</p>
+//       {/* <h2 className={classes.title}>Question {question.id}</h2>
+//       <p className={classes.questionText}>{question.text}</p> */}
+//       {!terminated ? (
+//         <>
+//           <h2 className={classes.title}>Question {question.id}</h2>
+//           <p className={classes.questionText}>{question.text}</p>
+//         </>
+//       ) : (
+//         <>
+//           <h2 className={classes.title}>End of Reskilling Assessment</h2>
+//         </>
+//       )}
 
 //       {!terminated && question.options && (
 //         <div className={question.id === "7" ? classes.scrollBox : ""}>
@@ -925,6 +962,7 @@
 //               onClick={() => {
 //                 if (!user?.email) return;
 //                 // Navigate to Profile page and send the role as state
+//                 console.log("➡️ Sending targetRole:", card?.title);
 //                 navigate(`/profile/${user.email}`, {
 //                   state: { targetRole: card?.title },
 //                 });
@@ -966,8 +1004,6 @@
 //     </div>
 //   );
 // }
-
-/* eslint-disable @typescript-eslint/no-unused-vars */
 
 "use client";
 import { useContext, useState } from "react";
@@ -1129,43 +1165,43 @@ const questions: Question[] = [
     options: [
       {
         value: "A1",
-        label: "1) Nil (No IT skills, no experience with AI/GenAI)",
+        label: "1. Nil (No IT skills, no experience with AI/GenAI)",
       },
       {
         value: "A2",
-        label: "2) Remarkably low (No IT skills, minimal AI exposure)",
+        label: "2. Remarkably low (No IT skills, minimal AI exposure)",
       },
       {
         value: "A3",
-        label: "3) Very low (Basic computer skills, no AI experience)",
+        label: "3. Very low (Basic computer skills, no AI experience)",
       },
       {
         value: "A4",
-        label: "4) Low (Preliminary IT skills, some AI understanding)",
+        label: "4. Low (Preliminary IT skills, some AI understanding)",
       },
       {
         value: "A5",
-        label: "5) Lower Moderate (Moderate IT skills, limited AI knowledge)",
+        label: "5. Lower Moderate (Moderate IT skills, limited AI knowledge)",
       },
       {
         value: "A6",
-        label: "6) Mid-Moderate (Can use ChatGPT but no deep AI knowledge)",
+        label: "6. Mid-Moderate (Can use ChatGPT but no deep AI knowledge)",
       },
       {
         value: "A7",
-        label: "7) Upper-Moderate (Clear differentiation of AI/ML/DL concepts)",
+        label: "7. Upper-Moderate (Clear differentiation of AI/ML/DL concepts)",
       },
       {
         value: "A8",
-        label: "8) High (Architect IT solutions, good AI theory knowledge)",
+        label: "8. High (Architect IT solutions, good AI theory knowledge)",
       },
       {
         value: "A9",
-        label: "9) Very High (Can confidently develop AI solutions)",
+        label: "9. Very High (Can confidently develop AI solutions)",
       },
       {
         value: "A10",
-        label: "10) Superhuman (Grayed out fictional)",
+        label: "10. Superhuman (Grayed out fictional)",
         disabled: true,
       },
     ],
@@ -1178,35 +1214,35 @@ const questions: Question[] = [
     options: [
       {
         value: "B1",
-        label: "1) Technical/IT-related (Please specify)",
+        label: "Technical/IT-related (Please specify)",
         requireText: true,
       },
       {
         value: "B2",
-        label: "2) Non-technical/non-IT related (Please specify)",
+        label: "Non-technical/non-IT related (Please specify)",
         requireText: true,
       },
       {
         value: "B3",
-        label: "3) Business/Management/Consulting (Please specify)",
+        label: "Business/Management/Consulting (Please specify)",
         requireText: true,
       },
       {
         value: "B4",
-        label: "4) Academic/Research (Please specify)",
+        label: "Academic/Research (Please specify)",
         requireText: true,
       },
       {
         value: "B5",
-        label: "5) Entrepreneur/Startup Founder (Please specify)",
+        label: "Entrepreneur/Startup Founder (Please specify)",
         requireText: true,
       },
       {
         value: "B6",
-        label: "6) Creative/Design/Fine-arts (Please specify)",
+        label: "Creative/Design/Fine-arts (Please specify)",
         requireText: true,
       },
-      { value: "B7", label: "7)Student (Please specify)", requireText: true },
+      { value: "B7", label: "Student (Please specify)", requireText: true },
     ],
   },
 
@@ -1215,30 +1251,30 @@ const questions: Question[] = [
     id: "3",
     text: " Which of the following describes your function/team?.",
     options: [
-      { value: "C1", label: "1) IT" },
-      { value: "C2", label: "2) Data and AI" },
-      { value: "C3", label: "3) Marketing" },
-      { value: "C4", label: "4) Sales" },
-      { value: "C5", label: "5) Legal" },
-      { value: "C6", label: "6) Product Development" },
-      { value: "C7", label: "7) Project Management" },
-      { value: "C8", label: "8) Business Operations/Service Delivery" },
-      { value: "C9", label: "9) HR" },
-      { value: "C10", label: "10) Finance" },
-      { value: "C11", label: "11) Executives/Leadership" },
-      { value: "C12", label: "12) Other", requireText: true },
+      { value: "C1", label: "IT" },
+      { value: "C2", label: "Data and AI" },
+      { value: "C3", label: "Marketing" },
+      { value: "C4", label: "Sales" },
+      { value: "C5", label: "Legal" },
+      { value: "C6", label: "Product Development" },
+      { value: "C7", label: "Project Management" },
+      { value: "C8", label: "Business Operations/Service Delivery" },
+      { value: "C9", label: "HR" },
+      { value: "C10", label: "Finance" },
+      { value: "C11", label: "Executives/Leadership" },
+      { value: "C12", label: "Other", requireText: true },
     ],
   },
   {
     id: "4",
     text: " How do you rate your skills or competencies in your current role?",
     options: [
-      { value: "D1", label: "1) Very high" },
-      { value: "D2", label: "2) High" },
-      { value: "D3", label: "3) Medium" },
-      { value: "D4", label: "4) Low" },
-      { value: "D5", label: "5) Very Low" },
-      { value: "D6", label: "6) Not applicable" },
+      { value: "D1", label: "Very high" },
+      { value: "D2", label: "High" },
+      { value: "D3", label: "Medium" },
+      { value: "D4", label: "Low" },
+      { value: "D5", label: "Very Low" },
+      { value: "D6", label: "Not applicable" },
     ],
   },
   {
@@ -1254,12 +1290,12 @@ const questions: Question[] = [
     id: "6",
     text: " To what extent is your current role impacted or will be impacted by AI?",
     options: [
-      { value: "F1", label: "1) Completely eliminated by AI" },
-      { value: "F2", label: "2) Will continue but high AI impact" },
-      { value: "F3", label: "3) Moderate AI impact" },
-      { value: "F4", label: "4) Low AI impact" },
-      { value: "F5", label: "5) No AI impact" },
-      { value: "F6", label: "6) Not sure" },
+      { value: "F1", label: "Completely eliminated by AI" },
+      { value: "F2", label: "Will continue but high AI impact" },
+      { value: "F3", label: "Moderate AI impact" },
+      { value: "F4", label: "Low AI impact" },
+      { value: "F5", label: "No AI impact" },
+      { value: "F6", label: "Not sure" },
     ],
   },
   {
@@ -1332,7 +1368,7 @@ const questions: Question[] = [
     text: "If you are absolutely certain and clear about the new AI/GenAI role then select the role from the options 1 to 6 else select option 7 uncertain.",
     options: [
       { value: "J1", label: "1) Agent Architect" },
-      { value: "J2", label: "2) fine tuner" },
+      { value: "J2", label: "2) Fine Tuner" },
       { value: "J3", label: "3) Data Annotator" },
       { value: "J4", label: "4) DAC Consultant" },
       { value: "J5", label: "5) Security Specialist" },
@@ -1360,14 +1396,14 @@ const questions: Question[] = [
     id: "9.4",
     text: " Which of the following best describes your major?",
     options: [
-      { value: "L1", label: "1) Technical/STEM" },
-      { value: "L2", label: "2) Business & Management" },
-      { value: "L3", label: "3) Social Sciences" },
-      { value: "L4", label: "4) Humanities" },
-      { value: "L5", label: "5) Creativity & Design" },
-      { value: "L6", label: "6) Health & Life Sciences" },
-      { value: "L7", label: "7) Law & Policy" },
-      { value: "L8", label: "8) Education" },
+      { value: "L1", label: "Technical/STEM" },
+      { value: "L2", label: "Business & Management" },
+      { value: "L3", label: "Social Sciences" },
+      { value: "L4", label: "Humanities" },
+      { value: "L5", label: "Creativity & Design" },
+      { value: "L6", label: "Health & Life Sciences" },
+      { value: "L7", label: "Law & Policy" },
+      { value: "L8", label: "Education" },
     ],
   },
 
@@ -1376,13 +1412,13 @@ const questions: Question[] = [
     id: "9.5",
     text: " Which of the following best describes your education degree/major?",
     options: [
-      { value: "M1", label: "1) Business & Management" },
-      { value: "M2", label: "2) Social Sciences" },
-      { value: "M3", label: "3) Humanities" },
-      { value: "M4", label: "4) Creativity & Design" },
-      { value: "M5", label: "5) Health & Life Sciences" },
-      { value: "M6", label: "6) Law & Policy" },
-      { value: "M7", label: "7) Education" },
+      { value: "M1", label: "Business & Management" },
+      { value: "M2", label: "Social Sciences" },
+      { value: "M3", label: "Humanities" },
+      { value: "M4", label: "Creativity & Design" },
+      { value: "M5", label: "Health & Life Sciences" },
+      { value: "M6", label: "Law & Policy" },
+      { value: "M7", label: "Education" },
     ],
   },
 ];
@@ -1421,9 +1457,7 @@ export default function Assessment() {
     setTerminated(true);
     setCard({
       title: `${roleName}`,
-      text:
-        explanation ??
-        `Based on your responses, your recommended target role is: ${roleName}`,
+      text: explanation ?? ``,
     });
   };
 
@@ -1437,7 +1471,7 @@ export default function Assessment() {
         setTerminated(true);
         setCard({
           title: "Foundational Track",
-          text: "At this moment, no AI/GenAI target role will be provided to you. We recommend you complete the foundational track first to gain basic knowledge and understanding of IT and AI.For further guidance or coaching, write to us at info@digiculum.com",
+          text: "",
         });
         return;
       }
@@ -1523,10 +1557,7 @@ export default function Assessment() {
     if (question.id === "8") {
       // If Q8 = Yes -> terminate with Domain Visionary
       if (currentAnswer === "H1") {
-        showRoleCard(
-          "Domain Visionary",
-          "You chose to be a domain expert — recommended track: Domain Visionary."
-        );
+        showRoleCard("Domain Visionary", "");
         return;
       }
 
@@ -1540,10 +1571,7 @@ export default function Assessment() {
           const q3 = answers["3"];
           const mapped = q3ToRole[q3]; // ✅ uses your existing mapping (C1..C12)
           if (mapped) {
-            showRoleCard(
-              mapped,
-              `Based on your Q3 selection (${q3}), your recommended role is: ${mapped}.`
-            );
+            showRoleCard(mapped, ``);
             return;
           }
         }
@@ -1578,10 +1606,7 @@ export default function Assessment() {
     if (question.id === "8") {
       // If Q8 = Yes -> terminate with Domain Visionary
       if (currentAnswer === "H1") {
-        showRoleCard(
-          "Domain Visionary",
-          "You chose to be a domain expert — recommended track: Domain Visionary."
-        );
+        showRoleCard("Domain Visionary", "");
         return;
       }
 
@@ -1622,19 +1647,13 @@ export default function Assessment() {
       const q5 = currentAnswer; // this is the answer for Q5
 
       if (q2 === "B6" && q5 === "E1") {
-        showRoleCard(
-          "VITA Creator",
-          "Assessment terminates here with recommended role: VITA Creator."
-        );
+        showRoleCard("VITA Creator", "");
         return;
       }
     }
     // After moving to next question
     if (question.id === "7" && pendingRole) {
-      showRoleCard(
-        pendingRole,
-        "Based on your responses, your recommended track is Domain Visionary."
-      );
+      showRoleCard(pendingRole, "");
       setPendingRole(null); // clear
       return;
     }
@@ -1649,10 +1668,7 @@ export default function Assessment() {
         const q3 = answers["3"];
         const mapped = q3ToRole[q3];
         if (mapped) {
-          showRoleCard(
-            mapped,
-            `Fallback from Q9.1 uncertain — mapped from your Q3 (${q3}) to ${mapped}.`
-          );
+          showRoleCard(mapped, ``);
           return;
         } else {
           // If Q3 empty, move to next question or handle another fallback
@@ -1706,10 +1722,7 @@ export default function Assessment() {
         const q3 = answers["3"];
         const mapped = q3ToRole[q3];
         if (mapped) {
-          showRoleCard(
-            mapped,
-            `Fallback from Q9.2 uncertain — mapped from your Q3 (${q3}) to ${mapped}.`
-          );
+          showRoleCard(mapped, ``);
           return;
         } else {
           // If Q3 empty, move to next question or handle another fallback
@@ -1735,10 +1748,7 @@ export default function Assessment() {
         const q3 = answers["3"];
         const mapped = q3ToRole[q3];
         if (mapped) {
-          showRoleCard(
-            mapped,
-            `Fallback from Q9.3 uncertain — mapped from your Q3 (${q3}) to ${mapped}.`
-          );
+          showRoleCard(mapped, ``);
           return;
         } else {
           setCurrent((c) => c + 1);
@@ -1760,14 +1770,14 @@ export default function Assessment() {
       if (!currentAnswer) return;
       const role = majorToRole_Q94[currentAnswer];
       if (role) {
-        showRoleCard(role, `Mapped from your major selection to ${role}.`);
+        showRoleCard(role, ``);
         return;
       } else {
         // if somehow undefined, fallback to Q3 mapping
         const q3 = answers["3"];
         const mapped = q3ToRole[q3];
         if (mapped) {
-          showRoleCard(mapped, `Fallback to Q3 mapping => ${mapped}.`);
+          showRoleCard(mapped, ``);
           return;
         } else {
           setCurrent((c) => c + 1);
@@ -1781,14 +1791,14 @@ export default function Assessment() {
       if (!currentAnswer) return;
       const role = majorToRole_Q95[currentAnswer];
       if (role) {
-        showRoleCard(role, `Mapped from your education selection to ${role}.`);
+        showRoleCard(role, ``);
         return;
       } else {
         // fallback to Q3 mapping
         const q3 = answers["3"];
         const mapped = q3ToRole[q3];
         if (mapped) {
-          showRoleCard(mapped, `Fallback to Q3 mapping => ${mapped}.`);
+          showRoleCard(mapped, ``);
           return;
         } else {
           setCurrent((c) => c + 1);
@@ -1852,8 +1862,8 @@ export default function Assessment() {
 
   return (
     <div className={classes.container}>
-      {/* <h2 className={classes.title}>Question {question.id}</h2>
-      <p className={classes.questionText}>{question.text}</p> */}
+      {/* <h2 className={classes.title}>Question {question.id}</h2> */}
+      {/* <p className={classes.questionText}>{question.text}</p> */}
       {!terminated ? (
         <>
           <h2 className={classes.title}>Question {question.id}</h2>
@@ -1861,11 +1871,8 @@ export default function Assessment() {
         </>
       ) : (
         <>
-          <h2 className={classes.title}>Reskilling Assessment Finished</h2>
-          <p className={classes.questionText}>
-            Thank you for completing the assessment. Your recommended target
-            role is shown below.
-          </p>
+          <h2 className={classes.title}>End of Reskilling Assessment</h2>
+          <p>Your recommended target role is </p>
         </>
       )}
 
