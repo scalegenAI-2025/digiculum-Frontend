@@ -1471,7 +1471,7 @@ export default function Assessment() {
         setTerminated(true);
         setCard({
           title: "Foundational Track",
-          text: "",
+          text: "At this moment, no AI/GenAI target role will be provided to you. We recommend you complete the foundational track first to gain basic knowledge and understanding of IT and AI.For further guidance or coaching, write to us at info@digiculum.com",
         });
         return;
       }

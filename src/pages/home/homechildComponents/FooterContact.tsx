@@ -364,6 +364,8 @@ import { createUseStyles } from "react-jss";
 import type { FC, FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const useStyles = createUseStyles({
   layout: {
@@ -579,6 +581,12 @@ const FooterContact: FC = () => {
 
     window.location.href = mailtoLink;
 
+    // ✅ Show success toast
+    toast.success("Thank you for submitting", {
+      position: "bottom-right",
+      autoClose: 4000,
+    });
+
     // Reset form (optional)
     setFirstName("");
     setLastName("");
@@ -587,109 +595,112 @@ const FooterContact: FC = () => {
   };
 
   return (
-    <div className={classes.layout}>
-      {/* Left Section */}
-      <div className={classes.leftSection}>
-        <div className={classes.wrapper}>
-          <nav className={classes.nav}>
-            <Link to="/reskilling" className={classes.link}>
-              Reskilling
-            </Link>
-            <Link to="/ecosystem" className={classes.link}>
-              Ecosystem
-            </Link>
-            <Link to="/courses" className={classes.link}>
-              Courses
-            </Link>
-            <Link to="/about-us" className={classes.link}>
-              About
-            </Link>
-          </nav>
+    <>
+      <div className={classes.layout}>
+        {/* Left Section */}
+        <div className={classes.leftSection}>
+          <div className={classes.wrapper}>
+            <nav className={classes.nav}>
+              <Link to="/reskilling" className={classes.link}>
+                Reskilling
+              </Link>
+              <Link to="/ecosystem" className={classes.link}>
+                Ecosystem
+              </Link>
+              <Link to="/courses" className={classes.link}>
+                Courses
+              </Link>
+              <Link to="/about-us" className={classes.link}>
+                About
+              </Link>
+            </nav>
 
-          <nav className={classes.nav}>
-            <Link to="/privacy" className={classes.link}>
-              Privacy Policy
-            </Link>
-            <Link to="/cookies" className={classes.link}>
-              Cookie Policy
-            </Link>
-            <Link to="/terms" className={classes.link}>
-              General Terms
-            </Link>
-            <Link to="/refund" className={classes.link}>
-              Refund Policy
-            </Link>
-          </nav>
-        </div>
+            <nav className={classes.nav}>
+              <Link to="/privacy" className={classes.link}>
+                Privacy Policy
+              </Link>
+              <Link to="/cookies" className={classes.link}>
+                Cookie Policy
+              </Link>
+              <Link to="/terms" className={classes.link}>
+                General Terms
+              </Link>
+              <Link to="/refund" className={classes.link}>
+                Refund Policy
+              </Link>
+            </nav>
+          </div>
 
-        <div className={classes.socialWrapper}>
-          <div className={classes.follow}>
-            Follow us on
-            <a
-              href="https://www.linkedin.com/company/digiculum/posts/?feedView=all"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={classes.link}
-            >
-              <strong>LinkedIn</strong>
-            </a>
+          <div className={classes.socialWrapper}>
+            <div className={classes.follow}>
+              Follow us on
+              <a
+                href="https://www.linkedin.com/company/digiculum/posts/?feedView=all"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={classes.link}
+              >
+                <strong>LinkedIn</strong>
+              </a>
+            </div>
+          </div>
+
+          <div className={classes.contact}>info@digiculum.com</div>
+          <div>
+            <div className={classes.footerNote}>
+              Copyright 2026 © Digiculum. All Rights Reserved.
+            </div>
           </div>
         </div>
 
-        <div className={classes.contact}>info@digiculum.com</div>
-        <div>
-          <div className={classes.footerNote}>
-            Copyright 2026 © Digiculum. All Rights Reserved.
-          </div>
-        </div>
-      </div>
-
-      {/* Right Section */}
-      <div className={classes.formWrapper}>
-        <div className={classes.heading}>Contact us</div>
-        <form onSubmit={handleSubmit}>
-          <div className={classes.formRow}>
+        {/* Right Section */}
+        <div className={classes.formWrapper}>
+          <div className={classes.heading}>Contact us</div>
+          <form onSubmit={handleSubmit}>
+            <div className={classes.formRow}>
+              <input
+                type="text"
+                placeholder="First name *"
+                className={classes.input}
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+              />
+              <input
+                type="text"
+                placeholder="Last name"
+                className={classes.input}
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
+            </div>
             <input
-              type="text"
-              placeholder="First name *"
+              type="email"
+              placeholder="Email *"
               className={classes.input}
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              style={{ width: "100%", marginBottom: "1.2rem" }}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <input
-              type="text"
-              placeholder="Last name"
-              className={classes.input}
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </div>
-          <input
-            type="email"
-            placeholder="Email *"
-            className={classes.input}
-            style={{ width: "100%", marginBottom: "1.2rem" }}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <textarea
-            placeholder="Write a message"
-            className={classes.textarea}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          ></textarea>
-          <div className={classes.checkboxRow}>
-            <input type="checkbox" className={classes.checkbox} />
-            <label>Yes, subscribe me to your mailing list.</label>
-          </div>
-          <button type="submit" className={classes.submitButton}>
-            Submit
-          </button>
-        </form>
+            <textarea
+              placeholder="Write a message"
+              className={classes.textarea}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></textarea>
+            <div className={classes.checkboxRow}>
+              <input type="checkbox" className={classes.checkbox} />
+              <label>Yes, subscribe me to your mailing list.</label>
+            </div>
+            <button type="submit" className={classes.submitButton}>
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+      <ToastContainer />
+    </>
   );
 };
 
