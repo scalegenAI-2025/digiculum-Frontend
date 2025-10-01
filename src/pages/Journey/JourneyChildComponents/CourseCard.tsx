@@ -222,8 +222,10 @@ const CourseCard: React.FC<{ card: CardData }> = ({ card }) => {
                 className={classes.readMoreButton}
                 onClick={() => {
                   if (!user) {
-                    alert("You must log in to access this course.");
-                    navigate("/login");
+                    alert(
+                      "You must log in and come back to Reskilling page to access this course."
+                    );
+                    navigate("/login", { state: { redirectTo: link.url } });
                     return;
                   }
                   window.open(link.url, "_blank");
@@ -238,7 +240,9 @@ const CourseCard: React.FC<{ card: CardData }> = ({ card }) => {
             className={classes.readMoreButton}
             onClick={() => {
               if (!user) {
-                alert("You must log in to access this course.");
+                alert(
+                  "You must log in and come back to Reskilling page to access this course."
+                );
                 navigate("/login");
                 return;
               }

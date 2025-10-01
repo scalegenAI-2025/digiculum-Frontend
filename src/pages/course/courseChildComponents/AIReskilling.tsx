@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { createUseStyles } from "react-jss";
+import { AuthContext } from "../../../context/AuthContext";
+import { useContext } from "react";
 
 const useStyles = createUseStyles({
   wrapper: {
@@ -69,7 +71,6 @@ const useStyles = createUseStyles({
     gap: "10px",
     textDecoration: "none",
     "&:hover": {
-      backgroundColor: "#2c4a6b",
       transform: "translateY(-2px)",
       boxShadow: "0 4px 12px rgba(30, 58, 95, 0.3)",
     },
@@ -86,9 +87,14 @@ const useStyles = createUseStyles({
 const AIReskilling = () => {
   const classes = useStyles();
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
 
   const handleClick = () => {
-    navigate("");
+    if (!user) {
+      navigate("/login");
+      return;
+    }
+    navigate(`/profile/${user.email}`);
   };
 
   return (

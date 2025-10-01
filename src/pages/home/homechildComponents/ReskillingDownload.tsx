@@ -1,12 +1,13 @@
-// // ReskillingDownload.tsx
-// import React from "react";
+// import React, { useContext } from "react";
 // import { createUseStyles } from "react-jss";
-// import starImage from "../../../assets/reskillgear.png";
+// import { AuthContext } from "../../../context/AuthContext"; // adjust path
+// import { useNavigate } from "react-router-dom";
+// import starImage from "../../../assets/reskillgear.png"; // image
+// import pdfFile from "../../../assets/Whitepaper.pdf"; // PDF
 
 // const useStyles = createUseStyles({
 //   outerContainer: {
 //     background: "#F9F7F2",
-//     //height: "90vh",
 //   },
 //   container: {
 //     display: "flex",
@@ -16,11 +17,8 @@
 //     maxWidth: 1100,
 //     margin: "20px auto",
 //     gap: 20,
-
 //     background: "#F9F7F2",
 //     borderRadius: 12,
-//     // boxShadow: "0 6px 16px rgba(0, 0, 0, 0.15)",
-
 //     "@media (max-width: 768px)": {
 //       flexDirection: "column-reverse",
 //       textAlign: "center",
@@ -31,10 +29,9 @@
 //     display: "flex",
 //     flexDirection: "column",
 //     gap: 16,
-//     alignItems: "center", // centers both heading and button
+//     alignItems: "center",
 //     textAlign: "center",
 //   },
-
 //   heading: {
 //     fontSize: 40,
 //     fontWeight: 600,
@@ -43,7 +40,6 @@
 //       fontSize: 32,
 //     },
 //   },
-//   // inside createUseStyles
 //   button: {
 //     backgroundColor: "#f9b233",
 //     color: "#000",
@@ -54,9 +50,14 @@
 //     fontSize: 16,
 //     cursor: "pointer",
 //     transition: "background 0.3s ease",
-//     alignSelf: "center", // <-- centers this button horizontally
+//     alignSelf: "center",
+//     "@media (max-width: 768px)": {
+//       width: "80%",
+//     },
+//     "&:hover": {
+//       backgroundColor: "#e0a620",
+//     },
 //   },
-
 //   right: {
 //     flex: 1,
 //     "& img": {
@@ -64,29 +65,44 @@
 //       height: "auto",
 //       borderRadius: 8,
 //       objectFit: "cover",
+//       maxWidth: 500,
 //     },
 //   },
 // });
 
 // type ReskillingDownloadProps = {
 //   title?: string;
-
-//   onDownload?: () => void;
 // };
 
 // const ReskillingDownload: React.FC<ReskillingDownloadProps> = ({
 //   title = "AI/GenAI Reskilling Whitepaper",
-
-//   onDownload,
 // }) => {
 //   const classes = useStyles();
+//   const { user } = useContext(AuthContext);
+//   const navigate = useNavigate();
+
+//   const handleDownload = () => {
+//     if (!user) {
+//       // redirect to login if not logged in
+//       navigate("/login");
+//       return;
+//     }
+
+//     // trigger PDF download
+//     const link = document.createElement("a");
+//     link.href = pdfFile;
+//     link.download = "AI_Reskilling_Whitepaper.pdf";
+//     document.body.appendChild(link);
+//     link.click();
+//     document.body.removeChild(link);
+//   };
 
 //   return (
 //     <div className={classes.outerContainer}>
 //       <div className={classes.container}>
 //         <div className={classes.left}>
 //           <h2 className={classes.heading}>{title}</h2>
-//           <button className={classes.button} onClick={onDownload}>
+//           <button className={classes.button} onClick={handleDownload}>
 //             Download
 //           </button>
 //         </div>
@@ -100,18 +116,15 @@
 
 // export default ReskillingDownload;
 
-// ReskillingDownload.tsx
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { createUseStyles } from "react-jss";
-import { AuthContext } from "../../../context/AuthContext"; // adjust path
-import { useNavigate } from "react-router-dom";
-import starImage from "../../../assets/reskillgear.png"; // image
-import pdfFile from "../../../assets/Whitepaper.pdf"; // PDF
+import { AuthContext } from "../../../context/AuthContext";
+import { useNavigate, useLocation } from "react-router-dom";
+import starImage from "../../../assets/reskillgear.png";
+import pdfFile from "../../../assets/Whitepaper.pdf";
 
 const useStyles = createUseStyles({
-  outerContainer: {
-    background: "#F9F7F2",
-  },
+  outerContainer: { background: "#F9F7F2" },
   container: {
     display: "flex",
     alignItems: "center",
@@ -139,9 +152,7 @@ const useStyles = createUseStyles({
     fontSize: 40,
     fontWeight: 600,
     margin: 0,
-    "@media (max-width: 600px)": {
-      fontSize: 32,
-    },
+    "@media (max-width: 600px)": { fontSize: 32 },
   },
   button: {
     backgroundColor: "#f9b233",
@@ -154,12 +165,8 @@ const useStyles = createUseStyles({
     cursor: "pointer",
     transition: "background 0.3s ease",
     alignSelf: "center",
-    "@media (max-width: 768px)": {
-      width: "80%",
-    },
-    "&:hover": {
-      backgroundColor: "#e0a620",
-    },
+    "@media (max-width: 768px)": { width: "80%" },
+    "&:hover": { backgroundColor: "#e0a620" },
   },
   right: {
     flex: 1,
@@ -183,15 +190,21 @@ const ReskillingDownload: React.FC<ReskillingDownloadProps> = ({
   const classes = useStyles();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleDownload = () => {
     if (!user) {
-      // redirect to login if not logged in
-      navigate("/login");
+      // 👇 pass current location + a flag so login knows where to return
+      navigate("/login", {
+        state: { from: location.pathname, download: true },
+      });
       return;
     }
 
-    // trigger PDF download
+    triggerDownload();
+  };
+
+  const triggerDownload = () => {
     const link = document.createElement("a");
     link.href = pdfFile;
     link.download = "AI_Reskilling_Whitepaper.pdf";
@@ -199,6 +212,15 @@ const ReskillingDownload: React.FC<ReskillingDownloadProps> = ({
     link.click();
     document.body.removeChild(link);
   };
+
+  // 👇 If user comes back from login with "download" flag, trigger download
+  useEffect(() => {
+    if (user && location.state?.download) {
+      triggerDownload();
+      // clear the state after download (so it doesn’t keep firing)
+      navigate(location.pathname, { replace: true });
+    }
+  }, [user, location.state, navigate, location.pathname]);
 
   return (
     <div className={classes.outerContainer}>

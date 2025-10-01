@@ -331,7 +331,6 @@ const useStyles = createUseStyles({
       padding: "1rem 1.5rem",
     },
   },
-
   navbarInner: {
     display: "flex",
     alignItems: "center",
@@ -339,15 +338,6 @@ const useStyles = createUseStyles({
     width: "100%",
     maxWidth: "1200px",
   },
-
-  activeNavLink: {
-    color: "#E547ED !important",
-    "&:before": {
-      width: "100% !important",
-      backgroundColor: "#E547ED",
-    },
-  },
-
   logo: {
     fontSize: "1.5rem",
     fontWeight: 600,
@@ -357,16 +347,16 @@ const useStyles = createUseStyles({
     fontFamily: "Arial, sans-serif",
     "&:hover": { opacity: 0.9 },
   },
-
-  logoImage: { width: "190px" },
-
+  logoImage: {
+    width: "190px",
+    "@media (max-width: 768px)": { width: "140px" },
+  },
   navGroup: {
     flex: 1,
     display: "flex",
     justifyContent: "center",
     "@media (max-width: 768px)": { display: "none" },
   },
-
   navLinks: {
     display: "flex",
     alignItems: "center",
@@ -376,9 +366,7 @@ const useStyles = createUseStyles({
     padding: 0,
     position: "relative",
   },
-
   navItem: { position: "relative" },
-
   navItemWithDivider: {
     "&::after": {
       content: '""',
@@ -391,7 +379,6 @@ const useStyles = createUseStyles({
       backgroundColor: "rgba(255, 255, 255, 0.3)",
     },
   },
-
   navLink: {
     color: "#ffffff",
     textDecoration: "none",
@@ -416,16 +403,19 @@ const useStyles = createUseStyles({
       "&:before": { width: "100%" },
     },
   },
-
-  lockIcon: {
-    fontSize: "1.3rem",
-    color: "#ffffff",
-    cursor: "pointer",
-    marginLeft: "1rem",
-    "&:hover": { color: "#E547ED" },
+  activeNavLink: {
+    color: "#E547ED !important",
+    "&:before": {
+      width: "100% !important",
+      backgroundColor: "#E547ED",
+    },
+  },
+  authSection: {
+    display: "flex",
+    alignItems: "center",
+    gap: "1rem",
     "@media (max-width: 768px)": { display: "none" }, // hide on mobile
   },
-
   logoutButton: {
     background: "transparent",
     border: "1px solid #E547ED",
@@ -440,7 +430,14 @@ const useStyles = createUseStyles({
       color: "#fff",
     },
   },
-
+  lockIcon: {
+    fontSize: "1.3rem",
+    color: "#ffffff",
+    cursor: "pointer",
+    marginLeft: "1rem",
+    "&:hover": { color: "#E547ED" },
+    "@media (max-width: 768px)": { display: "none" },
+  },
   mobileMenuButton: {
     display: "none",
     background: "none",
@@ -451,7 +448,6 @@ const useStyles = createUseStyles({
     padding: "0.5rem",
     "@media (max-width: 768px)": { display: "block" },
   },
-
   mobileMenu: {
     display: "none",
     position: "absolute",
@@ -464,19 +460,15 @@ const useStyles = createUseStyles({
     padding: "1rem 0",
     "@media (max-width: 768px)": { display: "flex", flexDirection: "column" },
   },
-
   "@keyframes slideDown": {
     from: { opacity: 0, transform: "translateY(-10px)" },
     to: { opacity: 1, transform: "translateY(0)" },
   },
-
   mobileMenuOpen: {
     extend: "mobileMenu",
     animation: "$slideDown 0.3s ease-out",
   },
-
   mobileMenuItem: { padding: "0.75rem 1.5rem" },
-
   mobileMenuLink: {
     color: "#ffffff",
     textDecoration: "none",
@@ -484,12 +476,6 @@ const useStyles = createUseStyles({
     fontWeight: 400,
     display: "block",
     "&:hover": { color: "#ff6ec7" },
-  },
-
-  authSection: {
-    display: "flex",
-    alignItems: "center",
-    gap: "1rem",
   },
 });
 
@@ -514,6 +500,7 @@ const Navbar: React.FC = () => {
   const handleLogout = () => {
     logoutUser();
     navigate("/");
+    setIsMobileMenuOpen(false);
   };
 
   const handleStartJourney = () => {
@@ -522,6 +509,36 @@ const Navbar: React.FC = () => {
     } else {
       navigate("/login");
     }
+    setIsMobileMenuOpen(false);
+  };
+
+  const AuthButtons: React.FC<{ isMobile?: boolean }> = ({ isMobile }) => {
+    if (user) {
+      return (
+        <>
+          <button className={classes.logoutButton} onClick={handleStartJourney}>
+            My Page
+          </button>
+          <button className={classes.logoutButton} onClick={handleLogout}>
+            Logout
+          </button>
+        </>
+      );
+    }
+
+    return isMobile ? (
+      <NavLink
+        to="/login"
+        className={classes.mobileMenuLink}
+        onClick={() => setIsMobileMenuOpen(false)}
+      >
+        Login
+      </NavLink>
+    ) : (
+      <Link to="/login">
+        <FaLock className={classes.lockIcon} />
+      </Link>
+    );
   };
 
   return (
@@ -549,7 +566,6 @@ const Navbar: React.FC = () => {
                       isActive ? classes.activeNavLink : ""
                     }`
                   }
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
                 </NavLink>
@@ -558,25 +574,9 @@ const Navbar: React.FC = () => {
           </ul>
         </div>
 
-        {/* Auth Section */}
+        {/* Desktop Auth */}
         <div className={classes.authSection}>
-          {user ? (
-            <>
-              <button
-                className={classes.logoutButton}
-                onClick={handleStartJourney}
-              >
-                My Page
-              </button>
-              <button className={classes.logoutButton} onClick={handleLogout}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <Link to="/login">
-              <FaLock className={classes.lockIcon} />
-            </Link>
-          )}
+          <AuthButtons />
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -591,7 +591,6 @@ const Navbar: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <ul id="mobile-menu" className={classes.mobileMenuOpen} role="menu">
@@ -611,38 +610,11 @@ const Navbar: React.FC = () => {
             </li>
           ))}
 
-          {/* Auth for Mobile */}
+          {/* Auth inside mobile menu */}
           <li className={classes.mobileMenuItem}>
-            {user ? (
-              <>
-                <button
-                  className={classes.logoutButton}
-                  onClick={() => {
-                    handleStartJourney();
-                    setIsMobileMenuOpen(false);
-                  }}
-                >
-                  My Page
-                </button>
-                <button
-                  className={classes.logoutButton}
-                  onClick={() => {
-                    handleLogout();
-                    setIsMobileMenuOpen(false);
-                  }}
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <NavLink
-                to="/login"
-                className={classes.mobileMenuLink}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Login
-              </NavLink>
-            )}
+            <div style={{ display: "flex", gap: "0.5rem" }}>
+              <AuthButtons isMobile />
+            </div>
           </li>
         </ul>
       )}

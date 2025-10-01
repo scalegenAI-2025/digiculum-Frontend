@@ -1,5 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
+import { useNavigate } from "react-router-dom";
 
 interface JobRole {
   id: string;
@@ -184,6 +185,7 @@ const useStyles = createUseStyles({
 
 const AIJobRoles: React.FC = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
 
   return (
     <div className={classes.container}>
@@ -203,6 +205,7 @@ const AIJobRoles: React.FC = () => {
       <button
         className={classes.moreInfoButton}
         //  onClick={() => handleMoreInfo(track.id)}
+        onClick={() => navigate("/tracks")}
       >
         More Info
       </button>
