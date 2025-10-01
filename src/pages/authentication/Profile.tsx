@@ -389,7 +389,10 @@ const useStyles = createUseStyles({
 });
 
 const roles = [
-  { name: "Fine Tuner", link: "/fine-tuner" },
+  {
+    name: "Fine Tuner",
+    link: "/https://reskill.digiculum.com/courses/Fine-Tuner-68d7e97f4ef2d036835b31b7",
+  },
   {
     name: "Agent Architect",
     link: "https://reskill.digiculum.com/courses/Agent-Architect-68d7ea4517fe8b631668bdb8",
