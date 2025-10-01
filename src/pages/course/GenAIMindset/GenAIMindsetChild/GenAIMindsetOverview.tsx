@@ -93,7 +93,7 @@ const GenAIMindsetOverview: React.FC = () => {
   const classes = useStyles();
   const handleClick = () => {
     const mailtoLink =
-      "mailto:info@scalinggenai.com?subject=Scaling GenAI consultation request&body=Hello,%0D%0A%0D%0AI would like to know more about Scaling GenAI.%0D%0A%0D%0AName:%0D%0ACompany:%0D%0AEmail:%0D%0APhone:%0D%0A%0D%0ARegards,%0D%0Aname";
+      "mailto:info@digiculum.com.com?subject=Digiculum consultation request&body=Hello,%0D%0A%0D%0AI would like to know more about Digiculum.%0D%0A%0D%0AName:%0D%0ACompany:%0D%0AEmail:%0D%0APhone:%0D%0A%0D%0ARegards,%0D%0Aname";
     window.location.href = mailtoLink;
   };
   return (
