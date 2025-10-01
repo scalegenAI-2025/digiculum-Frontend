@@ -59,10 +59,10 @@ import Creativity1 from "../../../assets/Creativity1.png";
 import VITA_UX from "../../../assets/VITA_UX.png";
 import UXnAI from "../../../assets/UXnAI.png";
 
-import React, { useContext } from "react";
+import React from "react";
 import { createUseStyles } from "react-jss";
-import { AuthContext } from "../../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+// import { AuthContext } from "../../../context/AuthContext";
+// import { useNavigate } from "react-router-dom";
 
 const useStyles = createUseStyles({
   container: {
@@ -176,8 +176,8 @@ interface CardData {
 
 const CourseCard: React.FC<{ card: CardData }> = ({ card }) => {
   const classes = useStyles();
-  const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
+  // const { user } = useContext(AuthContext);
+  // const navigate = useNavigate();
   return (
     <div className={classes.card}>
       <div className={classes.cardContent}>
@@ -221,13 +221,13 @@ const CourseCard: React.FC<{ card: CardData }> = ({ card }) => {
                 key={i}
                 className={classes.readMoreButton}
                 onClick={() => {
-                  if (!user) {
-                    alert(
-                      "You must log in and come back to Reskilling page to access this course."
-                    );
-                    navigate("/login", { state: { redirectTo: link.url } });
-                    return;
-                  }
+                  // if (!user) {
+                  // alert(
+                  //   "You must log in and come back to Reskilling page to access this course."
+                  // );
+                  //   navigate("/l");
+                  //   return;
+                  // }
                   window.open(link.url, "_blank");
                 }}
               >
@@ -239,14 +239,14 @@ const CourseCard: React.FC<{ card: CardData }> = ({ card }) => {
           <button
             className={classes.readMoreButton}
             onClick={() => {
-              if (!user) {
-                alert(
-                  "You must log in and come back to Reskilling page to access this course."
-                );
-                navigate("/login");
-                return;
-              }
-              alert("Enrolled successfully!");
+              //   if (!user) {
+              //     alert(
+              //       "You must log in and come back to Reskilling page to access this course."
+              //     );
+              //     navigate("/login");
+              //     return;
+              //   }
+              //   alert("Enrolled successfully!");
             }}
           >
             Enroll
