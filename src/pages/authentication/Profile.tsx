@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { getProfile } from "../../apis/auth";
-import { AuthContext } from "../../context/AuthContext";
+//import { AuthContext } from "../../context/AuthContext";
 import { createUseStyles } from "react-jss";
 import Navbar from "../home/homechildComponents/Navbar";
 
@@ -24,9 +24,10 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     padding: "60px 20px",
+    textAlign: "center",
   },
-  greeting: { fontSize: "4rem", margin: "0 0 10px 0", fontWeight: "bold" },
-  email: { fontSize: "1.5rem", margin: "0", opacity: 0.9 },
+  greeting: { fontSize: "2.5rem", margin: "0 0 10px 0", fontWeight: "bold" },
+  email: { fontSize: "1.2rem", margin: "0", opacity: 0.9 },
   bottomSection: {
     flex: 1,
     backgroundColor: "white",
@@ -34,21 +35,41 @@ const useStyles = createUseStyles({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
+    padding: "20px",
   },
   buttonGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(4, 1fr)",
     gap: "12px",
-    padding: "20px",
+    width: "100%",
+    maxWidth: "900px",
+    "@media (max-width: 1024px)": {
+      gridTemplateColumns: "repeat(2, 1fr)", // tablets
+    },
+    "@media (max-width: 600px)": {
+      gridTemplateColumns: "1fr", // phones → vertical
+    },
   },
   button: {
-    padding: "15px 30px",
-    fontSize: "1.2rem",
+    padding: "15px 20px",
+    fontSize: "1rem",
     borderRadius: "8px",
     border: "none",
     fontWeight: "bold",
     transition: "transform 0.2s",
+    width: "100%",
     "&:hover": { transform: "scale(1.05)" },
+  },
+  bigButton: {
+    maxWidth: "400px", // keeps it neat on desktop
+    width: "100%", // fills space on mobile
+    margin: "10px 0",
+
+    fontSize: "1.2rem",
+    padding: "18px 24px",
+    backgroundColor: "#6a0dad",
+    color: "#fff",
+    cursor: "pointer",
   },
 });
 
@@ -159,7 +180,7 @@ const Profile: React.FC = () => {
 
         <div className={classes.bottomSection}>
           {!targetRole ? (
-            <button className={classes.button} onClick={handleAssessment}>
+            <button className={classes.bigButton} onClick={handleAssessment}>
               Take Assessment
             </button>
           ) : (
