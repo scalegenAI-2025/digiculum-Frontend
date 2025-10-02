@@ -1,6 +1,6 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import image from "../../../assets/WHY.png";
+import image from "../../../assets/WHY1 (1).png";
 
 const useStyles = createUseStyles({
   outerContainer: {

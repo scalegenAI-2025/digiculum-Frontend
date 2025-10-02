@@ -322,7 +322,7 @@ const CoursesPage: React.FC = () => {
     },
     {
       id: 6,
-      title: "LLM Model selection",
+      title: "LLM Model Selection",
       subtitle: "A strong prerequisite for Scaling GenAI and AI Agents",
       image: `${C6}`,
       links: [
@@ -348,7 +348,7 @@ const CoursesPage: React.FC = () => {
       id: 8,
       title: "Retrieval-Augmented Generation",
       subtitle:
-        "Technology that drives conversational AI chatbots , the topmost GenAI use case",
+        "Technology that drives conversational AI chatbots, the topmost GenAI use case",
       image: `${C8}`,
       links: [
         {
@@ -373,7 +373,7 @@ const CoursesPage: React.FC = () => {
       id: 10,
       title: "AI/GenAI Transformation Strategy",
       subtitle:
-        "An instructor-led course based on end-to end Digital Strategy Framework",
+        "An instructor-led course based on end-to-end Digital Strategy Framework",
       image: `${C10}`,
       links: [
         {
@@ -470,7 +470,7 @@ const CoursesPage: React.FC = () => {
     },
     {
       id: 18,
-      title: "Key Technical concepts of AI Agents",
+      title: "Key Technical Concepts of AI Agents",
       subtitle:
         "Important concepts of AI Agents that every technical SME should know",
       image: `${C18}`,
@@ -826,7 +826,7 @@ const CoursesPage: React.FC = () => {
     },
     {
       id: 42,
-      title: "Introduction to cloud computing",
+      title: "Introduction to Cloud Computing",
       subtitle:
         "Coaching on selecting learning path and certification offered by Digiculum",
       image: `${C45}`,
@@ -864,7 +864,7 @@ const CoursesPage: React.FC = () => {
     },
     {
       id: 45,
-      title: "Datacenter security management",
+      title: "Datacenter Security Management",
       subtitle: "Explore the solutions by AWS, Azure, and Google Cloud",
       image: `${sec}`,
       links: [
@@ -915,7 +915,7 @@ const CoursesPage: React.FC = () => {
     },
     {
       id: 49,
-      title: "Digital transformation Technologies",
+      title: "Digital Transformation Technologies",
       subtitle: "Digital transformation technologies made easy",
       image: `${DT_tech}`,
       links: [
@@ -927,7 +927,7 @@ const CoursesPage: React.FC = () => {
     },
     {
       id: 50,
-      title: "Who is who in AI world",
+      title: "Who is Who in AI world",
       subtitle: "Meet the pioneers shaping AI",
       image: `${Who_is}`,
       links: [
@@ -939,7 +939,7 @@ const CoursesPage: React.FC = () => {
     },
     {
       id: 51,
-      title: "Everyday AI tools",
+      title: "Everyday AI Tools",
       subtitle: "Use practical AI to simplify daily tasks",
       image: `${everyday_tools}`,
       links: [

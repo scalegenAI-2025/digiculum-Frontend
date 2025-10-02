@@ -363,7 +363,7 @@
 import { createUseStyles } from "react-jss";
 import type { FC, FormEvent } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+//import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -561,23 +561,37 @@ const useStyles = createUseStyles({
       },
     },
   },
+  button: {
+    backgroundColor: "#f9b233",
+    color: "#000",
+    width: "30%",
+    border: "none",
+    padding: "12px 24px",
+    borderRadius: 4,
+    fontSize: 16,
+    cursor: "pointer",
+    transition: "background 0.3s ease",
+    alignSelf: "center",
+    "@media (max-width: 768px)": { width: "80%" },
+    "&:hover": { backgroundColor: "#e0a620" },
+  },
 });
 
 const FooterContact: FC = () => {
   const classes = useStyles();
 
   // State hooks for form inputs
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  // const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [message, setMessage] = useState("");
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    const fullName = `${firstName} ${lastName}`.trim();
+    // const fullName = `${firstName} ${lastName}`.trim();
 
-    const mailtoLink = `mailto:info@digiculum.com?subject=Digiculum consultation request&body=Hello,%0D%0A%0D%0AI would like to know more about Digiculum.%0D%0A%0D%0AName: ${fullName}%0D%0AEmail: ${email}%0D%0AMessage: ${message}%0D%0A%0D%0ARegards,%0D%0A${fullName}`;
+    const mailtoLink = `"mailto:info@digiculum.com.com?subject=Digiculum consultation request&body=Hello,%0D%0A%0D%0AI would like to know more about Digiculum.%0D%0A%0D%0AName:%0D%0ACompany:%0D%0AEmail:%0D%0APhone:%0D%0A%0D%0ARegards,%0D%0Aname";`;
 
     window.location.href = mailtoLink;
 
@@ -587,11 +601,11 @@ const FooterContact: FC = () => {
       autoClose: 4000,
     });
 
-    // Reset form (optional)
-    setFirstName("");
-    setLastName("");
-    setEmail("");
-    setMessage("");
+    // // Reset form (optional)
+    // setFirstName("");
+    // setLastName("");
+    // setEmail("");
+    // setMessage("");
   };
 
   return (
@@ -654,8 +668,8 @@ const FooterContact: FC = () => {
         </div>
 
         {/* Right Section */}
-        <div className={classes.formWrapper}>
-          <div className={classes.heading}>Contact us</div>
+
+        {/* <div className={classes.heading}>Contact us</div>
           <form onSubmit={handleSubmit}>
             <div className={classes.formRow}>
               <input
@@ -696,8 +710,10 @@ const FooterContact: FC = () => {
             <button type="submit" className={classes.submitButton}>
               Submit
             </button>
-          </form>
-        </div>
+          </form>*/}
+        <button className={classes.button} onClick={handleSubmit}>
+          Contact Us
+        </button>
       </div>
       <ToastContainer />
     </>

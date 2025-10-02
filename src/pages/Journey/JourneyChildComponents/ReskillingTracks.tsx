@@ -13,7 +13,7 @@ const tracks: Track[] = [
     id: 0,
     title: "Foundational Track",
     description:
-      "For professionals/non-professionals from non-IT and non-technical aspiring to develop AI knowledge from scratch.",
+      "For professionals/non-professionals from non-IT and non-technical background, aspiring to develop AI knowledge from scratch.",
   },
   {
     id: 1,

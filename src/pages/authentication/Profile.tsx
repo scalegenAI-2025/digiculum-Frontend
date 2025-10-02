@@ -32,7 +32,7 @@ const useStyles = createUseStyles({
     flex: 1,
     backgroundColor: "white",
     display: "flex",
-    justifyContent: "center",
+    //justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
     padding: "20px",
@@ -54,6 +54,7 @@ const useStyles = createUseStyles({
     padding: "15px 20px",
     fontSize: "1rem",
     borderRadius: "8px",
+
     border: "none",
     fontWeight: "bold",
     transition: "transform 0.2s",
@@ -63,7 +64,7 @@ const useStyles = createUseStyles({
   bigButton: {
     maxWidth: "400px", // keeps it neat on desktop
     width: "100%", // fills space on mobile
-    margin: "10px 0",
+    margin: "100px 0",
 
     fontSize: "1.2rem",
     padding: "18px 24px",
@@ -180,9 +181,19 @@ const Profile: React.FC = () => {
 
         <div className={classes.bottomSection}>
           {!targetRole ? (
-            <button className={classes.bigButton} onClick={handleAssessment}>
-              Take Assessment
-            </button>
+            <>
+              <p>
+                You will be provided a set of questions. Based on the response
+                you provide, you shall get a target AI role from a set of 12 new
+                AI/GenAI roles. Note that this version 1.0 of the reskilling
+                assessment maps you to one of the 12 new AI/GenAI roles. In the
+                future versions, we shall add sub-roles, skills and competencies
+                to it.
+              </p>
+              <button className={classes.bigButton} onClick={handleAssessment}>
+                Take Assessment
+              </button>
+            </>
           ) : (
             <div className={classes.buttonGrid}>
               {roles.map((role) => {

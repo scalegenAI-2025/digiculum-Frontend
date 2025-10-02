@@ -102,7 +102,7 @@ import MapExe from "../../../assets/MAP_Executive.png";
 import MapFin from "../../../assets/MAP_Finance.png";
 import MapHr from "../../../assets/MAP_HR.png";
 import MapIt from "../../../assets/MAP_IT.png";
-import MapLeg from "../../../assets/MAP_Legal.png";
+import MapLeg from "../../../assets/map_lEGAL_UPDATED (1).png";
 import MapMar from "../../../assets/MAP_Mark.png";
 import MapOper from "../../../assets/MAP_Operations.png";
 import MapProd from "../../../assets/MAP_PROJ_MANAGE.png";

@@ -2,11 +2,14 @@
 import React, { useState } from "react";
 import { sendResetLink } from "../../apis/auth";
 import { createUseStyles } from "react-jss";
+import FooterContact from "../home/homechildComponents/FooterContact";
+import Navbar from "../home/homechildComponents/Navbar";
 
 const useStyles = createUseStyles({
   container: {
     maxWidth: "400px",
     margin: "50px auto",
+    marginTop: "140px",
     padding: "20px",
     border: "1px solid #ccc",
     borderRadius: "10px",
@@ -46,23 +49,27 @@ const SendResetLink: React.FC = () => {
   };
 
   return (
-    <div className={classes.container}>
-      <h2>Send Password Reset Link</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          className={classes.input}
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <button className={classes.button} type="submit">
-          Send Link
-        </button>
-      </form>
-      {message && <p className={classes.message}>{message}</p>}
-    </div>
+    <>
+      <Navbar />
+      <div className={classes.container}>
+        <h2>Send Password Reset Link</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            className={classes.input}
+            type="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <button className={classes.button} type="submit">
+            Send Link
+          </button>
+        </form>
+        {message && <p className={classes.message}>{message}</p>}
+      </div>
+      <FooterContact />
+    </>
   );
 };
 
