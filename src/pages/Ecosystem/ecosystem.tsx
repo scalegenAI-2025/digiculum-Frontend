@@ -74,9 +74,10 @@ function Ecosystem() {
           <Navbar />
           {/* <EcosystemTop /> */}
           <EcosystemVideoSection />
+          <EcosystemHero />
         </div>
       </div>
-      <EcosystemHero />
+
       <HowItWorks />
       <CollaborationHero />
 

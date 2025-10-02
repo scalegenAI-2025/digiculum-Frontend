@@ -91,11 +91,29 @@ const useStyles = createUseStyles({
     gap: "30px",
     maxWidth: "1200px",
     margin: "0 auto",
+
     "@media (max-width: 968px)": {
       gridTemplateColumns: "repeat(2, 1fr)",
+      gap: "20px",
     },
+
     "@media (max-width: 640px)": {
       gridTemplateColumns: "1fr",
+      gap: "16px",
+      padding: "0 10px",
+    },
+
+    "@media (max-width: 500px)": {
+      gridTemplateColumns: "1fr",
+      gap: "12px",
+      padding: "0 8px",
+      maxWidth: "100%",
+    },
+
+    "@media (max-width: 400px)": {
+      gridTemplateColumns: "1fr",
+      gap: "8px", // smallest gap
+      padding: "0 6px", // tighter padding
     },
   },
   card: {

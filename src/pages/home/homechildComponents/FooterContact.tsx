@@ -361,7 +361,7 @@
 // export default FooterContact;
 
 import { createUseStyles } from "react-jss";
-import type { FC, FormEvent } from "react";
+import type { FC } from "react";
 import { Link } from "react-router-dom";
 //import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -585,28 +585,32 @@ const FooterContact: FC = () => {
   // const [lastName, setLastName] = useState("");
   // const [email, setEmail] = useState("");
   // const [message, setMessage] = useState("");
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-
-    // const fullName = `${firstName} ${lastName}`.trim();
-
-    const mailtoLink = `"mailto:info@digiculum.com.com?subject=Digiculum consultation request&body=Hello,%0D%0A%0D%0AI would like to know more about Digiculum.%0D%0A%0D%0AName:%0D%0ACompany:%0D%0AEmail:%0D%0APhone:%0D%0A%0D%0ARegards,%0D%0Aname";`;
+  const handleClick = () => {
+    const mailtoLink =
+      "mailto:info@digiculum.com.com?subject=Digiculum consultation request&body=Hello,%0D%0A%0D%0AName:%0D%0AEmail:%0D%0AMessage:%0D%0A%0D%0ARegards,%0D%0Aname";
 
     window.location.href = mailtoLink;
-
     // ✅ Show success toast
     toast.success("Thank you for submitting", {
       position: "bottom-right",
       autoClose: 4000,
     });
-
-    // // Reset form (optional)
-    // setFirstName("");
-    // setLastName("");
-    // setEmail("");
-    // setMessage("");
   };
+  // const handleSubmit = (e: FormEvent) => {
+  //   e.preventDefault();
+
+  //   // const fullName = `${firstName} ${lastName}`.trim();
+
+  //   const mailtoLink = `"mailto:info@digiculum.com.com?subject=Digiculum consultation request&body=Hello,%0D%0A%0D%0AI would like to know more about Digiculum.%0D%0A%0D%0AName:%0D%0ACompany:%0D%0AEmail:%0D%0APhone:%0D%0A%0D%0ARegards,%0D%0Aname";`;
+
+  //   window.location.href = mailtoLink;
+
+  //   // // Reset form (optional)
+  //   // setFirstName("");
+  //   // setLastName("");
+  //   // setEmail("");
+  //   // setMessage("");
+  // };
 
   return (
     <>
@@ -711,7 +715,7 @@ const FooterContact: FC = () => {
               Submit
             </button>
           </form>*/}
-        <button className={classes.button} onClick={handleSubmit}>
+        <button className={classes.button} onClick={handleClick}>
           Contact Us
         </button>
       </div>

@@ -11,6 +11,7 @@ const useStyles = createUseStyles({
     maxWidth: "400px",
     margin: "50px auto",
     padding: "20px",
+    marginTop: "150px",
     border: "1px solid #ccc",
     borderRadius: "10px",
     textAlign: "center",
