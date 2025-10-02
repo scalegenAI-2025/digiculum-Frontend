@@ -107,7 +107,7 @@ function App() {
         <Route path="/terms" element={<GeneralTerms />} />
         <Route path="/refund" element={<RefundPolicy />} />
         <Route
-          path="/assessment"
+          path="/assessments"
           element={
             <ProtectedRoute>
               <Assessment />
