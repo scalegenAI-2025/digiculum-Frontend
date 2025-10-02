@@ -16,6 +16,7 @@
 // export default App;
 
 // import "./App.css";
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -105,7 +106,14 @@ function App() {
         <Route path="/cookies" element={<CookiePolicy />} />
         <Route path="/terms" element={<GeneralTerms />} />
         <Route path="/refund" element={<RefundPolicy />} />
-        <Route path="/assessmentsdemo" element={<Assessment />} />
+        <Route
+          path="/assessment"
+          element={
+            <ProtectedRoute>
+              <Assessment />
+            </ProtectedRoute>
+          }
+        />
 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
