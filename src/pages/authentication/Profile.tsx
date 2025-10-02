@@ -32,7 +32,6 @@ const useStyles = createUseStyles({
     flex: 1,
     backgroundColor: "white",
     display: "flex",
-    //justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
     padding: "20px",
@@ -54,7 +53,6 @@ const useStyles = createUseStyles({
     padding: "15px 20px",
     fontSize: "1rem",
     borderRadius: "8px",
-
     border: "none",
     fontWeight: "bold",
     transition: "transform 0.2s",
@@ -65,7 +63,6 @@ const useStyles = createUseStyles({
     maxWidth: "400px", // keeps it neat on desktop
     width: "100%", // fills space on mobile
     margin: "100px 0",
-
     fontSize: "1.2rem",
     padding: "18px 24px",
     backgroundColor: "#6a0dad",
@@ -132,17 +129,24 @@ const roles = [
 const Profile: React.FC = () => {
   const classes = useStyles();
   const { email } = useParams<{ email: string }>();
-  //const { user } = useContext(AuthContext);
   const [_profileMessage, setProfileMessage] = useState("");
   const [targetRole, setTargetRole] = useState<string | null>(null);
 
   const location = useLocation();
   const navigate = useNavigate();
 
+  // 🔹 On mount, check if role already saved
   useEffect(() => {
-    const state = location.state as { targetRole?: string } | undefined;
-    console.log("➡️ Received targetRole:", state?.targetRole); // 👀 debug
-    if (state?.targetRole) setTargetRole(state.targetRole);
+    const savedRole = localStorage.getItem("targetRole");
+    if (savedRole) {
+      setTargetRole(savedRole);
+    } else {
+      const state = location.state as { targetRole?: string } | undefined;
+      if (state?.targetRole) {
+        setTargetRole(state.targetRole);
+        localStorage.setItem("targetRole", state.targetRole);
+      }
+    }
   }, [location.state]);
 
   useEffect(() => {
@@ -161,12 +165,6 @@ const Profile: React.FC = () => {
     fetchProfile();
   }, [email]);
 
-  // Get targetRole from navigation state
-  useEffect(() => {
-    const state = location.state as { targetRole?: string } | undefined;
-    if (state?.targetRole) setTargetRole(state.targetRole);
-  }, [location.state]);
-
   const handleAssessment = () => navigate("/assessments");
 
   return (
@@ -175,8 +173,8 @@ const Profile: React.FC = () => {
       <div className={classes.container}>
         <div className={classes.topSection}>
           <h1 className={classes.greeting}>Hello</h1>
-          {/* <p className={classes.email}>{user?.email}</p> */}
-          {/* <p>{profileMessage}</p> */}
+          {/* {email && <p className={classes.email}>{email}</p>}
+          {_profileMessage && <p>{_profileMessage}</p>} */}
         </div>
 
         <div className={classes.bottomSection}>
@@ -195,30 +193,36 @@ const Profile: React.FC = () => {
               </button>
             </>
           ) : (
-            <div className={classes.buttonGrid}>
-              {roles.map((role) => {
-                const isActive = role.name === targetRole;
-                return (
-                  <button
-                    key={role.name}
-                    className={classes.button}
-                    style={{
-                      backgroundColor: isActive ? "#6a0dad" : "#ccc",
-                      color: isActive ? "#fff" : "#666",
-                      cursor: isActive ? "pointer" : "not-allowed",
-                    }}
-                    disabled={!isActive}
-                    onClick={() => {
-                      if (isActive && role.link) {
-                        window.open(role.link, "_blank"); // or use href to open in same tab
-                      }
-                    }}
-                  >
-                    {role.name}
-                  </button>
-                );
-              })}
-            </div>
+            <>
+              <p>
+                🎉 You’ve been mapped to a role! Click your role button below to
+                continue:
+              </p>
+              <div className={classes.buttonGrid}>
+                {roles.map((role) => {
+                  const isActive = role.name === targetRole;
+                  return (
+                    <button
+                      key={role.name}
+                      className={classes.button}
+                      style={{
+                        backgroundColor: isActive ? "#6a0dad" : "#ccc",
+                        color: isActive ? "#fff" : "#666",
+                        cursor: isActive ? "pointer" : "not-allowed",
+                      }}
+                      disabled={!isActive}
+                      onClick={() => {
+                        if (isActive && role.link) {
+                          window.open(role.link, "_blank");
+                        }
+                      }}
+                    >
+                      {role.name}
+                    </button>
+                  );
+                })}
+              </div>
+            </>
           )}
         </div>
       </div>
