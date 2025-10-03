@@ -425,7 +425,7 @@ const courseImages = [
 
 const courses = [
   {
-    title: "Essential Competencies of AI/GenAI Leader",
+    title: "Essential Competencies for AI/GenAI Leaders",
     audience: "For executives and middle managers",
     hours: "12 hours",
     mode: "Instructor-led",
