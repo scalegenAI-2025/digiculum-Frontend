@@ -136,7 +136,14 @@ const useStyles = createUseStyles({
     alignItems: "center",
     gap: "20px",
     marginBottom: "20px",
+
+    "@media (max-width: 400px)": {
+      flexDirection: "column", // stack vertically
+      alignItems: "center", // text aligns left under image
+      justifyContent: "center",
+    },
   },
+
   imageSection: {
     flex: "0 0 140px",
     height: "100px",
@@ -177,10 +184,22 @@ const useStyles = createUseStyles({
     fontWeight: "600",
     cursor: "pointer",
     transition: "all 0.3s ease",
+    display: "inline-block",
+    textAlign: "center",
     "&:hover": {
       backgroundColor: "#ff9f33",
       transform: "translateY(-1px)",
     },
+    "@media (max-width: 400px)": {
+      display: "block",
+      margin: "0 auto", // center horizontally
+    },
+  },
+
+  "@media (max-width: 400px)": {
+    flexDirection: "column", // stack vertically
+    alignItems: "center", // text aligns left under image
+    justifyContent: "center",
   },
 });
 
