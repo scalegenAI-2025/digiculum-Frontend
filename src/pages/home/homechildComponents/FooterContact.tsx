@@ -364,7 +364,7 @@ import { createUseStyles } from "react-jss";
 import type { FC } from "react";
 import { Link } from "react-router-dom";
 //import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const useStyles = createUseStyles({
@@ -591,10 +591,10 @@ const FooterContact: FC = () => {
 
     window.location.href = mailtoLink;
     // ✅ Show success toast
-    toast.success("Thank you for submitting", {
-      position: "bottom-right",
-      autoClose: 4000,
-    });
+    // toast.success("Thank you for submitting", {
+    //   position: "bottom-right",
+    //   autoClose: 4000,
+    // });
   };
   // const handleSubmit = (e: FormEvent) => {
   //   e.preventDefault();
